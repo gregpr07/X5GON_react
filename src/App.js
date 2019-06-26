@@ -1,7 +1,15 @@
 import React from 'react';
 import './App.css';
+import './css/bootstrap.css';
 
 let site_api = 'https://platform.x5gon.org/api/v1/';
+
+let wordlist = [];
+fetch('recommendation_words.json').then(function(resp) {
+	return resp.json().then(function(data) {
+		wordlist = data.words;
+	});
+});
 
 /* https://platform.x5gon.org/api/v1/search?text=asd&page=2&type=all */
 
@@ -15,7 +23,8 @@ class App extends React.Component {
 				rec_materials: [],
 				metadata: {}
 			},
-			isLoaded: false
+			isLoaded: false,
+			showRecommendations: false
 		};
 	}
 
@@ -29,7 +38,8 @@ class App extends React.Component {
 						api_search: {
 							query: json.query,
 							rec_materials: json.rec_materials,
-							metadata: json.metadata
+							metadata: json.metadata,
+							showRecommendations: false
 						}
 					});
 				});
@@ -39,13 +49,32 @@ class App extends React.Component {
 
 	ChangeSearchKey = value => {
 		this.setState({
-			search_key: value
+			search_key: value,
+			showRecommendations: true
 		});
 	};
 	CheckEnter = ele => {
 		if (ele.key === 'Enter') {
 			this.searchComponent();
 		}
+	};
+
+	Recommendations = () => {
+		if (this.state.search_key !== '' && this.state.showRecommendations) {
+			return wordlist
+				.filter(word => word.startsWith(this.state.search_key))
+				.map(item => (
+					<li>
+						<button onClick={this.AcceptRec.bind(this, item)}>{item}</button>
+					</li>
+				))
+				.slice(0, 6);
+		} else {
+			return null;
+		}
+	};
+	AcceptRec = name => {
+		this.setState({ search_key: name, showRecommendations: false });
 	};
 
 	SearchItem = item => {
@@ -65,6 +94,7 @@ class App extends React.Component {
 		return (
 			<div className="main">
 				<input
+					ref={input => input && input.focus()}
 					type="text"
 					value={this.state.search_key}
 					id={'todoName' + this.props.id}
@@ -72,10 +102,13 @@ class App extends React.Component {
 					onKeyDown={this.CheckEnter}
 				/>
 				<button onClick={this.searchComponent.bind(this)}>press</button>
-
+				<ul>
+					<this.Recommendations />
+				</ul>
 				<p>
 					Number of search results found:{' '}
-					{this.state.api_search.metadata.num_or_materials}
+					{this.state.api_search.metadata.num_or_materials} for{' '}
+					{this.state.api_search.query.text}
 				</p>
 				<ul>
 					{this.state.api_search.rec_materials.map(item => (
