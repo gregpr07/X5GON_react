@@ -1,0 +1,11 @@
+.recommendations li {
+	background: none;
+	border: none;
+	color: red;
+}
+.searched-items {
+	list-style-type: none;
+}
+.searched {
+	color: #086d7c;
+}
