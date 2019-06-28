@@ -18,20 +18,37 @@ class App extends React.Component {
 		super();
 		this.state = {
 			search_key: '',
+			current_page: 1,
+			previous_search: '',
 			api_search: {
 				query: {},
 				rec_materials: [],
-				metadata: {}
+				metadata: { max_pages: 0 }
 			},
-			isLoaded: false,
+			isLoaded: true,
 			showRecommendations: false,
-			ShowNrOfSearches: false
+			IsSearching: false
 		};
 	}
 
 	searchComponent = () => {
-		if (this.state.search_key) {
-			fetch(site_api + 'search?text=' + this.state.search_key)
+		this.setState({
+			previous_search: String(this.state.search_key)
+		});
+		if (
+			this.state.search_key &&
+			this.state.search_key !== this.state.previous_search
+		) {
+			this.setState({
+				isLoaded: false
+			});
+			fetch(
+				site_api +
+					'search?text=' +
+					this.state.search_key +
+					'&page=' +
+					this.state.current_page
+			)
 				.then(res => res.json())
 				.then(json => {
 					this.setState({
@@ -39,10 +56,10 @@ class App extends React.Component {
 						api_search: {
 							query: json.query,
 							rec_materials: json.rec_materials,
-							metadata: json.metadata,
-							showRecommendations: false,
-							ShowNrOfSearches: true
-						}
+							metadata: json.metadata
+						},
+						showRecommendations: false,
+						IsSearching: true
 					});
 				});
 			console.log(this.state);
@@ -63,19 +80,23 @@ class App extends React.Component {
 
 	Recommendations = () => {
 		if (this.state.search_key !== '' && this.state.showRecommendations) {
-			return wordlist
-				.filter(word => word.startsWith(this.state.search_key))
-				.map(item => (
-					<li>
-						<button
-							className="btn bg-transparent"
-							onClick={this.AcceptRec.bind(this, item)}
-						>
-							{item}
-						</button>
-					</li>
-				))
-				.slice(0, 6);
+			return (
+				<ul className="recommendations">
+					{wordlist
+						.filter(word => word.startsWith(this.state.search_key))
+						.map(item => (
+							<li>
+								<button
+									className="btn bg-transparent"
+									onClick={this.AcceptRec.bind(this, item)}
+								>
+									{item}
+								</button>
+							</li>
+						))
+						.slice(0, 6)}
+				</ul>
+			);
 		} else {
 			return null;
 		}
@@ -85,20 +106,57 @@ class App extends React.Component {
 	};
 
 	NrOfSearches = () => {
-		if (this.state.ShowNrOfSearches === true)
+		if (this.state.IsSearching === true)
 			return (
-				<p>
+				<p className="mt-2">
 					Number of search results found:{' '}
 					{this.state.api_search.metadata.num_or_materials} for{' '}
-					{this.state.api_search.query.text}
+					<b>{this.state.api_search.query.text}</b> in{' '}
+					{this.state.api_search.metadata.max_pages} pages
 				</p>
 			);
 		else {
 			return null;
 		}
 	};
+
+	SearchBar = () => {
+		return (
+			<input
+				ref={input => input && input.focus()}
+				type="text"
+				value={this.state.search_key}
+				id={'todoName' + this.props.id}
+				onChange={e => this.ChangeSearchKey(e.target.value)}
+				onKeyDown={this.CheckEnter}
+				placeholder="Search for OER material"
+				className="form-control align-middle mb-3"
+				autoComplete="off"
+			/>
+		);
+	};
+	SearchButton = text => {
+		return (
+			<button
+				type="button"
+				className="btn btn-outline-primary px-4"
+				onClick={this.searchComponent.bind(this)}
+			>
+				{text.text}
+			</button>
+		);
+	};
+	LogoIcon = () => {
+		return (
+			<img
+				src="https://www.x5gon.org/wp-content/themes/x5gon/dist/assets/img/logo.svg"
+				alt="X5GON"
+				className="my-5 img-fluid"
+			/>
+		);
+	};
 	SearchItem = item => {
-		let sitem = item.item;
+		let sitem = item;
 		if (sitem.description && sitem.description.length > 280) {
 			sitem.description = sitem.description.substr(0, 280) + ' ...';
 		}
@@ -116,45 +174,84 @@ class App extends React.Component {
 			</li>
 		);
 	};
-
-	render() {
+	SearchItemsUL = item => {
 		return (
-			<div className="container">
-				<div className="text-center">
+			<ul className="searched-items">
+				{this.state.api_search.rec_materials.map(item => this.SearchItem(item))}
+			</ul>
+		);
+	};
+	SpaceDIV = () => {
+		if (this.state.IsSearching === false) {
+			return <div id="spacing-div" />;
+		} else {
+			return null;
+		}
+	};
+	LoadingIcon = () => {
+		if (this.state.isLoaded === false) {
+			return (
+				<div>
 					<img
-						src="https://www.x5gon.org/wp-content/themes/x5gon/dist/assets/img/logo.svg"
-						alt="X5GON"
-						className="my-5 img-fluid"
+						src="Ripple-1.4s-200px.gif"
+						alt="loading-animation"
+						height="50px"
+						className="loading-icon"
 					/>
 				</div>
-				<input
-					ref={input => input && input.focus()}
-					type="text"
-					value={this.state.search_key}
-					id={'todoName' + this.props.id}
-					onChange={e => this.ChangeSearchKey(e.target.value)}
-					onKeyDown={this.CheckEnter}
-					placeholder="Search for OER material"
-					className="form-control align-middle mb-3"
-					autoComplete="off"
-				/>
-				<button
-					type="button"
-					className="btn btn-outline-primary"
-					onClick={this.searchComponent.bind(this)}
-				>
-					search
-				</button>
-				<ul className="recommendations">
+			);
+		} else {
+			return null;
+		}
+	};
+	/* TOLE KODO JE TREBA PRECEJ POPRAUT POMOJE */
+	PaginationBottom = () => {
+		if (this.state.api_search.metadata.max_pages) {
+			var loop_list = [];
+			for (var i; i <= this.state.api_search.metadata.max_pages; i++) {
+				loop_list.push(i);
+			}
+			return (
+				<nav aria-label="Navigation">
+					<ul className="pagination justify-content-center">
+						<li className="page-item disabled">
+							<button className="page-link">Previous</button>
+						</li>
+
+						<li className="page-item">
+							<button className="page-link" href="#">
+								{i}
+							</button>
+						</li>
+
+						<li className="page-item">
+							<button className="page-link">Next</button>
+						</li>
+					</ul>
+				</nav>
+			);
+		} else {
+			return null;
+		}
+	};
+	/* RENDER VIEW */
+	render() {
+		return (
+			<React.Fragment>
+				<this.SpaceDIV />
+				<div className="container">
+					<div className="text-center" id="search">
+						<this.LogoIcon />
+						<this.SearchBar />
+						<this.SearchButton text={'Search'} />
+						<this.LoadingIcon />
+					</div>
 					<this.Recommendations />
-				</ul>
-				<this.NrOfSearches />
-				<ul className="searched-items">
-					{this.state.api_search.rec_materials.map(item => (
-						<this.SearchItem item={item} />
-					))}
-				</ul>
-			</div>
+					<this.NrOfSearches />
+					<this.SearchItemsUL />
+					<this.PaginationBottom />
+				</div>
+			</React.Fragment>
 		);
 	}
 }
