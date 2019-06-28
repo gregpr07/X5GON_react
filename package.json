@@ -2,7 +2,7 @@
 	"name": "x5gon-site",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://gregpr07.github.io/x5gon_react",
+	"homepage": "https://gregpr07.github.io/",
 	"dependencies": {
 		"gh-pages": "^2.0.1",
 		"react": "^16.8.6",
