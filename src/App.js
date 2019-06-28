@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import './css/bootstrap.css';
+import ReactPaginate from 'react-paginate';
 
 let site_api = 'https://platform.x5gon.org/api/v1/';
 
@@ -16,9 +17,11 @@ fetch('recommendation_words.json').then(function(resp) {
 class App extends React.Component {
 	constructor() {
 		super();
+		// STATE
 		this.state = {
 			search_key: '',
 			current_page: 1,
+			previous_page: 0,
 			previous_search: '',
 			api_search: {
 				query: {},
@@ -30,14 +33,16 @@ class App extends React.Component {
 			IsSearching: false
 		};
 	}
-
+	// FUNCTIONS
 	searchComponent = () => {
 		this.setState({
-			previous_search: String(this.state.search_key)
+			previous_search: String(this.state.search_key),
+			previous_page: parseInt(this.state.current_page)
 		});
 		if (
 			this.state.search_key &&
-			this.state.search_key !== this.state.previous_search
+			(this.state.search_key !== this.state.previous_search ||
+				this.state.previous_page !== this.state.current_page)
 		) {
 			this.setState({
 				isLoaded: false
@@ -65,7 +70,6 @@ class App extends React.Component {
 			console.log(this.state);
 		}
 	};
-
 	ChangeSearchKey = value => {
 		this.setState({
 			search_key: value,
@@ -77,7 +81,39 @@ class App extends React.Component {
 			this.searchComponent();
 		}
 	};
+	AcceptRec = name => {
+		this.setState({ search_key: name, showRecommendations: false });
+	};
+	ChangePage = data => {
+		this.setState({ current_page: data.selected + 1 });
+		this.searchComponent();
+	};
+	/* TO JE PLUGIN IZ https://www.npmjs.com/package/react-paginate */
+	BottomPagination = () => {
+		if (this.state.api_search.metadata.max_pages) {
+			return (
+				<ReactPaginate
+					pageCount={this.state.api_search.metadata.max_pages}
+					pageRangeDisplayed={5}
+					marginPagesDisplayed={1}
+					onPageChange={this.ChangePage}
+					containerClassName={'pagination justify-content-center'}
+					pageClassName={'page-item'}
+					pageLinkClassName={'page-link'}
+					activeClassName={'page-item active'}
+					previousClassName={'page-item'}
+					previousLinkClassName={'page-link'}
+					nextClassName={'page-item'}
+					nextLinkClassName={'page-link'}
+					disabledClassName={'page-item disabled'}
+				/>
+			);
+		} else {
+			return null;
+		}
+	};
 
+	// JSX ELEMENTS
 	Recommendations = () => {
 		if (this.state.search_key !== '' && this.state.showRecommendations) {
 			return (
@@ -101,10 +137,6 @@ class App extends React.Component {
 			return null;
 		}
 	};
-	AcceptRec = name => {
-		this.setState({ search_key: name, showRecommendations: false });
-	};
-
 	NrOfSearches = () => {
 		if (this.state.IsSearching === true)
 			return (
@@ -112,14 +144,14 @@ class App extends React.Component {
 					Number of search results found:{' '}
 					{this.state.api_search.metadata.num_or_materials} for{' '}
 					<b>{this.state.api_search.query.text}</b> in{' '}
-					{this.state.api_search.metadata.max_pages} pages
+					{this.state.api_search.metadata.max_pages} pages \n current page{' '}
+					{this.state.current_page}
 				</p>
 			);
 		else {
 			return null;
 		}
 	};
-
 	SearchBar = () => {
 		return (
 			<input
@@ -204,37 +236,10 @@ class App extends React.Component {
 			return null;
 		}
 	};
-	/* TOLE KODO JE TREBA PRECEJ POPRAUT POMOJE */
-	PaginationBottom = () => {
-		if (this.state.api_search.metadata.max_pages) {
-			var loop_list = [];
-			for (var i; i <= this.state.api_search.metadata.max_pages; i++) {
-				loop_list.push(i);
-			}
-			return (
-				<nav aria-label="Navigation">
-					<ul className="pagination justify-content-center">
-						<li className="page-item disabled">
-							<button className="page-link">Previous</button>
-						</li>
 
-						<li className="page-item">
-							<button className="page-link" href="#">
-								{i}
-							</button>
-						</li>
+	// OTHER
 
-						<li className="page-item">
-							<button className="page-link">Next</button>
-						</li>
-					</ul>
-				</nav>
-			);
-		} else {
-			return null;
-		}
-	};
-	/* RENDER VIEW */
+	// RENDER VIEW
 	render() {
 		return (
 			<React.Fragment>
@@ -249,7 +254,7 @@ class App extends React.Component {
 					<this.Recommendations />
 					<this.NrOfSearches />
 					<this.SearchItemsUL />
-					<this.PaginationBottom />
+					<this.BottomPagination />
 				</div>
 			</React.Fragment>
 		);
