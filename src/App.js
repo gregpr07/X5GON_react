@@ -30,7 +30,8 @@ class App extends React.Component {
 			},
 			isLoaded: true,
 			showRecommendations: false,
-			IsSearching: false
+			IsSearching: false,
+			corsEnabled: true
 		};
 	}
 	// FUNCTIONS
@@ -48,7 +49,8 @@ class App extends React.Component {
 				isLoaded: false
 			});
 			fetch(
-				site_api +
+				(this.state.corsEnabled ? 'https://cors-anywhere.herokuapp.com/' : '') +
+					site_api +
 					'search?text=' +
 					this.state.search_key +
 					'&page=' +
@@ -68,6 +70,10 @@ class App extends React.Component {
 					});
 				});
 			console.log(this.state);
+			console.log(
+				'searched with CORS ' +
+					(this.state.corsEnabled ? 'enabled' : 'disabled')
+			);
 		}
 	};
 	ChangeSearchKey = value => {
@@ -121,7 +127,7 @@ class App extends React.Component {
 					{wordlist
 						.filter(word => word.startsWith(this.state.search_key))
 						.map(item => (
-							<li>
+							<li key={item}>
 								<button
 									className="btn bg-transparent"
 									onClick={this.AcceptRec.bind(this, item)}
@@ -144,7 +150,7 @@ class App extends React.Component {
 					Number of search results found:{' '}
 					{this.state.api_search.metadata.num_or_materials} for{' '}
 					<b>{this.state.api_search.query.text}</b> in{' '}
-					{this.state.api_search.metadata.max_pages} pages \n current page{' '}
+					{this.state.api_search.metadata.max_pages} pages | currently on page{' '}
 					{this.state.current_page}
 				</p>
 			);
@@ -178,6 +184,23 @@ class App extends React.Component {
 			</button>
 		);
 	};
+	DisableCORSSearch = () => {
+		if (this.state.corsEnabled && !this.state.IsSearching) {
+			return (
+				<button
+					type="button"
+					className="btn"
+					onClick={() => {
+						this.setState({ corsEnabled: false });
+					}}
+				>
+					click if you have disabled CORS (much faster)
+				</button>
+			);
+		} else {
+			return null;
+		}
+	};
 	LogoIcon = () => {
 		return (
 			<img
@@ -193,7 +216,7 @@ class App extends React.Component {
 			sitem.description = sitem.description.substr(0, 280) + ' ...';
 		}
 		return (
-			<li>
+			<li key={sitem.url}>
 				<div className="jumbotron bg-transparent py-1 my-1">
 					<a href={sitem.url} target="blank">
 						<h4 className="searched">{sitem.title}</h4>
@@ -249,6 +272,8 @@ class App extends React.Component {
 						<this.LogoIcon />
 						<this.SearchBar />
 						<this.SearchButton text={'Search'} />
+						<div />
+						<this.DisableCORSSearch />
 						<this.LoadingIcon />
 					</div>
 					<this.Recommendations />
