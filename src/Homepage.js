@@ -116,8 +116,8 @@ class Homepage extends React.Component {
 			}
 		];
 		return (
-			<div className="bg-light">
-				<div class="row text-sm-center p-5 m-lg-5 mt-xs-5">
+			<div className="bg-light p-lg-5">
+				<div class="row text-sm-center pl-4 pr-5 py-5 p-sm-5 mt-xs-5 m-0">
 					{contents.map(col => {
 						return (
 							<div class="col-sm-4">
