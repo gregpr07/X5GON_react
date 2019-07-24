@@ -1,0 +1,47 @@
+/* header {
+	background: #212266;
+} */
+.navbar-toggler {
+	border: none;
+	color: white;
+}
+
+.text-green {
+	color: #3ab769;
+}
+.img-front,
+.img-front-2 {
+	max-width: 600px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	font-family: 'Lora', serif;
+}
+.text-muted-resp {
+	color: #fff;
+}
+.bg-purple {
+	background-color: #00134d;
+}
+.text-purple {
+	color: #00134d;
+	font-weight: bold;
+}
+@media (min-width: 768px) {
+	.text-muted-resp {
+		color: #6c757d;
+	}
+	.bg-purple {
+		background-color: #212266;
+	}
+}
