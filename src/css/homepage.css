@@ -4,6 +4,9 @@
 body {
 	font-family: 'Noto Sans', sans-serif;
 }
+body a:hover {
+	text-decoration: none;
+}
 .navbar-toggler {
 	border: none;
 	color: white;
@@ -32,7 +35,7 @@ h6,
 .main-h1 {
 	font-family: 'IBM Plex Serif';
 	font-size: 60px;
-	font-weight: 200;
+	font-weight: 300;
 	line-height: 1.17;
 	letter-spacing: -0.4px;
 	color: #ffffff;
@@ -76,8 +79,8 @@ h6,
 	max-width: 500px;
 }
 .button-green {
-	max-width: 150px;
-	padding: 5px 25px;
+	max-width: 200px;
+	padding: 5px 40px;
 	border-radius: 20px;
 	border: solid 1.5px #00ad57;
 	background: transparent;
@@ -113,6 +116,24 @@ h6,
 	letter-spacing: normal;
 	text-align: center;
 	color: #00134d;
+}
+.join .text-purple {
+	font-size: 40px;
+	font-weight: 300;
+}
+.join .button-green {
+	max-width: 80%;
+	padding: 7px 0;
+	margin-bottom: 1em;
+	text-align: center;
+}
+.join .button-green.bg-green {
+	background: #00ad57;
+	color: white;
+}
+.join .button-green.bg-green:hover {
+	background: transparent;
+	color: #00ad57;
 }
 @media (min-width: 768px) {
 	.text-muted-resp {

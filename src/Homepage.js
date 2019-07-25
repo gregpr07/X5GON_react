@@ -78,8 +78,8 @@ class Homepage extends React.Component {
 				<this.Navbar />
 				<div className="px-4 pb-5">
 					<div className="row py-3 py-sm-4 py-md-5">
-						<div className="col-md-12 col-lg-6">
-							<div className="px-md-5 mx-md-5 px-md-5 pl-4 pr-5">
+						<div className="col-md-12 col-lg-7">
+							<div className="px-md-4 mx-md-4 pl-4 pr-5">
 								<h1 className="text-white main-h1 mb-3">
 									Connecting{' '}
 									{this.state.shouldChangeElementsDef
@@ -94,21 +94,21 @@ class Homepage extends React.Component {
 								</p>
 							</div>
 
-							{this.state.shouldChangeElementDef ? (
+							{this.state.shouldChangeElementsDef ? (
 								<div className="row text-green px-5 mx-md-5 pt-3 pt-lg-0">
 									{stats_list.map(object => {
 										let key = Object.keys(object)[0];
 										return (
 											<div className="col" key={key}>
-												<div className="row h4">{object[key]}</div>
-												<div className="row h5">{key}</div>
+												<h4 className="row">{object[key]}</h4>
+												<h5 className="row">{key}</h5>
 											</div>
 										);
 									})}
 								</div>
 							) : null}
 						</div>
-						<div className="col-md-12 col-lg-6 mt-4 mt-md-3 mt-lg-0">
+						<div className="col-md-12 col-lg-5 mt-4 mt-md-3 mt-lg-0">
 							<div className="img-front mx-auto">
 								{this.state.shouldChangeElementsDef ? (
 									<img
@@ -248,7 +248,7 @@ class Homepage extends React.Component {
 			{
 				todo: 'Discovery',
 				text: 'Search and find materials from all over the world',
-				link: ''
+				link: 'search'
 			},
 			{
 				todo: 'Translate',
@@ -279,8 +279,8 @@ class Homepage extends React.Component {
 					<div className="row p-2">
 						{contents.map((content, index) => {
 							return (
-								<div className=" col-12 col-sm-6 col-md-4 px-3">
-									<div className="card p-5 px-sm-3 mx-auto mb-4" key={index}>
+								<div className=" col-12 col-sm-6 col-md-4 px-3" key={index}>
+									<div className="card p-5 px-sm-3 mx-auto mb-4">
 										<img
 											className="mx-auto mb-3"
 											src={'ecosystem.png'}
@@ -289,12 +289,59 @@ class Homepage extends React.Component {
 										/>
 										<h3>{content.todo}</h3>
 										<p className="text-muted px-3 py-2">{content.text}</p>
-										<div className="button-green mx-auto mt-auto">Try Now</div>
+										{content.link ? (
+											<Link to={content.link}>
+												<div className="button-green mx-auto mt-auto">
+													Try Now
+												</div>
+											</Link>
+										) : (
+											<div className="button-green mx-auto mt-auto">
+												Try Now
+											</div>
+										)}
 									</div>
 								</div>
 							);
 						})}
 					</div>
+				</div>
+			</div>
+		);
+	};
+	Join = () => {
+		const content = {
+			title: 'Join forces in the X5GON Global Network Partnership',
+			text: [
+				'We aim to give a chance to unlock the digital potential of  OER, and to overcome OER discoverability, disparity and fragmentation and understand the world of OER in a more structured manner.',
+				'The project proposes connecting all existing OER sites into a Global Network.  To do so, we suggest a pact that empowers all involved OER sites and players.'
+			]
+		};
+		const style = 'col-12 col-sm-6 my-auto';
+		return (
+			<div className="row p-4 m-1 p-md-5 m-sm-3 h-100 join">
+				<div
+					className={
+						this.state.screenWidth >= this.breakpoints.sm
+							? 'order-last ' + style
+							: style
+					}
+				>
+					<img src={'ecosystem.png'} width="100%" alt="ecosystem" />
+				</div>
+
+				<div className={style}>
+					<h2 className="text-purple">{content.title}</h2>
+					{content.text.map((p, index) => {
+						return (
+							<p className="text-muted" key={index}>
+								{p}
+							</p>
+						);
+					})}
+
+					<div className="button-green bg-green mx-auto">Join now</div>
+					<div className="button-green mx-auto">Read more</div>
 				</div>
 			</div>
 		);
@@ -306,6 +353,7 @@ class Homepage extends React.Component {
 				<this.Description />
 				<this.Ecosystem />
 				<this.Products />
+				<this.Join />
 			</div>
 		);
 	}
