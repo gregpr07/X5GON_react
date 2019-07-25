@@ -75,15 +75,44 @@ h6,
 .ecosystem img {
 	max-width: 500px;
 }
-.ecosystem button {
-	padding: 5px 30px;
+.button-green {
+	max-width: 150px;
+	padding: 5px 25px;
 	border-radius: 20px;
 	border: solid 1.5px #00ad57;
 	background: transparent;
 	font-size: 16px;
-	font-weight: 600;
+	font-weight: 700;
 	letter-spacing: 0.3px;
 	color: #00ad57;
+}
+.button-green:hover {
+	background: #00ad57;
+	color: white;
+	cursor: pointer;
+}
+.products {
+	color: white;
+}
+.products .description {
+	font-size: 19px;
+	line-height: 1.33;
+	letter-spacing: 0.3px;
+}
+.products .card {
+	box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.192);
+	border-radius: 10px;
+	height: 95%;
+}
+.products h3 {
+	font-size: 28px;
+	font-weight: 600;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.43;
+	letter-spacing: normal;
+	text-align: center;
+	color: #00134d;
 }
 @media (min-width: 768px) {
 	.text-muted-resp {

@@ -152,6 +152,7 @@ class Homepage extends React.Component {
 		];
 		return (
 			<div className="bg-light p-lg-5">
+				screenWidth: {this.state.screenWidth}
 				<div className="row text-sm-center pl-4 pr-5 py-5 p-sm-5 mt-xs-5 m-0">
 					{contents.map((col, index) => {
 						return (
@@ -221,7 +222,9 @@ class Homepage extends React.Component {
 								<div className={style}>
 									<h2>{content.group}</h2>
 									<p className="py-3">{content.text}</p>
-									<button className="align-middle">Read more</button>
+									<div className="align-middle button-green mx-auto">
+										Read more
+									</div>
 								</div>
 							</div>
 						);
@@ -233,17 +236,64 @@ class Homepage extends React.Component {
 	Products = () => {
 		let contents = [
 			{
-				title: 'AI discoverability of OER repositories',
-				text:
-					'OER is not fragmented across many sites, disciplines and modalities anymore. We are linking hundreds of thousands of scholarly articles, text books, videos, documents and databases.'
+				todo: 'Recommend',
+				text: 'Show your content in a network of other sites',
+				link: ''
+			},
+			{
+				todo: 'Analytics',
+				text: 'Understand the trends of your content usage',
+				link: ''
+			},
+			{
+				todo: 'Discovery',
+				text: 'Search and find materials from all over the world',
+				link: ''
+			},
+			{
+				todo: 'Translate',
+				text: 'Translate your content in every format',
+				link: ''
+			},
+			{
+				todo: 'Connect',
+				text: 'Make your users connected to all other OER sites',
+				link: ''
+			},
+			{
+				todo: 'Feed',
+				text: 'Provide data for all stakeholders',
+				link: ''
 			}
 		];
 		return (
-			<div className="bg-green p-lg-5">
-				<div className="text-center pl-4 pr-5 py-5 p-sm-5 mt-xs-5 m-0">
-					<div className="mx-auto">Waw</div>
-					<div>
-						<h1 className="py-4">Who Can Bennefit {this.state.screenWidth}</h1>
+			<div className="bg-green p-4 products">
+				<div className="text-center p-lg-5">
+					<div className="mx-auto text-ecosystem text-white">OUR PRODUCTS</div>
+					<div className="px-2">
+						<h1 className="py-4 solutions">Solutions for all Needs</h1>
+						<p className="description">
+							Powered by one content recommendation technology
+						</p>
+					</div>
+					<div className="row p-2">
+						{contents.map((content, index) => {
+							return (
+								<div className=" col-12 col-sm-6 col-md-4 px-3">
+									<div className="card p-5 px-sm-3 mx-auto mb-4" key={index}>
+										<img
+											className="mx-auto mb-3"
+											src={'ecosystem.png'}
+											width="75%"
+											alt="ecosystem"
+										/>
+										<h3>{content.todo}</h3>
+										<p className="text-muted px-3 py-2">{content.text}</p>
+										<div className="button-green mx-auto mt-auto">Try Now</div>
+									</div>
+								</div>
+							);
+						})}
 					</div>
 				</div>
 			</div>
