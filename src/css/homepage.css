@@ -64,13 +64,26 @@ h6,
 }
 .ecosystem h2 {
 	font-size: 40px;
-	font-weight: 400;
+	font-weight: 300;
 	font-style: normal;
 	font-stretch: normal;
 	line-height: 1.2;
 	letter-spacing: -0.2px;
 	text-align: center;
 	color: #00134d;
+}
+.ecosystem img {
+	max-width: 500px;
+}
+.ecosystem button {
+	padding: 5px 30px;
+	border-radius: 20px;
+	border: solid 1.5px #00ad57;
+	background: transparent;
+	font-size: 16px;
+	font-weight: 600;
+	letter-spacing: 0.3px;
+	color: #00ad57;
 }
 @media (min-width: 768px) {
 	.text-muted-resp {

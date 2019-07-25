@@ -31,7 +31,7 @@ class Homepage extends React.Component {
 	};
 	Navbar = () => {
 		return (
-			<nav className="navbar navbar-expand-sm navbar-dark">
+			<nav className="navbar navbar-expand-sm navbar-dark pl-4">
 				<div className="navbar-brand">
 					<b>X5</b>GON
 				</div>
@@ -195,7 +195,7 @@ class Homepage extends React.Component {
 		];
 		return (
 			<div className="bg-white p-lg-5 ecosystem">
-				<div className="text-center m-4">
+				<div className="text-center m-4 m-sm-5 p-sm-2">
 					<div className="mx-auto text-ecosystem">ECOSYSTEM</div>
 					<div>
 						<h1 className="py-4">
@@ -204,9 +204,9 @@ class Homepage extends React.Component {
 						</h1>
 					</div>
 					{contents.map((content, index) => {
-						const style = 'col-12 col-sm-6';
+						const style = 'col-12 col-sm-6 my-auto';
 						return (
-							<div className="row py-3" key={index}>
+							<div className="row py-3 h-100" key={index}>
 								<div
 									className={
 										index % 2 === 0 &&
@@ -215,16 +215,13 @@ class Homepage extends React.Component {
 											: style
 									}
 								>
-									<img
-										src={'ecosystem.png'}
-										className="img-front"
-										width="100%"
-										alt="amazingngess"
-									/>
+									<img src={'ecosystem.png'} width="100%" alt="ecosystem" />
 								</div>
+
 								<div className={style}>
 									<h2>{content.group}</h2>
-									<p>{content.text}</p>
+									<p className="py-3">{content.text}</p>
+									<button className="align-middle">Read more</button>
 								</div>
 							</div>
 						);
