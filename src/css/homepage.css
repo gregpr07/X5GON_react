@@ -1,12 +1,15 @@
 /* header {
 	background: #212266;
 } */
+body {
+	font-family: 'Noto Sans', sans-serif;
+}
 .navbar-toggler {
 	border: none;
 	color: white;
 }
 .text-green {
-	color: #3ab769;
+	color: #00ad57;
 }
 .img-front,
 .img-front-2 {
@@ -24,17 +27,50 @@ h6,
 .h4,
 .h5,
 .h6 {
-	font-family: 'Lora', serif;
+	font-family: 'IBM Plex Serif', serif;
+}
+.main-h1 {
+	font-family: 'IBM Plex Serif';
+	font-size: 60px;
+	font-weight: 200;
+	line-height: 1.17;
+	letter-spacing: -0.4px;
+	color: #ffffff;
 }
 .text-muted-resp {
-	color: #fff;
+	color: rgba(255, 255, 255, 0.7);
 }
 .bg-purple {
 	background-color: #00134d;
 }
+.bg-green {
+	background-color: #00ad57;
+}
 .text-purple {
 	color: #00134d;
 	font-weight: bold;
+}
+.text-ecosystem {
+	font-size: 16px;
+	font-weight: 500;
+	font-style: normal;
+	font-stretch: normal;
+	letter-spacing: 6px;
+	text-align: center;
+	color: #00134d;
+}
+.ecosystem p {
+	color: rgba(0, 19, 77, 0.5);
+}
+.ecosystem h2 {
+	font-size: 40px;
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.2;
+	letter-spacing: -0.2px;
+	text-align: center;
+	color: #00134d;
 }
 @media (min-width: 768px) {
 	.text-muted-resp {
