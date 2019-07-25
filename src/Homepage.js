@@ -87,7 +87,7 @@ class Homepage extends React.Component {
 										: 'OER'}{' '}
 									in a Smart Way!
 								</h1>
-								<p className="text-muted-resp">
+								<p className="text-muted-resp my-lg-5">
 									Supported by advanced technology we are building World's first
 									ecosystem connecting OER sites for the collective benefit of
 									everyone, everywhere.
@@ -100,8 +100,8 @@ class Homepage extends React.Component {
 										let key = Object.keys(object)[0];
 										return (
 											<div className="col" key={key}>
-												<h4 className="row">{object[key]}</h4>
-												<h5 className="row">{key}</h5>
+												<h4 className="row font-weight-bold">{object[key]}</h4>
+												<h5 className="row font-weight-normal">{key}</h5>
 											</div>
 										);
 									})}
@@ -152,7 +152,6 @@ class Homepage extends React.Component {
 		];
 		return (
 			<div className="bg-light p-lg-5">
-				screenWidth: {this.state.screenWidth}
 				<div className="row text-sm-center pl-4 pr-5 py-5 p-sm-5 mt-xs-5 m-0">
 					{contents.map((col, index) => {
 						return (
@@ -346,6 +345,101 @@ class Homepage extends React.Component {
 			</div>
 		);
 	};
+	Offers = () => {
+		const content = [
+			{
+				title: 'We essentially welcome OER sites',
+				ul: [
+					'To become a partner in the X5GON Global Network Partnership.',
+					'To introduce our Connect Service and share contact with IT managers.',
+					'To give us access to content data and user behaviour data.',
+					'In this way share content recommendations with other OER sites.'
+				]
+			},
+			{
+				title: 'In return we promise',
+				ul: [
+					'To use the X5GON platform to ingest your content and use state of the art technologies such as machine learning, machine translation, machine quality assurance, personalisation, learning analytics, to boost your content visibility and use.',
+					'To create fair and inclusive cross-pollination of content to/ from other OER sites to your site.',
+					'To transparently work with you, and disclose algorithms and produce you with impact metrics.',
+					'To not breach any data privacy, ethics or other data and artificial intelligence related boundaries.'
+				]
+			}
+		];
+		const style = 'col-12 col-sm-6';
+		return (
+			<div className="m-0 m-md-5 bg-light offers">
+				<div className="row p-4 m-1 p-md-5 m-sm-3 join">
+					{content.map((single, index) => {
+						return (
+							<div className={style}>
+								<p className="text-green my-4">{single.title}</p>
+								<ul className="pl-0 pl-md-2 pl-lg-3">
+									{single.ul.map((li, index) => {
+										return (
+											<li className="muted" key={index}>
+												{li}
+											</li>
+										);
+									})}
+								</ul>
+							</div>
+						);
+					})}
+				</div>
+			</div>
+		);
+	};
+	Partners = () => {
+		return (
+			<div className="p-4 products" style={{ height: '500px' }}>
+				<div className="text-center p-lg-5">
+					<div className="mx-auto text-ecosystem text-purple">OUR PARTNERS</div>
+				</div>
+			</div>
+		);
+	};
+	Unesco = () => {
+		const content = {
+			title: 'UNESCO Guidelines',
+			text: [
+				'In November 2019 UNESCO’s General Assembly will adopt the OER Recommendation policy that will enable 193 Member States to acknowledge and create implementation policies for OER.',
+				'This technology has been designed as a technical means to immediately showcase the national and institutional value on a Global scale and to be implemented quickly and be used as a support mechanism for stakeholders and this new policy.'
+			]
+		};
+		const style = 'col-12 col-sm-6 my-auto';
+		return (
+			<div className="bg-blue">
+				<div className="row p-4 m-1 p-md-5 m-sm-3 h-100 join ">
+					<div
+						className={
+							this.state.screenWidth <= this.breakpoints.sm
+								? 'order-last ' + style
+								: style
+						}
+					>
+						<img src={'unesco.png'} width="100%" alt="unesco" />
+					</div>
+
+					<div className={style}>
+						<p className="text-white">JOIN EQUITY</p>
+						<h2 className="text-white my-4">{content.title}</h2>
+						{content.text.map((p, index) => {
+							return (
+								<p className="text-white" key={index}>
+									{p}
+								</p>
+							);
+						})}
+					</div>
+				</div>
+			</div>
+		);
+	};
+
+	Dark = () => {
+		return <div style={{ backgroundColor: '#141414', height: '500px' }} />;
+	};
 	render() {
 		return (
 			<div>
@@ -354,6 +448,10 @@ class Homepage extends React.Component {
 				<this.Ecosystem />
 				<this.Products />
 				<this.Join />
+				<this.Offers />
+				<this.Partners />
+				<this.Unesco />
+				<this.Dark />
 			</div>
 		);
 	}

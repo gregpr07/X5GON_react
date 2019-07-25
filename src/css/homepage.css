@@ -135,6 +135,24 @@ h6,
 	background: transparent;
 	color: #00ad57;
 }
+.offers .text-green {
+	font-weight: bold;
+}
+.offers .muted {
+	font-size: 16px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.75;
+	letter-spacing: 0.3px;
+	color: rgba(0, 19, 77, 0.5);
+}
+.offers ul {
+	list-style-type: none;
+}
+.bg-blue {
+	background-color: #009ccc;
+}
 @media (min-width: 768px) {
 	.text-muted-resp {
 		color: #6c757d;
@@ -142,4 +160,11 @@ h6,
 	.bg-purple {
 		background-color: #212266;
 	}
+	.offers ul {
+		list-style-type: circle;
+		margin-left: 0;
+		padding-left: 0;
+	}
+}
+@media (min-width: 576px) {
 }
