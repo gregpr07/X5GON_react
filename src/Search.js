@@ -32,7 +32,7 @@ class Search extends React.Component {
 			isLoaded: true,
 			showRecommendations: false,
 			IsSearching: false,
-			corsEnabled: true
+			corsEnabled: false
 		};
 	}
 	// FUNCTIONS
@@ -50,31 +50,28 @@ class Search extends React.Component {
 				isLoaded: false
 			});
 			fetch(
-				(this.state.corsEnabled ? 'https://cors-anywhere.herokuapp.com/' : '') +
+				(
 					site_api +
 					'search?text=' +
 					this.state.search_key +
 					'&page=' +
 					this.state.current_page
-			)
-				.then(res => res.json())
-				.then(json => {
-					this.setState({
-						isLoaded: true,
-						api_search: {
-							query: json.query,
-							rec_materials: json.rec_materials,
-							metadata: json.metadata
-						},
-						showRecommendations: false,
-						IsSearching: true
-					});
-				});
-			console.log(this.state);
-			console.log(
-				'searched with CORS ' +
-					(this.state.corsEnabled ? 'enabled' : 'disabled')
+				)
+					.then(res => res.json())
+					.then(json => {
+						this.setState({
+							isLoaded: true,
+							api_search: {
+								query: json.query,
+								rec_materials: json.rec_materials,
+								metadata: json.metadata
+							},
+							showRecommendations: false,
+							IsSearching: true
+						});
+					})
 			);
+			console.log(this.state);
 		}
 	};
 	ChangeSearchKey = value => {
@@ -126,7 +123,9 @@ class Search extends React.Component {
 			return (
 				<ul className="recommendations">
 					{wordlist
-						.filter(word => word.startsWith(this.state.search_key))
+						.filter(word =>
+							word.toLowerCase().startsWith(this.state.search_key.toLowerCase())
+						)
 						.map(item => (
 							<li key={item}>
 								<button
@@ -185,10 +184,11 @@ class Search extends React.Component {
 			</button>
 		);
 	};
-	DisableCORSSearch = () => {
+	/* DisableCORSSearch = () => {
+		SearchCOMPONENT --	this.state.corsEnabled ? 'https://cors-anywhere.herokuapp.com/' : '') +
 		if (this.state.corsEnabled && !this.state.IsSearching) {
 			return (
-				<button
+				{ <button
 					type="button"
 					className="btn"
 					onClick={() => {
@@ -196,12 +196,12 @@ class Search extends React.Component {
 					}}
 				>
 					click if you have disabled CORS (much faster)
-				</button>
+				</button> }
 			);
 		} else {
 			return null;
 		}
-	};
+	}; */
 	LogoIcon = () => {
 		return (
 			<Link to="/">
@@ -276,7 +276,6 @@ class Search extends React.Component {
 						<this.SearchBar />
 						<this.SearchButton text={'Search'} />
 						<div />
-						<this.DisableCORSSearch />
 						<this.LoadingIcon />
 					</div>
 					<this.Recommendations />

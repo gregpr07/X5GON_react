@@ -7,6 +7,19 @@ body {
 body a:hover {
 	text-decoration: none;
 }
+.maxer {
+	max-width: 1250px;
+}
+.screen-width {
+	position: fixed;
+	color: rgb(128, 128, 128);
+}
+.benefit-h1 {
+	font-weight: 200;
+	line-height: 1.21;
+	letter-spacing: -0.4px;
+	color: #00134d;
+}
 .navbar-toggler {
 	border: none;
 	color: white;
@@ -14,9 +27,20 @@ body a:hover {
 .text-green {
 	color: #00ad57;
 }
-.img-front,
-.img-front-2 {
+.img-front {
 	max-width: 600px;
+}
+.h-stats {
+	font-size: 48px;
+	font-weight: 300;
+	line-height: 1.27;
+	color: #00ad57;
+}
+.p-stats {
+	font-weight: 300;
+	line-height: 1.6;
+	letter-spacing: 0.4px;
+	color: rgba(255, 255, 255, 0.6);
 }
 h1,
 h2,
@@ -41,7 +65,10 @@ h6,
 	color: #ffffff;
 }
 .text-muted-resp {
-	color: rgba(255, 255, 255, 0.7);
+	font-weight: 300;
+	line-height: 1.6;
+	letter-spacing: 0.4px;
+	color: rgba(255, 255, 255, 0.6);
 }
 .bg-purple {
 	background-color: #00134d;
@@ -77,6 +104,18 @@ h6,
 }
 .ecosystem img {
 	max-width: 500px;
+}
+.ecosystem .more-title {
+	font-size: 16px;
+	font-weight: bold;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.75;
+	letter-spacing: 0.3px;
+	color: #00134d;
+}
+.width-limit {
+	max-width: 490px;
 }
 .button-green {
 	max-width: 200px;
@@ -117,6 +156,18 @@ h6,
 	text-align: center;
 	color: #00134d;
 }
+.products .solutions {
+	font-weight: 200;
+	line-height: 1.21;
+	letter-spacing: -0.4px;
+}
+.products .description {
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 1.33;
+	letter-spacing: 0.3px;
+	max-width: 500px;
+}
 .join .text-purple {
 	font-size: 40px;
 	font-weight: 300;
@@ -150,21 +201,30 @@ h6,
 .offers ul {
 	list-style-type: none;
 }
+
 .bg-blue {
 	background-color: #009ccc;
 }
 @media (min-width: 768px) {
-	.text-muted-resp {
-		color: #6c757d;
-	}
-	.bg-purple {
-		background-color: #212266;
-	}
 	.offers ul {
-		list-style-type: circle;
-		margin-left: 0;
+		margin-left: -15px;
+		margin-bottom: 0;
 		padding-left: 0;
+	}
+	.benefit-h1 {
+		font-size: 68px;
+	}
+	.products .solutions {
+		font-size: 68px;
+	}
+	.products .description {
+		font-size: 30px;
+		line-height: 1.44;
+		letter-spacing: 0.3px;
 	}
 }
 @media (min-width: 576px) {
+	.offers ul li::first-letter {
+		font-weight: bold;
+	}
 }
