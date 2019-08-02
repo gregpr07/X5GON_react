@@ -7,9 +7,30 @@ body {
 body a:hover {
 	text-decoration: none;
 }
+/* .wrapper {
+	position: absolute;
+} */
 .maxer {
 	max-width: 1250px;
 }
+/* header {
+	position: fixed;
+	z-index: -1000;
+} */
+header .maxer {
+	min-height: 100vh;
+	display: grid;
+	padding-bottom: 10vh;
+	place-items: center center;
+}
+header .maxer {
+	vertical-align: middle;
+	padding-top: auto;
+	padding-bottom: auto;
+}
+/* .description {
+	margin-top: 100%;
+} */
 .screen-width {
 	position: fixed;
 	color: rgb(128, 128, 128);

@@ -72,8 +72,9 @@ class Homepage extends React.Component {
 	Header = () => {
 		let stats_list = [{ Sites: 40 }, { Users: '1,8M' }, { Resources: '84k' }];
 		return (
-			<header className="header bg-purple pt-1">
+			<header className="header bg-purple pt-1 h-100">
 				<this.Navbar />
+
 				<div class="maxer mx-auto">
 					<div className="px-4 pb-5">
 						<div className="row py-3 py-sm-4 py-md-5">
@@ -95,11 +96,11 @@ class Homepage extends React.Component {
 
 								{this.state.shouldChangeElementsDef ? (
 									<div className="row pr-5 mr-lg-5 ml-md-4 pl-0 pt-3 pt-lg-0">
-										{stats_list.map(object => {
+										{stats_list.map((object, index) => {
 											let key = Object.keys(object)[0];
 											return (
 												<div className="col-auto mx-auto mr-xl-4" key={key}>
-													<h4 className="row h-stats">{object[key]}</h4>
+													<h4 className={'row h-stats'}>{object[key]}</h4>
 													<p className="row p-stats text-center mx-auto">
 														{key}
 													</p>
@@ -113,7 +114,7 @@ class Homepage extends React.Component {
 								<div className="img-front mx-auto pr-lg-5 pr-0 mt-lg-4">
 									<img
 										src={'image-front-2.png'}
-										className="img-front "
+										className="img-front animated slideInDown slower"
 										width="100%"
 										alt="amazigess"
 									/>
@@ -144,7 +145,7 @@ class Homepage extends React.Component {
 			}
 		];
 		return (
-			<div className="bg-light p-lg-5">
+			<div className="bg-light p-lg-5 description">
 				<div class="maxer mx-auto">
 					<div className="row pl-4 pr-5 py-5 p-sm-5 mt-xs-5 m-0">
 						{contents.map((col, index) => {
@@ -489,7 +490,7 @@ class Homepage extends React.Component {
 	};
 	render() {
 		return (
-			<div>
+			<div className="wrapper">
 				<div className="screen-width">{this.state.screenWidth}</div>
 				<this.Header />
 				<this.Description />
