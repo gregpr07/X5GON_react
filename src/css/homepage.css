@@ -15,11 +15,15 @@ body a:hover {
 .maxer {
 	max-width: 1250px;
 }
+.col {
+	max-width: 100vw;
+}
 header .maxer {
 	min-height: 100vh;
 	display: grid;
 	padding-bottom: 10vh;
-	place-items: center center;
+	/* place-items: center center; */
+	place-content: center;
 }
 header .maxer {
 	vertical-align: middle;
@@ -76,8 +80,7 @@ h6,
 	font-family: 'IBM Plex Serif', serif;
 }
 .main-h1 {
-	font-family: 'IBM Plex Serif';
-	font-size: 60px;
+	font-size: 45px;
 	font-weight: 300;
 	line-height: 1.17;
 	letter-spacing: -0.4px;
@@ -245,5 +248,13 @@ h6,
 @media (min-width: 576px) {
 	.offers ul li::first-letter {
 		font-weight: bold;
+	}
+	.main-h1 {
+		font-size: 60px;
+	}
+}
+@media (min-width: 400px) {
+	.main-h1 {
+		font-size: 55px;
 	}
 }

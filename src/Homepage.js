@@ -80,15 +80,15 @@ class Homepage extends React.Component {
 			{ Resources: { nr: 82, mul: 'k' } }
 		];
 		return (
-			<header className="header bg-purple pt-1 h-100">
+			<header className="header bg-purple pt-1 h-100 ">
 				<this.Navbar />
 
 				<div className="maxer mx-auto">
-					<div className="px-4 pb-5">
-						<div className="row py-3 py-sm-4 py-md-5">
+					<div className="px-md-4 px-0 pb-5">
+						<div className="row py-3 py-sm-4 py-md-5 mx-0">
 							<div className="col-md-12 col-lg-7">
-								<div className="px-md-4 mx-md-4 pl-4 pr-5">
-									<h1 className="text-white main-h1 mb-3">
+								<div className="main-content px-md-4 mx-md-4 pl-4 pr-5 mr-md-5">
+									<h1 className="text-white main-h1 mb-3 pl-md-0">
 										Connecting{' '}
 										{this.state.shouldChangeElementsDef
 											? 'Open Education Resources'
@@ -111,7 +111,7 @@ class Homepage extends React.Component {
 													<h4 className={'row h-stats'}>
 														<CountUp
 															end={object[key].nr}
-															duration={1 + index / 3}
+															duration={2 + index / 2}
 															decimals={key === 'Users' ? 1 : 0}
 														/>
 														{object[key].mul}
@@ -125,12 +125,12 @@ class Homepage extends React.Component {
 									</div>
 								) : null}
 							</div>
-							<div className="col-md-12 col-lg-5 mt-4 mt-md-3 mt-lg-0">
-								<div className="img-front mx-auto pr-lg-5 pr-3 mt-lg-4">
+							<div className="col-md-12 col-lg-5 mt-4 mt-md-3 mt-lg-0 mx-0">
+								<div className="img-front mx-auto pr-lg-5 pr-1 mt-lg-4">
 									<img
 										src={'image-front-2.png'}
 										className="img-front animated slideInDown slower"
-										width="100%"
+										width="95%"
 										alt="amazigess"
 									/>
 								</div>
@@ -509,16 +509,15 @@ class Homepage extends React.Component {
 				<div className="screen-width">{this.state.screenWidth}</div>
 
 				<this.Header />
-				<div className="under">
-					<this.Description />
-					<this.Ecosystem />
-					<this.Products />
-					<this.Join />
-					<this.Offers />
-					<this.Partners />
-					<this.Unesco />
-					<this.Dark />
-				</div>
+
+				<this.Description />
+				<this.Ecosystem />
+				<this.Products />
+				<this.Join />
+				<this.Offers />
+				<this.Partners />
+				<this.Unesco />
+				<this.Dark />
 			</div>
 		);
 	}
