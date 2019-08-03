@@ -50,27 +50,25 @@ class Search extends React.Component {
 				isLoaded: false
 			});
 			fetch(
-				(
-					site_api +
+				site_api +
 					'search?text=' +
 					this.state.search_key +
 					'&page=' +
 					this.state.current_page
-				)
-					.then(res => res.json())
-					.then(json => {
-						this.setState({
-							isLoaded: true,
-							api_search: {
-								query: json.query,
-								rec_materials: json.rec_materials,
-								metadata: json.metadata
-							},
-							showRecommendations: false,
-							IsSearching: true
-						});
-					})
-			);
+			)
+				.then(res => res.json())
+				.then(json => {
+					this.setState({
+						isLoaded: true,
+						api_search: {
+							query: json.query,
+							rec_materials: json.rec_materials,
+							metadata: json.metadata
+						},
+						showRecommendations: false,
+						IsSearching: true
+					});
+				});
 			console.log(this.state);
 		}
 	};
