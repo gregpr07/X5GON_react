@@ -2,6 +2,7 @@ import React from 'react';
 import './css/bootstrap.css';
 import './css/homepage.css';
 import { Link } from 'react-router-dom';
+import CountUp from 'react-countup';
 
 class Homepage extends React.Component {
 	constructor(props) {
@@ -14,6 +15,7 @@ class Homepage extends React.Component {
 
 	breakpoints = { sm: 576, md: 768, lg: 992, xl: 1200 };
 
+	// FUNCTIONS
 	componentDidMount = () => {
 		this.updateScreenSize();
 		window.addEventListener('resize', this.updateScreenSize);
@@ -29,6 +31,8 @@ class Homepage extends React.Component {
 			shouldChangeElementsDef: window.innerWidth >= this.breakpoints.md
 		});
 	};
+
+	// COMPONENTS
 	Navbar = () => {
 		return (
 			<nav className="navbar navbar-expand-sm navbar-dark pl-4">
@@ -70,12 +74,16 @@ class Homepage extends React.Component {
 		);
 	};
 	Header = () => {
-		let stats_list = [{ Sites: 40 }, { Users: '1,8M' }, { Resources: '84k' }];
+		let stats_list = [
+			{ Sites: { nr: 40, mul: '' } },
+			{ Users: { nr: 1.8, mul: 'M' } },
+			{ Resources: { nr: 82, mul: 'k' } }
+		];
 		return (
 			<header className="header bg-purple pt-1 h-100">
 				<this.Navbar />
 
-				<div class="maxer mx-auto">
+				<div className="maxer mx-auto">
 					<div className="px-4 pb-5">
 						<div className="row py-3 py-sm-4 py-md-5">
 							<div className="col-md-12 col-lg-7">
@@ -100,7 +108,14 @@ class Homepage extends React.Component {
 											let key = Object.keys(object)[0];
 											return (
 												<div className="col-auto mx-auto mr-xl-4" key={key}>
-													<h4 className={'row h-stats'}>{object[key]}</h4>
+													<h4 className={'row h-stats'}>
+														<CountUp
+															end={object[key].nr}
+															duration={1 + index / 3}
+															decimals={key === 'Users' ? 1 : 0}
+														/>
+														{object[key].mul}
+													</h4>
 													<p className="row p-stats text-center mx-auto">
 														{key}
 													</p>
@@ -111,7 +126,7 @@ class Homepage extends React.Component {
 								) : null}
 							</div>
 							<div className="col-md-12 col-lg-5 mt-4 mt-md-3 mt-lg-0">
-								<div className="img-front mx-auto pr-lg-5 pr-0 mt-lg-4">
+								<div className="img-front mx-auto pr-lg-5 pr-3 mt-lg-4">
 									<img
 										src={'image-front-2.png'}
 										className="img-front animated slideInDown slower"
@@ -146,7 +161,7 @@ class Homepage extends React.Component {
 		];
 		return (
 			<div className="bg-light p-lg-5 description">
-				<div class="maxer mx-auto">
+				<div className="maxer mx-auto">
 					<div className="row pl-4 pr-5 py-5 p-sm-5 mt-xs-5 m-0">
 						{contents.map((col, index) => {
 							return (
@@ -216,7 +231,7 @@ class Homepage extends React.Component {
 		];
 		return (
 			<div className="bg-white p-lg-5 ecosystem">
-				<div class="maxer mx-auto">
+				<div className="maxer mx-auto">
 					<div className="text-center m-4 m-sm-5 p-sm-2">
 						<div className="mx-auto text-ecosystem">ECOSYSTEM</div>
 						<div>
@@ -299,7 +314,7 @@ class Homepage extends React.Component {
 		];
 		return (
 			<div className="bg-green p-4 products">
-				<div class="maxer mx-auto">
+				<div className="maxer mx-auto">
 					<div className="text-center p-lg-5">
 						<div className="mx-auto text-ecosystem text-white">
 							OUR PRODUCTS
@@ -354,7 +369,7 @@ class Homepage extends React.Component {
 		};
 		const style = 'col-12 col-sm-6 my-auto';
 		return (
-			<div class="maxer mx-auto">
+			<div className="maxer mx-auto">
 				<div className="row p-4 m-1 p-md-5 m-sm-3 h-100 join">
 					<div
 						className={
@@ -408,12 +423,12 @@ class Homepage extends React.Component {
 		];
 		const style = 'col-12 col-sm-6';
 		return (
-			<div class="maxer mx-auto">
+			<div className="maxer mx-auto">
 				<div className="m-0 m-md-5 bg-light offers">
 					<div className="row p-4 m-1 p-md-5 m-sm-3 join">
 						{content.map((single, index) => {
 							return (
-								<div className={style}>
+								<div className={style} key={index}>
 									<p className="text-green my-4">{single.title}</p>
 									<ul className="pl-0 pl-md-2 pl-lg-3">
 										{single.ul.map((li, index) => {
@@ -434,7 +449,7 @@ class Homepage extends React.Component {
 	};
 	Partners = () => {
 		return (
-			<div class="maxer mx-auto">
+			<div className="maxer mx-auto">
 				<div className="p-4 products" style={{ height: '500px' }}>
 					<div className="text-center p-lg-5">
 						<div className="mx-auto text-ecosystem text-purple">
@@ -456,7 +471,7 @@ class Homepage extends React.Component {
 		const style = 'col-12 col-sm-6 my-auto';
 		return (
 			<div className="bg-blue">
-				<div class="maxer mx-auto">
+				<div className="maxer mx-auto">
 					<div className="row p-4 m-1 p-md-5 m-sm-3 h-100 join ">
 						<div
 							className={
@@ -492,15 +507,18 @@ class Homepage extends React.Component {
 		return (
 			<div className="wrapper">
 				<div className="screen-width">{this.state.screenWidth}</div>
+
 				<this.Header />
-				<this.Description />
-				<this.Ecosystem />
-				<this.Products />
-				<this.Join />
-				<this.Offers />
-				<this.Partners />
-				<this.Unesco />
-				<this.Dark />
+				<div className="under">
+					<this.Description />
+					<this.Ecosystem />
+					<this.Products />
+					<this.Join />
+					<this.Offers />
+					<this.Partners />
+					<this.Unesco />
+					<this.Dark />
+				</div>
 			</div>
 		);
 	}

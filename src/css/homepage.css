@@ -7,16 +7,14 @@ body {
 body a:hover {
 	text-decoration: none;
 }
-/* .wrapper {
-	position: absolute;
+/* .under {
+	position: sticky;
+	bottom: 0;
+	z-index: -1;
 } */
 .maxer {
 	max-width: 1250px;
 }
-/* header {
-	position: fixed;
-	z-index: -1000;
-} */
 header .maxer {
 	min-height: 100vh;
 	display: grid;
