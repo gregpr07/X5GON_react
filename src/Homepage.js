@@ -3,6 +3,7 @@ import './css/bootstrap.css';
 import './css/homepage.css';
 import { Link } from 'react-router-dom';
 import CountUp from 'react-countup';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 class Homepage extends React.Component {
 	constructor(props) {
@@ -249,27 +250,31 @@ class Homepage extends React.Component {
 												: style
 										}
 									>
-										<img src={'ecosystem.jpg'} width="100%" alt="ecosystem" />
+										<ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+											<img src={'ecosystem.jpg'} width="100%" alt="ecosystem" />
+										</ScrollAnimation>
 									</div>
 
 									<div className={style}>
-										<div className="width-limit">
-											<h2 className="text-lg-left">{content.group}</h2>
-											<p className="py-3 pb-lg-0">{content.text}</p>
+										<ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+											<div className="width-limit">
+												<h2 className="text-lg-left">{content.group}</h2>
+												<p className="py-3 pb-lg-0">{content.text}</p>
 
-											{this.state.screenWidth >= this.breakpoints.lg ? (
-												<div>
-													<p className="more-title my-0">
-														{content.more.title}
-													</p>
-													<p>{content.more.p}</p>
-												</div>
-											) : (
-												<div className="align-middle button-green mx-auto">
-													Read more
-												</div>
-											)}
-										</div>
+												{this.state.screenWidth >= this.breakpoints.lg ? (
+													<div>
+														<p className="more-title my-0">
+															{content.more.title}
+														</p>
+														<p>{content.more.p}</p>
+													</div>
+												) : (
+													<div className="align-middle button-green mx-auto">
+														Read more
+													</div>
+												)}
+											</div>
+										</ScrollAnimation>
 									</div>
 								</div>
 							);
@@ -313,7 +318,7 @@ class Homepage extends React.Component {
 			}
 		];
 		return (
-			<div className="bg-green p-4 products">
+			<div className="bg-green p-4 products" id="products">
 				<div className="maxer mx-auto">
 					<div className="text-center p-lg-5">
 						<div className="mx-auto text-ecosystem text-white">
@@ -336,19 +341,22 @@ class Homepage extends React.Component {
 												width="75%"
 												alt="ecosystem"
 											/>
-											<h3>{content.todo}</h3>
-											<p className="text-muted px-3 py-2">{content.text}</p>
-											{content.link ? (
-												<Link to={content.link}>
+											<ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+												<h3>{content.todo}</h3>
+												<p className="text-muted px-3 py-2">{content.text}</p>
+
+												{content.link ? (
+													<Link to={content.link}>
+														<div className="button-green mx-auto mt-auto">
+															Try Now
+														</div>
+													</Link>
+												) : (
 													<div className="button-green mx-auto mt-auto">
 														Try Now
 													</div>
-												</Link>
-											) : (
-												<div className="button-green mx-auto mt-auto">
-													Try Now
-												</div>
-											)}
+												)}
+											</ScrollAnimation>
 										</div>
 									</div>
 								);
@@ -507,9 +515,7 @@ class Homepage extends React.Component {
 		return (
 			<div className="wrapper">
 				<div className="screen-width">{this.state.screenWidth}</div>
-
 				<this.Header />
-
 				<this.Description />
 				<this.Ecosystem />
 				<this.Products />

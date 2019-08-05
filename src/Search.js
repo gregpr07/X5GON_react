@@ -13,8 +13,6 @@ fetch('recommendation_words.json').then(function(resp) {
 	});
 });
 
-/* https://platform.x5gon.org/api/v1/search?text=asd&page=2&type=all */
-
 class Search extends React.Component {
 	constructor() {
 		super();
@@ -90,7 +88,7 @@ class Search extends React.Component {
 		this.setState({ current_page: data.selected + 1 });
 		this.searchComponent();
 	};
-	/* TO JE PLUGIN IZ https://www.npmjs.com/package/react-paginate */
+	/* PLUGIN FROM https://www.npmjs.com/package/react-paginate */
 	BottomPagination = () => {
 		if (this.state.api_search.metadata.max_pages) {
 			return (
@@ -182,24 +180,6 @@ class Search extends React.Component {
 			</button>
 		);
 	};
-	/* DisableCORSSearch = () => {
-		SearchCOMPONENT --	this.state.corsEnabled ? 'https://cors-anywhere.herokuapp.com/' : '') +
-		if (this.state.corsEnabled && !this.state.IsSearching) {
-			return (
-				{ <button
-					type="button"
-					className="btn"
-					onClick={() => {
-						this.setState({ corsEnabled: false });
-					}}
-				>
-					click if you have disabled CORS (much faster)
-				</button> }
-			);
-		} else {
-			return null;
-		}
-	}; */
 	LogoIcon = () => {
 		return (
 			<Link to="/">
