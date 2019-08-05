@@ -257,7 +257,11 @@ class Homepage extends React.Component {
 									</div>
 
 									<div className={style}>
-										<ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+										<ScrollAnimation
+											animateIn="fadeInUp"
+											animateOnce={true}
+											duration={1.5}
+										>
 											<div className="width-limit">
 												<h2 className="text-lg-left">{content.group}</h2>
 												<p className="py-3 pb-lg-0">{content.text}</p>
