@@ -260,7 +260,8 @@ class Homepage extends React.Component {
 										<ScrollAnimation
 											animateIn="fadeInUp"
 											animateOnce={true}
-											duration={1.5}
+											duration={1}
+											delay={250}
 										>
 											<div className="width-limit">
 												<h2 className="text-lg-left">{content.group}</h2>
