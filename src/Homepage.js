@@ -1,6 +1,7 @@
 import React from 'react';
 import './css/bootstrap.css';
 import './css/homepage.css';
+import './css/animate.css';
 import { Link } from 'react-router-dom';
 import CountUp from 'react-countup';
 import ScrollAnimation from 'react-animate-on-scroll';
