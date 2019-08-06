@@ -5,6 +5,7 @@ import './css/animate.css';
 import { Link } from 'react-router-dom';
 import CountUp from 'react-countup';
 import ScrollAnimation from 'react-animate-on-scroll';
+import { Navbar } from './Components';
 
 class Homepage extends React.Component {
 	constructor(props) {
@@ -35,46 +36,6 @@ class Homepage extends React.Component {
 	};
 
 	// COMPONENTS
-	Navbar = () => {
-		return (
-			<nav className="navbar navbar-expand-sm navbar-dark pl-4">
-				<div className="navbar-brand">
-					<b>X5</b>GON
-				</div>
-				<button
-					className="navbar-toggler"
-					type="button"
-					data-toggle="collapse"
-					data-target="#navbarText"
-					aria-controls="navbarText"
-					aria-expanded="false"
-					aria-label="Toggle navigation"
-				>
-					<span className="navbar-toggler-icon">
-						<i className="fa fa-navicon" />
-					</span>
-				</button>
-				<div className="collapse navbar-collapse" id="navbarText">
-					<ul className="navbar-nav ml-auto">
-						<li className="nav-item active">
-							<Link to="search" className="nav-link ml-md-3">
-								Product
-							</Link>
-						</li>
-						{['Our Team', 'Copyright', 'Contact us'].map((li, index) => {
-							return (
-								<li className="nav-item active" key={li}>
-									<a className="nav-link mx-md-2 mx-xs-1" href={li}>
-										{li}
-									</a>
-								</li>
-							);
-						})}
-					</ul>
-				</div>
-			</nav>
-		);
-	};
 	Header = () => {
 		let stats_list = [
 			{ Sites: { nr: 40, mul: '' } },
@@ -82,10 +43,10 @@ class Homepage extends React.Component {
 			{ Resources: { nr: 82, mul: 'k' } }
 		];
 		return (
-			<header className="header bg-purple pt-1 h-100 ">
-				<this.Navbar />
+			<header className="header bg-purple h-100 ">
+				<Navbar />
 
-				<div className="maxer mx-auto">
+				<div className="maxer mx-auto pt-1 ">
 					<div className="px-md-4 px-0 pb-5">
 						<div className="row py-3 py-sm-4 py-md-5 mx-0">
 							<div className="col-md-12 col-lg-7">
