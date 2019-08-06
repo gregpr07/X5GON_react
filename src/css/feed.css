@@ -1,0 +1,16 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: #00134d;
+	font-weight: 700;
+}
+
+ul {
+	list-style: circle;
+}
+.url_baseline {
+	background: #f8f9fa;
+}

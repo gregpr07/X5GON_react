@@ -53,9 +53,9 @@ export const Navbar = props => {
 					{content.map((li, index) => {
 						return (
 							<li className="nav-item active" key={index}>
-								<a className="nav-link mx-md-2 mx-xs-1" href={li.link}>
+								<Link className="nav-link mx-md-2 mx-xs-1" to={li.link}>
 									{li.li}
-								</a>
+								</Link>
 							</li>
 						);
 					})}

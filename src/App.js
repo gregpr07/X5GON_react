@@ -6,6 +6,7 @@ import Search from './Search';
 import Homepage from './Homepage';
 import Products from './Products';
 import Team from './Team';
+import Feed from './Feed';
 
 class App extends React.Component {
 	render() {
@@ -15,6 +16,7 @@ class App extends React.Component {
 				<Route path="/products" component={Products} />
 				<Route path="/search" exact component={Search} />
 				<Route path="/team" exact component={Team} />
+				<Route path="/feed" exact component={Feed} />
 			</Router>
 		);
 	}

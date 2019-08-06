@@ -281,7 +281,7 @@ class Homepage extends React.Component {
 			{
 				todo: 'Feed',
 				text: 'Provide data for all stakeholders',
-				link: ''
+				link: 'feed'
 			}
 		];
 		return (
@@ -300,7 +300,7 @@ class Homepage extends React.Component {
 						<div className="row p-2 pt-3">
 							{contents.map((content, index) => {
 								return (
-									<div className=" col-12 col-sm-6 col-md-4 px-3" key={index}>
+									<div className="col-12 col-sm-6 col-md-4 px-3" key={index}>
 										<div className="card p-5 px-sm-3 mx-auto mb-4">
 											<img
 												className="mx-auto mb-3"
@@ -308,12 +308,16 @@ class Homepage extends React.Component {
 												width="75%"
 												alt="ecosystem"
 											/>
-											<ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+											<ScrollAnimation
+												animateIn="fadeIn"
+												animateOnce={true}
+												className="h-100"
+											>
 												<h3>{content.todo}</h3>
 												<p className="text-muted px-3 py-2">{content.text}</p>
 
 												{content.link ? (
-													<Link to={content.link}>
+													<Link to={content.link} className="bottomed">
 														<div className="button-green mx-auto mt-auto">
 															Try Now
 														</div>
