@@ -68,7 +68,7 @@ class Products extends React.Component {
 									<div className="col-12 col-md-4">
 										<img
 											className="mx-auto mb-3"
-											src={'ecosystem.jpg'}
+											src={'ecosystem.png'}
 											width="75%"
 											alt="ecosystem"
 										/>

@@ -213,7 +213,7 @@ class Homepage extends React.Component {
 										}
 									>
 										<ScrollAnimation animateIn="fadeIn" animateOnce={true}>
-											<img src={'ecosystem.jpg'} width="100%" alt="ecosystem" />
+											<img src={'ecosystem.png'} width="100%" alt="ecosystem" />
 										</ScrollAnimation>
 									</div>
 
@@ -292,7 +292,9 @@ class Homepage extends React.Component {
 							OUR PRODUCTS
 						</div>
 						<div className="px-2">
-							<h1 className="py-4 solutions">Solutions for all Needs</h1>
+							<h1 className="py-4 solutions text-white">
+								Solutions for all Needs
+							</h1>
 							<p className="description mx-auto mb-md-5">
 								Powered by one content recommendation technology
 							</p>
@@ -304,7 +306,7 @@ class Homepage extends React.Component {
 										<div className="card p-5 px-sm-3 mx-auto mb-4">
 											<img
 												className="mx-auto mb-3"
-												src={'ecosystem.jpg'}
+												src={'ecosystem.png'}
 												width="75%"
 												alt="ecosystem"
 											/>
@@ -348,7 +350,7 @@ class Homepage extends React.Component {
 		};
 		const style = 'col-12 col-sm-6 my-auto';
 		return (
-			<div className="maxer mx-auto">
+			<div className="maxer mx-auto ">
 				<div className="row p-4 m-1 p-md-5 m-sm-3 h-100 join">
 					<div
 						className={
@@ -357,7 +359,7 @@ class Homepage extends React.Component {
 								: style
 						}
 					>
-						<img src={'ecosystem.jpg'} width="100%" alt="ecosystem" />
+						<img src={'ecosystem.png'} width="100%" alt="ecosystem" />
 					</div>
 
 					<div className={style + ' width-limit mr-auto'}>
@@ -451,7 +453,7 @@ class Homepage extends React.Component {
 		return (
 			<div className="bg-blue">
 				<div className="maxer mx-auto">
-					<div className="row p-4 m-1 p-md-5 m-sm-3 h-100 join ">
+					<div className="row p-3 p-md-5 m-0 h-100">
 						<div
 							className={
 								this.state.screenWidth <= this.breakpoints.sm
@@ -463,11 +465,11 @@ class Homepage extends React.Component {
 						</div>
 
 						<div className={style}>
-							<p className="text-white">JOIN EQUITY</p>
-							<h2 className="text-white my-4">{content.title}</h2>
+							<p className="text-purple">JOIN EQUITY</p>
+							<h2 className="text-purple mb-4">{content.title}</h2>
 							{content.text.map((p, index) => {
 								return (
-									<p className="text-white" key={index}>
+									<p className="text-purple" key={index}>
 										{p}
 									</p>
 								);
@@ -478,9 +480,73 @@ class Homepage extends React.Component {
 			</div>
 		);
 	};
+	EU = () => {
+		return (
+			<div className="maxer mx-auto">
+				<div className="m-0 m-md-5 bg-light">
+					<div className="row p-4 m-1 p-md-5 m-sm-3">
+						<div className="row">
+							<div className="col-md-3 col-5 m-0">
+								<img alt="flag" src="euflag.png" width="100%" className="m-0" />
+							</div>
+							<div className="col-md-9 col-7 py-auto m-0">
+								<p className="my-auto m-0">
+									This project has received funding from the European Union’s
+									Horizon new policy 2020 research and innovation programme
+									under grant agreement No 761758.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		);
+	};
+	Footer = () => {
+		const content = [
+			[
+				{
+					what: 'General Enquiries',
+					mail: 'info@x5gon.org'
+				},
+				{
+					what: 'Project Coordination',
+					mail: 'admin@x5gon.org'
+				}
+			],
+			[
+				{
+					what: 'Partnering Projects and Industrial Relations',
+					mail: 'partnering@x5gon.org'
+				},
+				{
+					what: 'Press Enquiries',
+					mail: 'press@x5gon.org'
+				}
+			]
+		];
+		return (
+			<div style={{ backgroundColor: '#141414' }}>
+				<div className="p-5 maxer mx-auto footer">
+					<h1 className="text-white mb-5">Contact</h1>
 
-	Dark = () => {
-		return <div style={{ backgroundColor: '#141414', height: '500px' }} />;
+					{content.map(div => {
+						return (
+							<div className="row mb-4">
+								{div.map(obj => {
+									return (
+										<div className="col-6">
+											<p className="m-0">{obj.what}</p>
+											<a href={'mailto:' + obj.mail}>{obj.mail}</a>
+										</div>
+									);
+								})}
+							</div>
+						);
+					})}
+				</div>
+			</div>
+		);
 	};
 	render() {
 		return (
@@ -494,7 +560,8 @@ class Homepage extends React.Component {
 				<this.Offers />
 				<this.Partners />
 				<this.Unesco />
-				<this.Dark />
+				<this.EU />
+				<this.Footer />
 			</div>
 		);
 	}
