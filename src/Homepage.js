@@ -465,11 +465,18 @@ class Homepage extends React.Component {
 						</div>
 
 						<div className={style}>
-							<p className="text-purple">JOIN EQUITY</p>
-							<h2 className="text-purple mb-4">{content.title}</h2>
+							<p className="text-purple-normal text-center text-sm-left">
+								JOIN EQUITY
+							</p>
+							<h2 className="text-purple-normal mb-4 text-center text-sm-left">
+								{content.title}
+							</h2>
 							{content.text.map((p, index) => {
 								return (
-									<p className="text-purple" key={index}>
+									<p
+										className="text-purple-normal text-center text-sm-left"
+										key={index}
+									>
 										{p}
 									</p>
 								);
@@ -489,7 +496,7 @@ class Homepage extends React.Component {
 							<div className="col-md-3 col-5 m-0">
 								<img alt="flag" src="euflag.png" width="100%" className="m-0" />
 							</div>
-							<div className="col-md-9 col-7 py-auto m-0">
+							<div className="col-md-9 col-7 m-0">
 								<p className="my-auto m-0">
 									This project has received funding from the European Union’s
 									Horizon new policy 2020 research and innovation programme
@@ -527,7 +534,7 @@ class Homepage extends React.Component {
 		];
 		return (
 			<div style={{ backgroundColor: '#141414' }}>
-				<div className="p-5 maxer mx-auto footer">
+				<div className="p-md-5 p-3 maxer mx-auto footer">
 					<h1 className="text-white mb-5">Contact</h1>
 
 					{content.map(div => {
@@ -544,6 +551,8 @@ class Homepage extends React.Component {
 							</div>
 						);
 					})}
+					<Link to="privacy">Privacy</Link>
+					<p className="text-center w-100 mb-0">&copy; X5GON</p>
 				</div>
 			</div>
 		);

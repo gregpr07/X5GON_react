@@ -105,7 +105,10 @@ h6,
 }
 .text-purple {
 	color: #00134d;
-	/* font-weight: bold; */
+	font-weight: bold;
+}
+s .text-purple-normal {
+	color: #00134d;
 }
 .text-ecosystem {
 	font-size: 16px;
