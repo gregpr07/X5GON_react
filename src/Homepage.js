@@ -490,7 +490,7 @@ class Homepage extends React.Component {
 	EU = () => {
 		return (
 			<div className="maxer mx-auto">
-				<div className="m-0 m-md-5 bg-light">
+				<div className="m-0 m-md-5">
 					<div className="row p-4 m-1 p-md-5 m-sm-3">
 						<div className="row">
 							<div className="col-md-3 col-5 m-0">
@@ -533,26 +533,28 @@ class Homepage extends React.Component {
 			]
 		];
 		return (
-			<div style={{ backgroundColor: '#141414' }}>
-				<div className="p-md-5 p-3 maxer mx-auto footer">
-					<h1 className="text-white mb-5">Contact</h1>
+			<div style={{ backgroundColor: '#181b1c' }}>
+				<div className="p-md-5 p-5 maxer mx-auto footer text-md-center">
+					<h3 className="text-white mb-3">Contact</h3>
 
-					{content.map(div => {
-						return (
-							<div className="row mb-4">
-								{div.map(obj => {
-									return (
-										<div className="col-6">
-											<p className="m-0">{obj.what}</p>
-											<a href={'mailto:' + obj.mail}>{obj.mail}</a>
-										</div>
-									);
-								})}
-							</div>
-						);
-					})}
-					<Link to="privacy">Privacy</Link>
-					<p className="text-center w-100 mb-0">&copy; X5GON</p>
+					<div className="text-center">
+						{content.map(div => {
+							return (
+								<div className="row">
+									{div.map(obj => {
+										return (
+											<div className="col-12 col-sm-6 mb-4">
+												<p className="m-0">{obj.what}</p>
+												<a href={'mailto:' + obj.mail}>{obj.mail}</a>
+											</div>
+										);
+									})}
+								</div>
+							);
+						})}
+						<Link to="privacy">Privacy</Link>
+					</div>
+					<p className="text-center w-100 mb-0 h6 mt-3">&copy; X5GON</p>
 				</div>
 			</div>
 		);

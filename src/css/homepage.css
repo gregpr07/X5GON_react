@@ -15,11 +15,29 @@ body a:hover {
 .maxer {
 	max-width: 1250px;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	font-family: /* 'IBM Plex Serif', */ 'Fira Sans', serif;
+}
 .col {
 	max-width: 100vw;
 }
 .footer {
 	color: white;
+	font-size: 13px;
+}
+.footer a {
+	text-decoration: underline;
 }
 .bottom-0 {
 	bottom: 0;
@@ -67,20 +85,7 @@ header .maxer {
 	letter-spacing: 0.4px;
 	color: rgba(255, 255, 255, 0.6);
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-	font-family: 'IBM Plex Serif', serif;
-}
+
 .bottomed {
 	bottom: 0;
 }
