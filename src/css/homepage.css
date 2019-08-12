@@ -15,6 +15,9 @@ body a:hover {
 .maxer {
 	max-width: 1250px;
 }
+.maxer-800 {
+	max-width: 800px;
+}
 h1,
 h2,
 h3,

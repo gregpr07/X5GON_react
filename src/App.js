@@ -1,6 +1,7 @@
 import React from 'react';
 import './css/app.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Footer } from './Components';
 
 import Search from './Search';
 import Homepage from './Homepage';
@@ -19,6 +20,7 @@ class App extends React.Component {
 				<Route path="/team" exact component={Team} />
 				<Route path="/feed" exact component={Feed} />
 				<Route path="/privacy" exact component={Privacy} />
+				<Footer />
 			</Router>
 		);
 	}

@@ -10,7 +10,15 @@ class Team extends React.Component {
 			<main role="main">
 				<div className="container">
 					<div className="row">
-						<div className="col">
+						<div className="col mt-md-2">
+							<h1>API Documentation</h1>
+							<p className="information">
+								This document contains the X5GON platform REST API
+								documentation. It contains all of the API routes and their
+								explanation; the route, the possible parameters, and the
+								response. The document is split into sections based on the
+								functionality of the API routes.
+							</p>
 							<div className="doc-navigation">
 								<ul>
 									<li>
@@ -123,14 +131,6 @@ class Team extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="col">
-							<h1>API Documentation</h1>
-							<p className="information">
-								This document contains the X5GON platform REST API
-								documentation. It contains all of the API routes and their
-								explanation; the route, the possible parameters, and the
-								response. The document is split into sections based on the
-								functionality of the API routes.
-							</p>
 							<div className="anchor" id="connect-service" />
 							<h2 className="doc doc__section mt-5 mb-3">Connect Service</h2>
 							<p className="information">
