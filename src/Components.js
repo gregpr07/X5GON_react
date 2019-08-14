@@ -7,22 +7,21 @@ export const Navbar = props => {
 	const content = [
 		{
 			li: 'Products',
-			link: 'products'
+			link: '/products'
 		},
 		{
 			li: 'Our Team',
-			link: 'team'
+			link: '/team'
 		},
 		{
 			li: 'Copyright',
-			link: 'copyright'
+			link: '/copyright'
 		},
 		{
 			li: 'Contact us',
-			link: 'contact'
+			link: '/contact'
 		}
 	];
-	console.log('bg-');
 	return (
 		<nav
 			className={
@@ -111,17 +110,17 @@ export const Footer = () => {
 		]
 	];
 	return (
-		<div style={{ backgroundColor: '#181b1c' }}>
+		<div className="bg-dark" /* style={{ backgroundColor: '#181b1c' }} */>
 			<div className="p-md-5 p-5 maxer-800 mx-auto footer">
 				<h3 className="text-white mb-3">Contact</h3>
 
 				<div>
-					{content.map(div => {
+					{content.map((div, index) => {
 						return (
-							<div className="row">
-								{div.map(obj => {
+							<div className="row" key={index}>
+								{div.map((obj, index) => {
 									return (
-										<div className="col-12 col-sm-6 mb-4">
+										<div className="col-12 col-sm-6 mb-4" key={index}>
 											<p className="m-0">{obj.what}</p>
 											<a href={'mailto:' + obj.mail}>{obj.mail}</a>
 										</div>

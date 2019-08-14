@@ -9,17 +9,19 @@ import Products from './Products';
 import Team from './Team';
 import Feed from './Feed';
 import Privacy from './Privacy';
+import Discovery from './products/Discovery';
 
 class App extends React.Component {
 	render() {
 		return (
-			<Router>
+			<Router onUpdate={() => window.scrollTo(0, 0)}>
 				<Route path="/" exact component={Homepage} />
-				<Route path="/products" component={Products} />
+				<Route path="/products" exact component={Products} />
 				<Route path="/search" exact component={Search} />
 				<Route path="/team" exact component={Team} />
 				<Route path="/feed" exact component={Feed} />
 				<Route path="/privacy" exact component={Privacy} />
+				<Route path="/products/discovery" exact component={Discovery} />
 				<Footer />
 			</Router>
 		);

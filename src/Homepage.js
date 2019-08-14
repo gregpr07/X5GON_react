@@ -266,7 +266,7 @@ class Homepage extends React.Component {
 			{
 				todo: 'Discovery',
 				text: 'Search and find materials from all over the world',
-				link: 'search'
+				link: 'discovery'
 			},
 			{
 				todo: 'Translate',
@@ -319,7 +319,7 @@ class Homepage extends React.Component {
 												<p className="text-muted px-3 py-2">{content.text}</p>
 												<div className="mt-auto">
 													{content.link ? (
-														<Link to={content.link}>
+														<Link to={'products/' + content.link}>
 															<div className="button-green mx-auto mt-auto">
 																Try Now
 															</div>

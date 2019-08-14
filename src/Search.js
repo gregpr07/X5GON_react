@@ -4,15 +4,6 @@ import './css/bootstrap.css';
 import ReactPaginate from 'react-paginate';
 import { Link } from 'react-router-dom';
 
-let site_api = 'https://platform.x5gon.org/api/v1/';
-
-let wordlist = [];
-fetch('recommendation_words.json').then(function(resp) {
-	return resp.json().then(function(data) {
-		wordlist = data.words;
-	});
-});
-
 class Search extends React.Component {
 	constructor() {
 		super();
@@ -30,10 +21,22 @@ class Search extends React.Component {
 			isLoaded: true,
 			showRecommendations: false,
 			IsSearching: false,
-			corsEnabled: false
+			corsEnabled: false,
+			site_api: 'https://platform.x5gon.org/api/v1/',
+			wordlist: []
 		};
 	}
 	// FUNCTIONS
+	componentWillMount = () => {
+		console.log('waw');
+		fetch('recommendation_words.json').then(async resp => {
+			const data = await resp.json();
+			this.setState({
+				wordlist: data.words
+			});
+		});
+	};
+
 	searchComponent = () => {
 		this.setState({
 			previous_search: String(this.state.search_key),
@@ -48,7 +51,7 @@ class Search extends React.Component {
 				isLoaded: false
 			});
 			fetch(
-				site_api +
+				this.state.site_api +
 					'search?text=' +
 					this.state.search_key +
 					'&page=' +
@@ -118,7 +121,7 @@ class Search extends React.Component {
 		if (this.state.search_key !== '' && this.state.showRecommendations) {
 			return (
 				<ul className="recommendations">
-					{wordlist
+					{this.state.wordlist
 						.filter(word =>
 							word.toLowerCase().startsWith(this.state.search_key.toLowerCase())
 						)

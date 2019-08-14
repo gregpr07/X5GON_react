@@ -108,8 +108,14 @@ header .maxer {
 .bg-purple {
 	background-color: #00134d;
 }
+.bg-pink {
+	background-color: #44004d;
+}
 .bg-green {
 	background-color: #00ad57;
+}
+.bg-pink {
+	color: #44004d;
 }
 .text-purple {
 	color: #00134d;
