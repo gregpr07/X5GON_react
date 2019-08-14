@@ -40,7 +40,7 @@ class Homepage extends React.Component {
 		let stats_list = [
 			{ Sites: { nr: 40, mul: '' } },
 			{ Users: { nr: 1.8, mul: 'M' } },
-			{ Resources: { nr: 82, mul: 'k' } }
+			{ Resources: { nr: 91, mul: 'k' } }
 		];
 		return (
 			<header className="header bg-purple h-100 ">
