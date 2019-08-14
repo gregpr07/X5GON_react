@@ -50,11 +50,7 @@ class Discovery extends React.Component {
 							return (
 								<div className="row py-3 h-100" key={index}>
 									<div className={style}>
-										<img
-											src={'../ecosystem.png'}
-											width="100%"
-											alt="ecosystem"
-										/>
+										<img src={'../ecosystem.png'} width="50%" alt="ecosystem" />
 									</div>
 
 									<div className={style}>
