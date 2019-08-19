@@ -51,8 +51,8 @@ export const Navbar = props => {
 				<ul className="navbar-nav ml-auto">
 					{content.map((li, index) => {
 						return (
-							<li className="nav-item active" key={index}>
-								<Link className="nav-link mx-md-2 mx-xs-1" to={li.link}>
+							<li className="nav-item active ml-lg-3" key={index}>
+								<Link className="nav-link mx-md-2 x-xs-1" to={li.link}>
 									{li.li}
 								</Link>
 							</li>
@@ -110,7 +110,7 @@ export const Footer = () => {
 		]
 	];
 	return (
-		<div className="bg-dark" /* style={{ backgroundColor: '#181b1c' }} */>
+		<div className="bg-black" /* style={{ backgroundColor: '#181b1c' }} */>
 			<div className="p-md-5 p-5 maxer-800 mx-auto footer">
 				<h3 className="text-white mb-3">Contact</h3>
 

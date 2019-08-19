@@ -41,7 +41,7 @@ class Products extends React.Component {
 			}
 		];
 		return (
-			<div className="bg-green p-4 products" id="products">
+			<div className="p-4 products" id="products">
 				<div className="maxer mx-auto">
 					<div className="text-center">
 						<div className="mx-auto text-ecosystem text-white">
@@ -100,7 +100,7 @@ class Products extends React.Component {
 
 	render() {
 		return (
-			<div className="bg-green products">
+			<div className="bg-sky products">
 				<Navbar />
 				<this.Products />
 			</div>

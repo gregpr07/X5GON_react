@@ -8,7 +8,7 @@ class Team extends React.Component {
 	Team = () => {
 		return (
 			<main role="main">
-				<div className="container">
+				<div className="container feed">
 					<div className="row">
 						<div className="col mt-md-2">
 							<h1>API Documentation</h1>

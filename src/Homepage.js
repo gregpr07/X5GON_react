@@ -12,7 +12,8 @@ class Homepage extends React.Component {
 		super(props);
 		this.state = {
 			screenWidth: null,
-			shouldChangeElementsDef: null
+			shouldChangeElementsDef: null,
+			hide: {}
 		};
 	}
 
@@ -43,7 +44,7 @@ class Homepage extends React.Component {
 			{ Resources: { nr: 91, mul: 'k' } }
 		];
 		return (
-			<header className="header bg-purple h-100 ">
+			<header className="header bg-black h-100 ">
 				<Navbar />
 
 				<div className="maxer mx-auto pt-1 ">
@@ -51,17 +52,13 @@ class Homepage extends React.Component {
 						<div className="row py-3 py-sm-4 py-md-5 mx-0">
 							<div className="col-md-12 col-lg-7">
 								<div className="main-content px-md-4 mx-md-4 pl-4 pr-5 mr-md-5">
-									<h1 className="text-white main-h1 mb-3 pl-md-0">
-										Connecting{' '}
-										{this.state.shouldChangeElementsDef
-											? 'Open Education Resources'
-											: 'OER'}{' '}
-										in a Smart Way!
+									<p className="text-oer ml-1">OPEN EDUCATION RESOURCES</p>
+									<h1 className="text-white main-h1 mb-3 mx-0 pl-md-0 pr-lg-5">
+										Connected in a Smart way!
 									</h1>
-									<p className="text-muted-resp my-lg-5">
-										Supported by advanced technology we are building World's
-										first ecosystem connecting OER sites for the collective
-										benefit of everyone, everywhere.
+									<p className="under">
+										We are building World's first ecosystem connecting OER sites
+										for the collective benefit of everyone, everywhere.
 									</p>
 								</div>
 
@@ -88,16 +85,6 @@ class Homepage extends React.Component {
 									</div>
 								) : null}
 							</div>
-							<div className="col-md-12 col-lg-5 mt-4 mt-md-3 mt-lg-0 mx-0">
-								<div className="img-front mx-auto pr-lg-5 pr-1 mt-lg-4">
-									<img
-										src={'image-front-2.png'}
-										className="img-front animated slideInDown slower"
-										width="95%"
-										alt="amazigess"
-									/>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -108,32 +95,54 @@ class Homepage extends React.Component {
 		let contents = [
 			{
 				title: 'All in One Place',
+				color: '#00ad57',
 				text:
 					'With AI discoverability of OER repositories we are now linking hundreds of thousands of scholarly articles, text books, videos, documents and databases.'
 			},
 			{
 				title: 'Relevant and Tailormade',
+				color: '#009ccc',
 				text:
 					'With Machine Learning for Quality Assurancee we are semantically connecting, ranking and personalizing OER depending on users and content patterns.'
 			},
 			{
 				title: 'Global and Truly Inclusive',
+				color: '#00134d',
 				text:
 					'With Machine Translation for all content types we are offering high quality multi lingual translation of open content including videos, textbooks and documents.'
 			}
 		];
 		return (
-			<div className="bg-light p-lg-5 description">
+			<div className="bg-light px-lg-5 description">
 				<div className="maxer mx-auto">
-					<div className="row pl-4 pr-5 py-5 p-sm-5 mt-xs-5 m-0">
-						{contents.map((col, index) => {
-							return (
-								<div className="col-sm-4" key={index}>
-									<p className="text-purple content1-title">{col.title}</p>
-									<p className="text-muted desc-box">{col.text}</p>
-								</div>
-							);
-						})}
+					<div className="pt-5 px-5 mt-xs-5 m-0">
+						<h1 className="my-5 pb-lg-5">Technology that creates advantages</h1>
+						<div className="row pr-0">
+							{contents.map((col, index) => {
+								return (
+									<div className="col-sm-4" key={index}>
+										<div className="row">
+											<div className="col-lg-2 col-0 d-none d-lg-block">
+												<div
+													className="line"
+													style={{ backgroundColor: col.color }}
+												>
+													&nbsp;
+												</div>
+											</div>
+											<div className="col-lg-10 col-12">
+												<p className="text-purple content1-title">
+													{col.title}
+												</p>
+												<p className="text-muted desc-box pb-lg-5 mb-5">
+													{col.text}
+												</p>
+											</div>
+										</div>
+									</div>
+								);
+							})}
+						</div>
 					</div>
 				</div>
 			</div>
@@ -228,17 +237,27 @@ class Homepage extends React.Component {
 												<h2 className="text-lg-left">{content.group}</h2>
 												<p className="py-3 pb-lg-0">{content.text}</p>
 
-												{this.state.screenWidth >= this.breakpoints.lg ? (
-													<div>
+												{this.state.hide[content.group] ? (
+													<div className="more">
 														<p className="more-title my-0">
 															{content.more.title}
 														</p>
 														<p>{content.more.p}</p>
 													</div>
 												) : (
-													<div className="align-middle button-green mx-auto">
-														Read more
-													</div>
+													<button
+														className="buttonless-green read-more"
+														onClick={() => {
+															this.setState({
+																hide: {
+																	...this.state.hide,
+																	[content.group]: true
+																}
+															});
+														}}
+													>
+														Read more +
+													</button>
 												)}
 											</div>
 										</ScrollAnimation>
@@ -285,7 +304,7 @@ class Homepage extends React.Component {
 			}
 		];
 		return (
-			<div className="bg-green p-4 products" id="products">
+			<div className="bg-sky p-4 products" id="products">
 				<div className="maxer mx-auto">
 					<div className="text-center p-lg-5">
 						<div className="mx-auto text-ecosystem text-white">
@@ -316,7 +335,9 @@ class Homepage extends React.Component {
 												className="h-100"
 											>
 												<h3 className="text-white">{content.todo}</h3>
-												<p className="text-muted px-3 py-2">{content.text}</p>
+												<p className="text-muted px-3 py-2 under">
+													{content.text}
+												</p>
 												<div className="mt-auto">
 													{content.link ? (
 														<Link to={'products/' + content.link}>
@@ -373,10 +394,9 @@ class Homepage extends React.Component {
 							);
 						})}
 
-						<div className="button-green bg-green mx-auto mt-lg-4">
-							Join now
-						</div>
-						<div className="button-green mx-auto">Read more</div>
+						<button className="buttonless-green bg-green mx-auto mt-lg-4">
+							LEARN MORE >
+						</button>
 					</div>
 				</div>
 			</div>
@@ -432,13 +452,84 @@ class Homepage extends React.Component {
 	Partners = () => {
 		return (
 			<div className="maxer mx-auto">
-				<div className="p-4 products" style={{ height: '500px' }}>
-					<div className="text-center p-lg-5">
-						<div className="mx-auto text-ecosystem text-purple">
-							OUR PARTNERS
-						</div>
-					</div>
+				<div className="p-4 products" style={{ height: '100px' }}>
+					<div className="text-center p-lg-5" />
 				</div>
+			</div>
+		);
+	};
+	Drafts = () => {
+		const content = [
+			{
+				title: 'Mainstream OER across UNESCO Member States',
+				paragraphs: [
+					'Our technology is being produced by three UNESCO Chairs and supports OER in its endeavors for global mainstreaming.',
+					'Read the draft UNESCO Recommendation and exactly see where our technology allows you to be in line with this new international regulation.'
+				],
+				draft: ''
+			},
+			{
+				title: 'Embracing your autorship',
+				paragraphs: [
+					"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+					'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'
+				],
+				draft: ''
+			}
+		];
+		return (
+			<div className="drafts">
+				{content.map((object, index) => {
+					return (
+						<div className={index % 2 ? 'bg-white' : 'bg-black'}>
+							<div className="maxer mx-auto">
+								<div className={'row no-gutters'} key={index}>
+									{this.state.screenWidth < this.breakpoints.lg ? null : (
+										<div
+											className={
+												'col-lg-6 m-0 p-0' + (index % 2 ? ' order-last' : null)
+											}
+										>
+											<img alt="kids" src={'kids.png'} width="100%" />
+										</div>
+									)}
+
+									<div
+										className={
+											'col-lg-6 m-0 p-0 ' +
+											(index % 2 ? 'bg-white' : 'bg-black')
+										}
+									>
+										<div className="p-5 m-md-5">
+											<h1
+												className={
+													index % 2 ? 'text-purple-normal' : 'text-white'
+												}
+											>
+												{object.title}
+											</h1>
+											{object.paragraphs.map((p, index1) => {
+												return (
+													<p
+														className={
+															'my-3' +
+															' ' +
+															(index % 2 ? 'text-black' : 'text-white')
+														}
+														key={index1}
+													>
+														{p}
+													</p>
+												);
+											})}
+											<div className="button-green">Download Draft</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					);
+				})}
 			</div>
 		);
 	};
@@ -499,6 +590,7 @@ class Homepage extends React.Component {
 				<this.Join />
 				<this.Offers />
 				<this.Partners />
+				<this.Drafts />
 				<this.Unesco />
 				<EU />
 			</div>
