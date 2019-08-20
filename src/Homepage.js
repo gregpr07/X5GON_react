@@ -158,7 +158,8 @@ class Homepage extends React.Component {
 					title: 'Too Hard for Me?',
 					p:
 						'Use our platform to improve your success rate in understanding an assignment, read a difficult paper, and watch a complicated video. Find a topic you are interested in and we will recommend you resources and track your success. Register and tell us about yourself so we can tailor a solution specifically to you.'
-				}
+				},
+				image: 'learners.jpg'
 			},
 			{
 				group: 'Teachers',
@@ -168,7 +169,8 @@ class Homepage extends React.Component {
 					title: 'Find fast and reuse',
 					p:
 						'We take you one step further, offering an “export/import model” with cross-lingual search and cross-site options to provide visibility of your own content in your community, and finally help you to find and compile quality classroom materials quickly. '
-				}
+				},
+				image: 'teachers.jpg'
 			},
 			{
 				group: 'Institutions',
@@ -178,7 +180,8 @@ class Homepage extends React.Component {
 					title: 'Unlock and Connect',
 					p:
 						'We take your institution one step further, allowing you to push content out of your repository, create equity and multiply impact and usage of your material.  Most importantly, we can connect your OER repo with your Moodle installation.'
-				}
+				},
+				image: 'institutions.jpg'
 			},
 			{
 				group: 'Researchers',
@@ -188,7 +191,8 @@ class Homepage extends React.Component {
 					title: 'Build on Top',
 					p:
 						'Use our platform to discover and curate OER content, and easily distribute and display those OERs in your apps. In your mobile apps, we make it easy to work with the X5GON API and even integrate to grow your project, business or repository around OER content.'
-				}
+				},
+				image: 'institutions.jpg'
 			},
 			{
 				group: 'Goverments',
@@ -198,7 +202,8 @@ class Homepage extends React.Component {
 					title: 'Maximize Equity',
 					p:
 						'Our ecosystem can give you an insight how your publicly funded resources are getting used. Understand how your citizens are overcoming challenges to engage with publicly funded resources, how local businesses are building on your data and showcase the impact of your investments and political decisions.'
-				}
+				},
+				image: 'institutions.jpg'
 			}
 		];
 		return (
@@ -222,7 +227,11 @@ class Homepage extends React.Component {
 										}
 									>
 										<ScrollAnimation animateIn="fadeIn" animateOnce={true}>
-											<img src={'ecosystem.png'} width="100%" alt="ecosystem" />
+											<img
+												src={'illustrations/' + content.image}
+												width="100%"
+												alt="ecosystem"
+											/>
 										</ScrollAnimation>
 									</div>
 
@@ -325,7 +334,7 @@ class Homepage extends React.Component {
 										<div className="card bg-dark p-5 px-sm-3 mx-auto mb-4">
 											<img
 												className="mx-auto mb-3"
-												src={'ecosystem.png'}
+												src={'illustrations/institutions.png'}
 												width="75%"
 												alt="ecosystem"
 											/>
@@ -381,7 +390,11 @@ class Homepage extends React.Component {
 								: style
 						}
 					>
-						<img src={'ecosystem.png'} width="100%" alt="ecosystem" />
+						<img
+							src={'illustrations/join-forces.jpg'}
+							width="100%"
+							alt="ecosystem"
+						/>
 					</div>
 
 					<div className={style + ' width-limit mr-auto'}>
@@ -481,16 +494,21 @@ class Homepage extends React.Component {
 			<div className="drafts">
 				{content.map((object, index) => {
 					return (
-						<div className={index % 2 ? 'bg-white' : 'bg-black'}>
+						<div className={index % 2 ? 'bg-white' : 'bg-black'} key={index}>
 							<div className="maxer mx-auto">
-								<div className={'row no-gutters'} key={index}>
+								<div className={'row no-gutters'}>
 									{this.state.screenWidth < this.breakpoints.lg ? null : (
 										<div
 											className={
 												'col-lg-6 m-0 p-0' + (index % 2 ? ' order-last' : null)
 											}
 										>
-											<img alt="kids" src={'kids.png'} width="100%" />
+											<img
+												alt="kids"
+												src={'illustrations/kids.jpg'}
+												width="625px"
+												height="673.6px"
+											/>
 										</div>
 									)}
 

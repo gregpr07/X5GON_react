@@ -25,31 +25,27 @@ class Team extends React.Component {
 			{ person: 'Ime Priimek', position: '', photo: '' }
 		];
 		return (
-			<div className="p-4 products" id="products">
+			<div className="p-5 products" id="products">
 				<div className="maxer mx-auto">
-					<div className="text-center p-lg-5">
-						<div className="mx-auto text-ecosystem text-purple">OUR TEAM</div>
+					<div className="p-lg-5">
 						<div className="px-2">
-							<h1 className="py-4 solutions text-purple">
-								{' '}
-								Vivamus Nec Facilisis{' '}
-							</h1>
-							<p className="description mx-auto mb-md-5 text-purple">
+							<h1 className="py-4 solutions text-white text-left">OUR TEAM</h1>
+							<p className="description mb-md-5 text-white">
 								Ut quis posuere mauris. Donec scelerisque auctor pulvinar.
 							</p>
 						</div>
 						<div className="row p-2 pt-3">
 							{contents.map((content, index) => {
 								return (
-									<div className=" col-6 col-md-3" key={index}>
-										<div className="px-sm-3 mx-auto">
+									<div className="col-4 col-md-3" key={index}>
+										<div className="px-sm-3 mx-auto card text-center">
 											<img
 												className="mx-auto mb-3"
 												src={content.photo}
 												width="75%"
 												alt="ecosystem"
 											/>
-											<h3>{content.person}</h3>
+											<p className="text-purple">{content.person}</p>
 											<p className="text-muted">{content.position}</p>
 										</div>
 									</div>
@@ -63,8 +59,8 @@ class Team extends React.Component {
 	};
 	render() {
 		return (
-			<div>
-				<Navbar light={true} />
+			<div className="bg-green">
+				<Navbar />
 				<this.Team />
 			</div>
 		);

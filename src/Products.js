@@ -22,7 +22,7 @@ class Products extends React.Component {
 			{
 				todo: 'Discovery',
 				text: 'Search and find materials from all over the world',
-				link: 'products/discovery'
+				link: 'discovery'
 			},
 			{
 				todo: 'Translate',
@@ -41,7 +41,7 @@ class Products extends React.Component {
 			}
 		];
 		return (
-			<div className="p-4 products" id="products">
+			<div className="bg-sky products" id="products">
 				<div className="maxer mx-auto">
 					<div className="text-center">
 						<div className="mx-auto text-ecosystem text-white">
@@ -62,7 +62,7 @@ class Products extends React.Component {
 										<div className="card bg-dark p-5 px-sm-3 mx-auto mb-4">
 											<img
 												className="mx-auto mb-3"
-												src={'ecosystem.png'}
+												src={'illustrations/institutions.png'}
 												width="75%"
 												alt="ecosystem"
 											/>
@@ -72,10 +72,12 @@ class Products extends React.Component {
 												className="h-100"
 											>
 												<h3 className="text-white">{content.todo}</h3>
-												<p className="text-muted px-3 py-2">{content.text}</p>
+												<p className="text-muted px-3 py-2 under">
+													{content.text}
+												</p>
 												<div className="mt-auto">
 													{content.link ? (
-														<Link to={content.link}>
+														<Link to={'products/' + content.link}>
 															<div className="button-green mx-auto mt-auto">
 																Try Now
 															</div>
