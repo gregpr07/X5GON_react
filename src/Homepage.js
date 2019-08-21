@@ -95,13 +95,13 @@ class Homepage extends React.Component {
 		let contents = [
 			{
 				title: 'All in One Place',
-				color: '#00ad57',
+				color: '#00134d',
 				text:
 					'With AI discoverability of OER repositories we are now linking hundreds of thousands of scholarly articles, text books, videos, documents and databases.'
 			},
 			{
 				title: 'Relevant and Tailormade',
-				color: '#009ccc',
+				color: '#00134d',
 				text:
 					'With Machine Learning for Quality Assurancee we are semantically connecting, ranking and personalizing OER depending on users and content patterns.'
 			},
@@ -114,9 +114,12 @@ class Homepage extends React.Component {
 		];
 		return (
 			<div className="bg-light px-lg-5 description">
-				<div className="maxer mx-auto">
-					<div className="pt-5 px-5 mt-xs-5 m-0">
-						<h1 className="my-5 pb-lg-5">Technology that creates advantages</h1>
+				<div className="maxer mx-auto p-128">
+					<div className="px-5">
+						<h3 className="text-purple-normal mb-5 pb-lg-5 w-sm-100 w-75">
+							Technology that creates advantages
+						</h3>
+
 						<div className="row pr-0">
 							{contents.map((col, index) => {
 								return (
@@ -131,7 +134,7 @@ class Homepage extends React.Component {
 												</div>
 											</div>
 											<div className="col-lg-10 col-12">
-												<p className="text-purple content1-title">
+												<p className="text-purple content1-title mb-2">
 													{col.title}
 												</p>
 												<p className="text-muted desc-box pb-lg-5 mb-5">
@@ -195,7 +198,7 @@ class Homepage extends React.Component {
 				image: 'institutions.jpg'
 			},
 			{
-				group: 'Goverments',
+				group: 'Governments',
 				text:
 					'X5GON thrives on interconnecting national repositories, uncovering and enriching content and discovering unexpected relationships. We are developing the most accessible, comprehensive platform for government funded OER in order to support the next generation of global digital education equity.',
 				more: {
@@ -207,9 +210,9 @@ class Homepage extends React.Component {
 			}
 		];
 		return (
-			<div className="bg-white p-lg-5 ecosystem">
+			<div className="bg-white px-lg-5 ecosystem p-128">
 				<div className="maxer mx-auto">
-					<div className="text-center m-4 m-sm-5 p-sm-2">
+					<div className="text-center mx-4 mx-sm-5 px-sm-2">
 						<div className="mx-auto text-ecosystem">ECOSYSTEM</div>
 						<div>
 							<h1 className="py-4 benefit-h1 pb-lg-5">Who Can Benefit?</h1>
@@ -244,11 +247,13 @@ class Homepage extends React.Component {
 										>
 											<div className="width-limit">
 												<h2 className="text-lg-left">{content.group}</h2>
-												<p className="py-3 pb-lg-0">{content.text}</p>
+												<p className="py-3 pb-lg-0 mb-md-4 mb-2">
+													{content.text}
+												</p>
 
 												{this.state.hide[content.group] ? (
-													<div className="more">
-														<p className="more-title my-0">
+													<div className="more animated fadeIn slow">
+														<p className="more-title my-0 mb-2">
 															{content.more.title}
 														</p>
 														<p>{content.more.p}</p>
@@ -265,7 +270,7 @@ class Homepage extends React.Component {
 															});
 														}}
 													>
-														Read more +
+														READ MORE +
 													</button>
 												)}
 											</div>
@@ -303,7 +308,7 @@ class Homepage extends React.Component {
 			},
 			{
 				todo: 'Connect',
-				text: 'Make your users connected to all other OER sites',
+				text: 'Make users connected to other OER sites',
 				link: ''
 			},
 			{
@@ -313,14 +318,14 @@ class Homepage extends React.Component {
 			}
 		];
 		return (
-			<div className="bg-sky p-4 products" id="products">
+			<div className="bg-sky px-4 products p-128" id="products">
 				<div className="maxer mx-auto">
-					<div className="text-center p-lg-5">
+					<div className="text-center px-lg-5">
 						<div className="mx-auto text-ecosystem text-white">
 							OUR PRODUCTS
 						</div>
 						<div className="px-2">
-							<h1 className="py-4 solutions text-white">
+							<h1 className="py-4 solutions text-white benefit-h1">
 								Solutions for all Needs
 							</h1>
 							<p className="description mx-auto mb-md-5">
@@ -330,37 +335,39 @@ class Homepage extends React.Component {
 						<div className="row p-2 pt-3">
 							{contents.map((content, index) => {
 								return (
-									<div className="col-12 col-sm-6 col-md-4 px-3" key={index}>
-										<div className="card bg-dark p-5 px-sm-3 mx-auto mb-4">
+									<div
+										className="col-12 col-sm-6 col-md-4 px-4 py-2"
+										key={index}
+									>
+										<div className="card bg-white p-5 px-sm-3 mx-auto mb-4">
 											<img
 												className="mx-auto mb-3"
 												src={'illustrations/institutions.png'}
 												width="75%"
 												alt="ecosystem"
 											/>
-											<ScrollAnimation
-												animateIn="fadeIn"
-												animateOnce={true}
-												className="h-100"
-											>
-												<h3 className="text-white">{content.todo}</h3>
-												<p className="text-muted px-3 py-2 under">
-													{content.text}
-												</p>
-												<div className="mt-auto">
-													{content.link ? (
-														<Link to={'products/' + content.link}>
-															<div className="button-green mx-auto mt-auto">
-																Try Now
-															</div>
-														</Link>
-													) : (
+											<h5 className="text-purple">{content.todo}</h5>
+											<p className="text-muted px-3 m-0 p-0 under mx-auto">
+												{content.text}
+											</p>
+											<div className="mt-3 mb-4">
+												<button className="buttonless-green">
+													LEARN MORE >
+												</button>
+											</div>
+											<div className="">
+												{content.link ? (
+													<Link to={'products/' + content.link}>
 														<div className="button-green mx-auto mt-auto">
 															Try Now
 														</div>
-													)}
-												</div>
-											</ScrollAnimation>
+													</Link>
+												) : (
+													<div className="button-green mx-auto mt-auto">
+														Try Now
+													</div>
+												)}
+											</div>
 										</div>
 									</div>
 								);
@@ -373,7 +380,7 @@ class Homepage extends React.Component {
 	};
 	Join = () => {
 		const content = {
-			title: 'Join forces in the X5GON Global Network Partnership',
+			title: 'Join the Global Network Partnership',
 			text: [
 				'We aim to give a chance to unlock the digital potential of  OER, and to overcome OER discoverability, disparity and fragmentation and understand the world of OER in a more structured manner.',
 				'The project proposes connecting all existing OER sites into a Global Network.  To do so, we suggest a pact that empowers all involved OER sites and players.'
@@ -381,8 +388,8 @@ class Homepage extends React.Component {
 		};
 		const style = 'col-12 col-sm-6 my-auto';
 		return (
-			<div className="maxer mx-auto ">
-				<div className="row p-4 m-1 p-md-5 m-sm-3 h-100 join">
+			<div className="maxer mx-auto">
+				<div className="row px-4 mx-1 px-md-5 mx-sm-3 h-100 join p-128">
 					<div
 						className={
 							this.state.screenWidth >= this.breakpoints.sm
@@ -398,16 +405,18 @@ class Homepage extends React.Component {
 					</div>
 
 					<div className={style + ' width-limit mr-auto'}>
-						<h2 className="text-purple mb-lg-4">{content.title}</h2>
-						{content.text.map((p, index) => {
-							return (
-								<p className="text-muted" key={index}>
-									{p}
-								</p>
-							);
-						})}
+						<h3 className="text-purple mb-lg-4">{content.title}</h3>
+						<div className="py-3">
+							{content.text.map((p, index) => {
+								return (
+									<p className="text-muted" key={index}>
+										{p}
+									</p>
+								);
+							})}
+						</div>
 
-						<button className="buttonless-green bg-green mx-auto mt-lg-4">
+						<button className="buttonless-green bg-green mx-auto">
 							LEARN MORE >
 						</button>
 					</div>
@@ -464,9 +473,12 @@ class Homepage extends React.Component {
 	};
 	Partners = () => {
 		return (
-			<div className="maxer mx-auto">
-				<div className="p-4 products" style={{ height: '100px' }}>
-					<div className="text-center p-lg-5" />
+			<div className="bg-light partners">
+				<div
+					className="maxer mx-auto products pt-128"
+					style={{ height: '400px' }}
+				>
+					<div className="mt-3 bg-green" style={{ height: '200px' }} />
 				</div>
 			</div>
 		);
@@ -497,6 +509,12 @@ class Homepage extends React.Component {
 						<div className={index % 2 ? 'bg-white' : 'bg-black'} key={index}>
 							<div className="maxer mx-auto">
 								<div className={'row no-gutters'}>
+									<img
+										alt="kids"
+										src={'illustrations/kids.jpg'}
+										width="100%"
+										className="d-block d-lg-none"
+									/>
 									{this.state.screenWidth < this.breakpoints.lg ? null : (
 										<div
 											className={
@@ -519,13 +537,13 @@ class Homepage extends React.Component {
 										}
 									>
 										<div className="p-5 m-md-5">
-											<h1
+											<h3
 												className={
 													index % 2 ? 'text-purple-normal' : 'text-white'
 												}
 											>
 												{object.title}
-											</h1>
+											</h3>
 											{object.paragraphs.map((p, index1) => {
 												return (
 													<p
@@ -606,7 +624,7 @@ class Homepage extends React.Component {
 				<this.Ecosystem />
 				<this.Products />
 				<this.Join />
-				<this.Offers />
+				{/* <this.Offers /> */}
 				<this.Partners />
 				<this.Drafts />
 				<this.Unesco />
