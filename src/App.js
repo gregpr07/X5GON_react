@@ -8,9 +8,11 @@ import Search from './Search';
 import Homepage from './Homepage';
 import Products from './Products';
 import Team from './Team';
-import Feed from './Feed';
 import Privacy from './Privacy';
+import Feed from './products/Feed';
 import Discovery from './products/Discovery';
+import Recommend from './products/Recommend';
+import Join from './Join';
 
 class App extends React.Component {
 	render() {
@@ -21,9 +23,15 @@ class App extends React.Component {
 					<Route path="/products" exact component={Products} />
 					<Route path="/search" exact component={Search} />
 					<Route path="/team" exact component={Team} />
-					<Route path="/products/feed" exact component={Feed} />
 					<Route path="/privacy" exact component={Privacy} />
-					<Route path="/products/discovery" exact component={Discovery} />
+					<Route path="/join" exact component={Join} />
+					{/* PRODUCTS */}
+					<Route path="/products" exact>
+						<Route path="/products/feed" exact component={Feed} />
+						<Route path="/products/discovery" exact component={Discovery} />
+						<Route path="/products/recommend" exact component={Recommend} />
+					</Route>
+
 					<Footer />
 				</ScrollToTop>
 			</Router>

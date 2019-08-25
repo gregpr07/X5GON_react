@@ -1,12 +1,12 @@
 import React from 'react';
 import '../css/bootstrap.css';
 import { Link } from 'react-router-dom';
-import { Navbar } from '../Components';
+import { Navbar, MoreProducts } from '../Components';
 
 class Discovery extends React.Component {
 	Header = () => {
 		return (
-			<div className="bg-pink">
+			<div className="bg-sky">
 				<Navbar />
 				<div class="p-5 text-white text-center maxer mx-auto">
 					<div class="container mb-5 mx-auto">
@@ -72,6 +72,7 @@ class Discovery extends React.Component {
 			<div>
 				<this.Header />
 				<this.Description />
+				<MoreProducts padding current="Discovery" />
 			</div>
 		);
 	}

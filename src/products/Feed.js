@@ -1,8 +1,9 @@
 import React from 'react';
-import './css/bootstrap.css';
-import './css/feed.css';
-import './css/animate.css';
-import { Navbar } from './Components';
+import '../css/bootstrap.css';
+import '../css/feed.css';
+import '../css/animate.css';
+import { Navbar, MoreProducts } from '../Components';
+import { HashLink } from 'react-router-hash-link';
 
 class Team extends React.Component {
 	Team = () => {
@@ -22,102 +23,111 @@ class Team extends React.Component {
 							<div className="doc-navigation">
 								<ul>
 									<li>
-										<a className="doc" href="#connect-service">
+										<HashLink className="doc" to="#connect-service">
 											Connect Service
-										</a>
+										</HashLink>
 									</li>
 									<li>
-										<a className="doc" href="#connect-recommender">
+										<HashLink className="doc" to="#connect-recommender">
 											Connect Recommender
-										</a>
+										</HashLink>
 									</li>
 									<li>
-										<a className="doc" href="#rest-api">
+										<HashLink className="doc" to="#rest-api">
 											REST API
-										</a>
+										</HashLink>
 										<ul>
 											<li>
-												<a className="doc" href="#recommender-rest-api">
+												<HashLink className="doc" to="#recommender-rest-api">
 													Recommender REST API
-												</a>
+												</HashLink>
 												<ul>
 													<li>
-														<a
+														<HashLink
 															className="doc route"
-															href="#get-list-of-rec-materials"
+															to="#get-list-of-rec-materials"
 														>
 															GET search for relevant materials
-														</a>
+														</HashLink>
 													</li>
 													<li>
-														<a
+														<HashLink
 															className="doc route"
-															href="#get-list-of-rec-materials-2"
+															to="#get-list-of-rec-materials-2"
 														>
 															GET recommended materials
-														</a>
+														</HashLink>
 													</li>
 													<li>
-														<a
+														<HashLink
 															className="doc route"
-															href="#get-list-of-rec-bundles"
+															to="#get-list-of-rec-bundles"
 														>
 															GET recommended bundles (web pages)
-														</a>
+														</HashLink>
 													</li>
 													<li>
-														<a
+														<HashLink
 															className="doc route"
-															href="#get-list-of-rec-collaborative"
+															to="#get-list-of-rec-collaborative"
 														>
 															GET personalized recommended bundles (web pages)
-														</a>
+														</HashLink>
 													</li>
 												</ul>
 											</li>
 											<li>
-												<a className="doc" href="#query-rest-api">
+												<HashLink className="doc" to="#query-rest-api">
 													Query REST API
-												</a>
+												</HashLink>
 												<ul>
 													<li>
-														<a className="doc route" href="#get-list-of-oers">
-															GET list of materials
-														</a>
-													</li>
-													<li>
-														<a className="doc route" href="#post-list-of-oers">
-															POST list of materials
-														</a>
-													</li>
-													<li>
-														<a className="doc route" href="#get-info-about-oer">
-															GET specific material
-														</a>
-													</li>
-													<li>
-														<a
+														<HashLink
 															className="doc route"
-															href="#get-list-of-oer-contents"
+															to="#get-list-of-oers"
+														>
+															GET list of materials
+														</HashLink>
+													</li>
+													<li>
+														<HashLink
+															className="doc route"
+															to="#post-list-of-oers"
+														>
+															POST list of materials
+														</HashLink>
+													</li>
+													<li>
+														<HashLink
+															className="doc route"
+															to="#get-info-about-oer"
+														>
+															GET specific material
+														</HashLink>
+													</li>
+													<li>
+														<HashLink
+															className="doc route"
+															to="#get-list-of-oer-contents"
 														>
 															GET list of material contents
-														</a>
+														</HashLink>
 													</li>
 													<li>
-														<a
+														<HashLink
 															className="doc route"
-															href="#get-info-about-oer-content"
+															to="#get-info-about-oer-content"
 														>
 															GET specific material content
-														</a>
+														</HashLink>
 													</li>
 													<li>
-														<a
+														<HashLink
 															className="doc route"
-															href="#get-info-about-oer-content-value"
+															to="#get-info-about-oer-content-value"
 														>
 															GET the body value of a specific material content
-														</a>
+														</HashLink>
 													</li>
 												</ul>
 											</li>
@@ -2614,9 +2624,9 @@ class Team extends React.Component {
 															<td>
 																The IDs of the material contents. Can be
 																accessed through
-																<a href="#get-info-about-oer-content">
+																<HashLink to="#get-info-about-oer-content">
 																	content info method
-																</a>
+																</HashLink>
 																.
 															</td>
 														</tr>
@@ -2985,6 +2995,9 @@ class Team extends React.Component {
 															<td>
 																The token of the material provider. Token must
 																be first created via the
+																<h1 style={{ color: 'red' }}>
+																	NAPACN LINK JE TUKI
+																</h1>
 																<a href="/join" className="doc">
 																	registration form
 																</a>
@@ -3419,9 +3432,9 @@ class Team extends React.Component {
 											<td>
 												The IDs of the material contents. Can be accessed
 												through
-												<a href="#get-info-about-oer-content">
+												<HashLink to="#get-info-about-oer-content">
 													content info method
-												</a>
+												</HashLink>
 												.
 											</td>
 										</tr>
@@ -3977,6 +3990,7 @@ class Team extends React.Component {
 			<div>
 				<Navbar light={true} />
 				<this.Team />
+				<MoreProducts padding current="Feed" />
 			</div>
 		);
 	}

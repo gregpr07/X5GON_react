@@ -2,7 +2,9 @@ import React from 'react';
 import './css/bootstrap.css';
 import './css/components.css';
 import { Link } from 'react-router-dom';
-import ScrollAnimation from 'react-animate-on-scroll';
+import CountUp from 'react-countup';
+
+// ACTIVE
 
 export const Navbar = props => {
 	const content = [
@@ -26,8 +28,7 @@ export const Navbar = props => {
 	return (
 		<nav
 			className={
-				'navbar navbar-expand-sm pl-4 navbar-' +
-				(props.light ? 'light' : 'dark')
+				'navbar navbar-expand-sm navbar-' + (props.light ? 'light' : 'dark')
 			}
 		>
 			<div className="navbar-brand">
@@ -64,7 +65,6 @@ export const Navbar = props => {
 		</nav>
 	);
 };
-
 export const EU = () => {
 	return (
 		<div className="maxer-800 mx-auto">
@@ -137,12 +137,15 @@ export const Footer = () => {
 		</div>
 	);
 };
-export const Products = () => {
+
+// UNFINISHED
+
+export const MoreProducts = props => {
 	let contents = [
 		{
 			todo: 'Recommend',
 			text: 'Show your content in a network of other sites',
-			link: ''
+			link: 'recommend'
 		},
 		{
 			todo: 'Analytics',
@@ -170,50 +173,76 @@ export const Products = () => {
 			link: 'feed'
 		}
 	];
-	const current = '';
+	const current = props.current;
 	const CheckIfOthers = array => {
+		array = array.filter(object => object.todo !== current);
 		if (array.length < contents.length) {
-			return null;
+			array.splice(0, 0, {
+				empty: true
+			});
 		}
+
+		return array;
 	};
 	return (
-		<div className="bg-sky products" id="products">
+		<div
+			className={'bg-sky px-4 products ' + (props.padding ? ' p-128' : null)}
+			id="products"
+		>
 			<div className="maxer mx-auto">
-				<div className="text-center">
-					<div className="mx-auto text-ecosystem text-white">OUR PRODUCTS</div>
-					<div className="px-2">
-						<h1 className="py-4 solutions text-white">
-							Solutions for all Needs
-						</h1>
-						<p className="description mx-auto mb-md-5">
-							Powered by one content recommendation technology
-						</p>
-					</div>
-					<div className="row p-2 pt-3">
-						{CheckIfOthers(contents.filter(object => object.todo !== current))
+				<div className="text-center px-lg-5">
+					{props.homepage ? (
+						<div className="homepage-present">
+							<div className="mx-auto text-ecosystem text-white">
+								OUR PRODUCTS
+							</div>
+							<div className="px-2">
+								<h1 className="py-4 solutions text-white benefit-h1">
+									Solutions for all Needs
+								</h1>
+								<p className="description mx-auto mb-md-5">
+									Powered by one content recommendation technology
+								</p>
+							</div>
+						</div>
+					) : null}
 
-						/* contents.map((content, index) => {
-							return (
-								<div className="col-12 col-sm-6 col-md-4 px-3" key={index}>
-									<div className="card bg-dark p-5 px-sm-3 mx-auto mb-4">
-										<img
-											className="mx-auto mb-3"
-											src={'illustrations/institutions.png'}
-											width="75%"
-											alt="ecosystem"
-										/>
-										<ScrollAnimation
-											animateIn="fadeIn"
-											animateOnce={true}
-											className="h-100"
-										>
-											<h3 className="text-white">{content.todo}</h3>
-											<p className="text-muted px-3 py-2 under">
+					<div className="row px-2 pt-3">
+						{CheckIfOthers(contents).map((content, index) => {
+							if (content.empty) {
+								return (
+									<div
+										className="col-12 col-sm-6 col-md-4 px-4 py-2 text-left"
+										key={index}
+									>
+										<h4>Learn more about other our products.</h4>
+									</div>
+								);
+							} else {
+								return (
+									<div
+										className="col-12 col-sm-6 col-md-4 px-4 py-2"
+										key={index}
+									>
+										<div className="card bg-white p-5 px-sm-3 mx-auto">
+											<img
+												className="mx-auto mb-3"
+												src={'/illustrations/institutions.png'}
+												width="75%"
+												alt="ecosystem"
+											/>
+											<h5 className="text-purple-bold">{content.todo}</h5>
+											<p className="text-muted px-3 m-0 p-0 under mx-auto">
 												{content.text}
 											</p>
-											<div className="mt-auto">
+											<div className="mt-3 mb-4">
+												<Link to={'/products/' + content.link}>
+													<div className="buttonless-green">LEARN MORE ></div>
+												</Link>
+											</div>
+											<div className="">
 												{content.link ? (
-													<Link to={'products/' + content.link}>
+													<Link to={'/products/' + content.link}>
 														<div className="button-green mx-auto mt-auto">
 															Try Now
 														</div>
@@ -224,15 +253,51 @@ export const Products = () => {
 													</div>
 												)}
 											</div>
-										</ScrollAnimation>
+										</div>
 									</div>
-								</div>
-							);
-						}) */
-						}
+								);
+							}
+						})}
 					</div>
 				</div>
 			</div>
+		</div>
+	);
+};
+
+// DEPRECIATED
+
+const Stats = () => {
+	let stats_list = [
+		{ Sites: { nr: 40, mul: '' } },
+		{ Users: { nr: 1.8, mul: 'M' } },
+		{ Resources: { nr: 91, mul: 'k' } }
+	];
+	return (
+		<div className="row pr-5 mr-lg-5 ml-md-4 pl-0 pt-3 pt-lg-0">
+			{stats_list.map((object, index) => {
+				let key = Object.keys(object)[0];
+				return (
+					<div className="col-auto mx-auto mr-xl-4" key={key}>
+						<h4 className={'row h-stats'}>
+							<CountUp
+								end={object[key].nr}
+								duration={2 + index / 2}
+								decimals={key === 'Users' ? 1 : 0}
+							/>
+							{object[key].mul}
+						</h4>
+						<p className="row p-stats text-center mx-auto">{key}</p>
+					</div>
+				);
+			})}
+		</div>
+	);
+};
+export const PointlessRender = () => {
+	return (
+		<div>
+			<Stats />
 		</div>
 	);
 };

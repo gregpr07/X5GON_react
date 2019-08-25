@@ -3,9 +3,8 @@ import './css/bootstrap.css';
 import './css/homepage.css';
 import './css/animate.css';
 import { Link } from 'react-router-dom';
-import CountUp from 'react-countup';
 import ScrollAnimation from 'react-animate-on-scroll';
-import { Navbar, EU } from './Components';
+import { MoreProducts, Navbar, EU } from './Components';
 
 class Homepage extends React.Component {
 	constructor(props) {
@@ -38,53 +37,31 @@ class Homepage extends React.Component {
 
 	// COMPONENTS
 	Header = () => {
-		let stats_list = [
-			{ Sites: { nr: 40, mul: '' } },
-			{ Users: { nr: 1.8, mul: 'M' } },
-			{ Resources: { nr: 91, mul: 'k' } }
-		];
 		return (
-			<header className="header bg-black h-100 ">
+			<header className="header bg-sky">
 				<Navbar />
 
-				<div className="maxer mx-auto pt-1 ">
-					<div className="px-md-4 px-0 pb-5">
-						<div className="row py-3 py-sm-4 py-md-5 mx-0">
-							<div className="col-md-12 col-lg-7">
-								<div className="main-content px-md-4 mx-md-4 pl-4 pr-5 mr-md-5">
-									<p className="text-oer ml-1">OPEN EDUCATION RESOURCES</p>
-									<h1 className="text-white main-h1 mb-3 mx-0 pl-md-0 pr-lg-5">
-										Connected in a Smart way!
-									</h1>
-									<p className="under">
-										We are building World's first ecosystem connecting OER sites
-										for the collective benefit of everyone, everywhere.
-									</p>
-								</div>
-
-								{this.state.shouldChangeElementsDef ? (
-									<div className="row pr-5 mr-lg-5 ml-md-4 pl-0 pt-3 pt-lg-0">
-										{stats_list.map((object, index) => {
-											let key = Object.keys(object)[0];
-											return (
-												<div className="col-auto mx-auto mr-xl-4" key={key}>
-													<h4 className={'row h-stats'}>
-														<CountUp
-															end={object[key].nr}
-															duration={2 + index / 2}
-															decimals={key === 'Users' ? 1 : 0}
-														/>
-														{object[key].mul}
-													</h4>
-													<p className="row p-stats text-center mx-auto">
-														{key}
-													</p>
-												</div>
-											);
-										})}
-									</div>
-								) : null}
+				<div className="mx-auto maxer contents">
+					<div className="row no-gutters my-auto">
+						<div className="col-md-12 col-lg-5 my-auto">
+							<div className="main-content pb-lg-5 pl-1 ml-4">
+								<h1 className="text-white">
+									Knowledge.
+									<b className="d-block">Connected.</b>
+								</h1>
+								<p className="mt-3 mt-lg-5 text-white w-75">
+									We are building World's first ecosystem connecting Open
+									Educational Resource sites for the collective benefit of
+									everyone, everywhere.
+								</p>
 							</div>
+						</div>
+						<div className="col-md-12 col-lg-7">
+							<img
+								src="/illustrations/join-forces.png"
+								alt="header-img"
+								width="100%"
+							/>
 						</div>
 					</div>
 				</div>
@@ -116,8 +93,8 @@ class Homepage extends React.Component {
 			<div className="bg-light px-lg-5 description">
 				<div className="maxer mx-auto p-128">
 					<div className="px-5">
-						<h3 className="text-purple-normal mb-5 pb-lg-5 w-sm-100 w-75">
-							Technology that creates advantages
+						<h3 className="text-purple mb-5 pb-lg-5 w-sm-100 w-75">
+							Connecting Open Educational Resources in a Smart Way
 						</h3>
 
 						<div className="row pr-0">
@@ -134,12 +111,10 @@ class Homepage extends React.Component {
 												</div>
 											</div>
 											<div className="col-lg-10 col-12">
-												<p className="text-purple content1-title mb-2">
+												<p className="text-purple-bold content1-title mb-2">
 													{col.title}
 												</p>
-												<p className="text-muted desc-box pb-lg-5 mb-5">
-													{col.text}
-												</p>
+												<p className="text-muted desc-box p-0">{col.text}</p>
 											</div>
 										</div>
 									</div>
@@ -220,7 +195,7 @@ class Homepage extends React.Component {
 						{contents.map((content, index) => {
 							const style = 'col-12 col-sm-6 my-auto text-lg-left';
 							return (
-								<div className="row py-3 h-100" key={index}>
+								<div className="row pt-4 h-100" key={index}>
 									<div
 										className={
 											index % 2 !== 0 &&
@@ -284,100 +259,6 @@ class Homepage extends React.Component {
 			</div>
 		);
 	};
-	Products = () => {
-		let contents = [
-			{
-				todo: 'Recommend',
-				text: 'Show your content in a network of other sites',
-				link: ''
-			},
-			{
-				todo: 'Analytics',
-				text: 'Understand the trends of your content usage',
-				link: ''
-			},
-			{
-				todo: 'Discovery',
-				text: 'Search and find materials from all over the world',
-				link: 'discovery'
-			},
-			{
-				todo: 'Translate',
-				text: 'Translate your content in every format',
-				link: ''
-			},
-			{
-				todo: 'Connect',
-				text: 'Make users connected to other OER sites',
-				link: ''
-			},
-			{
-				todo: 'Feed',
-				text: 'Provide data for all stakeholders',
-				link: 'feed'
-			}
-		];
-		return (
-			<div className="bg-sky px-4 products p-128" id="products">
-				<div className="maxer mx-auto">
-					<div className="text-center px-lg-5">
-						<div className="mx-auto text-ecosystem text-white">
-							OUR PRODUCTS
-						</div>
-						<div className="px-2">
-							<h1 className="py-4 solutions text-white benefit-h1">
-								Solutions for all Needs
-							</h1>
-							<p className="description mx-auto mb-md-5">
-								Powered by one content recommendation technology
-							</p>
-						</div>
-						<div className="row p-2 pt-3">
-							{contents.map((content, index) => {
-								return (
-									<div
-										className="col-12 col-sm-6 col-md-4 px-4 py-2"
-										key={index}
-									>
-										<div className="card bg-white p-5 px-sm-3 mx-auto mb-4">
-											<img
-												className="mx-auto mb-3"
-												src={'illustrations/institutions.png'}
-												width="75%"
-												alt="ecosystem"
-											/>
-											<h5 className="text-purple">{content.todo}</h5>
-											<p className="text-muted px-3 m-0 p-0 under mx-auto">
-												{content.text}
-											</p>
-											<div className="mt-3 mb-4">
-												<button className="buttonless-green">
-													LEARN MORE >
-												</button>
-											</div>
-											<div className="">
-												{content.link ? (
-													<Link to={'products/' + content.link}>
-														<div className="button-green mx-auto mt-auto">
-															Try Now
-														</div>
-													</Link>
-												) : (
-													<div className="button-green mx-auto mt-auto">
-														Try Now
-													</div>
-												)}
-											</div>
-										</div>
-									</div>
-								);
-							})}
-						</div>
-					</div>
-				</div>
-			</div>
-		);
-	};
 	Join = () => {
 		const content = {
 			title: 'Join the Global Network Partnership',
@@ -416,9 +297,9 @@ class Homepage extends React.Component {
 							})}
 						</div>
 
-						<button className="buttonless-green bg-green mx-auto">
+						<Link className="buttonless-green bg-green mx-auto" to="join">
 							LEARN MORE >
-						</button>
+						</Link>
 					</div>
 				</div>
 			</div>
@@ -478,7 +359,7 @@ class Homepage extends React.Component {
 					className="maxer mx-auto products pt-128"
 					style={{ height: '400px' }}
 				>
-					<div className="mt-3 bg-green" style={{ height: '200px' }} />
+					partners
 				</div>
 			</div>
 		);
@@ -513,6 +394,7 @@ class Homepage extends React.Component {
 										alt="kids"
 										src={'illustrations/kids.jpg'}
 										width="100%"
+										height="100%"
 										className="d-block d-lg-none"
 									/>
 									{this.state.screenWidth < this.breakpoints.lg ? null : (
@@ -537,11 +419,7 @@ class Homepage extends React.Component {
 										}
 									>
 										<div className="p-5 m-md-5">
-											<h3
-												className={
-													index % 2 ? 'text-purple-normal' : 'text-white'
-												}
-											>
+											<h3 className={index % 2 ? 'text-purple' : 'text-white'}>
 												{object.title}
 											</h3>
 											{object.paragraphs.map((p, index1) => {
@@ -579,9 +457,9 @@ class Homepage extends React.Component {
 		};
 		const style = 'col-12 col-sm-6 my-auto';
 		return (
-			<div className="bg-blue">
+			<div className="bg-blue p-128">
 				<div className="maxer mx-auto">
-					<div className="row p-3 p-md-5 m-0 h-100">
+					<div className="row px-3 px-md-5 m-0 h-100">
 						<div
 							className={
 								this.state.screenWidth <= this.breakpoints.sm
@@ -593,16 +471,16 @@ class Homepage extends React.Component {
 						</div>
 
 						<div className={style}>
-							<p className="text-purple-normal text-center text-sm-left">
+							<p className="text-purple text-center text-sm-left">
 								JOIN EQUITY
 							</p>
-							<h2 className="text-purple-normal mb-4 text-center text-sm-left">
+							<h2 className="text-purple mb-4 text-center text-sm-left">
 								{content.title}
 							</h2>
 							{content.text.map((p, index) => {
 								return (
 									<p
-										className="text-purple-normal text-center text-sm-left"
+										className="text-purple text-center text-sm-left"
 										key={index}
 									>
 										{p}
@@ -622,7 +500,7 @@ class Homepage extends React.Component {
 				<this.Header />
 				<this.Description />
 				<this.Ecosystem />
-				<this.Products />
+				<MoreProducts padding={true} homepage={true} />
 				<this.Join />
 				{/* <this.Offers /> */}
 				<this.Partners />
