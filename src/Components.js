@@ -3,6 +3,7 @@ import './css/bootstrap.css';
 import './css/components.css';
 import { Link } from 'react-router-dom';
 import CountUp from 'react-countup';
+import { HashLink } from 'react-router-hash-link';
 
 // ACTIVE
 
@@ -10,7 +11,7 @@ export const Navbar = props => {
 	const content = [
 		{
 			li: 'Products',
-			link: '/products'
+			link: '/#products'
 		},
 		{
 			li: 'Our Team',
@@ -54,9 +55,13 @@ export const Navbar = props => {
 					{content.map((li, index) => {
 						return (
 							<li className="nav-item active ml-lg-3" key={index}>
-								<Link className="nav-link mx-md-2 x-xs-1" to={li.link}>
+								<HashLink
+									smooth
+									className="nav-link mx-md-2 x-xs-1"
+									to={li.link}
+								>
 									{li.li}
-								</Link>
+								</HashLink>
 							</li>
 						);
 					})}

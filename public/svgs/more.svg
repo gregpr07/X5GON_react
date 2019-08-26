@@ -1,0 +1,16 @@
+<svg width=“64px” height=“64px” viewBox=“0 0 64 64” version=“1.1" xmlns=“http://www.w3.org/2000/svg” xmlns:xlink=“http://www.w3.org/1999/xlink”>
+   <defs>
+       <polygon id=“path-1” points=“40 32 38.59 30.59 33 36.17 33 24 31 24 31 36.17 25.42 30.58 24 32 32 40"></polygon>
+   </defs>
+   <g id=“XL-Breakpoint-(-px-|-90-ems)” stroke=“none” stroke-width=“1” fill=“none” fill-rule=“evenodd”>
+       <g id=“Desktop-HD-1440-/-Landing-Copy-3" transform=“translate(-335.000000, -641.000000)“>
+           <g id=“Group-7” transform=“translate(335.000000, 641.000000)“>
+               <circle id=“Oval” fill=“#00AD57" cx=“32” cy=“32" r=“32”></circle>
+               <mask id=“mask-2" fill=“white”>
+                   <use xlink:href=“#path-1"></use>
+               </mask>
+               <use id=“icon/navigation/arrow_downward_24px” fill=“#FFFFFF” fill-rule=“nonzero” xlink:href=“#path-1"></use>
+           </g>
+       </g>
+   </g>
+</svg>

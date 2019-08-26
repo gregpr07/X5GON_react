@@ -1,7 +1,7 @@
 import React from 'react';
 import './css/homepage.css';
 import './css/bootstrap.css';
-import { Link } from 'react-router-dom';
+
 import { Navbar } from './Components';
 
 class Join extends React.Component {

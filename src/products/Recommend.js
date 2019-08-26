@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/bootstrap.css';
-import { Link } from 'react-router-dom';
+
 import { Navbar, MoreProducts } from '../Components';
 
 class Recommend extends React.Component {

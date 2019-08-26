@@ -38,33 +38,40 @@ class Homepage extends React.Component {
 	// COMPONENTS
 	Header = () => {
 		return (
-			<header className="header bg-sky">
+			<header className="header bg-black" style={{ zIndex: '-100' }}>
 				<Navbar />
 
 				<div className="mx-auto maxer contents">
 					<div className="row no-gutters my-auto">
-						<div className="col-md-12 col-lg-5 my-auto">
-							<div className="main-content pb-lg-5 pl-1 ml-4">
-								<h1 className="text-white">
+						<div className="col-md-12 col-lg-6 my-auto">
+							<div className="main-content pl-1 ml-4">
+								<h1 className="text-white text-main-header">
 									Knowledge.
 									<b className="d-block">Connected.</b>
 								</h1>
-								<p className="mt-3 mt-lg-5 text-white w-75">
+								<p className="mt-3 mt-lg-3 pt-3 text-white w-100 body-2 pb-lg-5">
 									We are building World's first ecosystem connecting Open
 									Educational Resource sites for the collective benefit of
 									everyone, everywhere.
 								</p>
+
+								<img
+									src="/svgs/ArrowDown.svg"
+									height="64px"
+									alt="more"
+									onClick={() => {
+										const element = document.getElementById('more');
+										element.scrollIntoView({ behavior: 'smooth' });
+									}}
+								/>
 							</div>
 						</div>
-						<div className="col-md-12 col-lg-7">
-							<img
-								src="/illustrations/join-forces.png"
-								alt="header-img"
-								width="100%"
-							/>
+						<div className="col-md-12 col-lg-6">
+							<div className="main-img"></div>
 						</div>
 					</div>
 				</div>
+				<div id="more"></div>
 			</header>
 		);
 	};
@@ -90,33 +97,42 @@ class Homepage extends React.Component {
 			}
 		];
 		return (
-			<div className="bg-light px-lg-5 description">
+			<div className="bg-light description">
 				<div className="maxer mx-auto p-128">
-					<div className="px-5">
-						<h3 className="text-purple mb-5 pb-lg-5 w-sm-100 w-75">
-							Connecting Open Educational Resources in a Smart Way
-						</h3>
+					<div className="px-1 mx-4">
+						<ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+							<h3 className="text-purple mb-5 pb-lg-5 w-sm-100 w-75">
+								Connecting Open Educational Resources in a Smart Way
+							</h3>
+						</ScrollAnimation>
 
 						<div className="row pr-0">
 							{contents.map((col, index) => {
 								return (
 									<div className="col-sm-4" key={index}>
-										<div className="row">
-											<div className="col-lg-2 col-0 d-none d-lg-block">
-												<div
-													className="line"
-													style={{ backgroundColor: col.color }}
-												>
-													&nbsp;
+										<ScrollAnimation
+											animateIn="fadeInUp"
+											animateOnce={true}
+											duration={1}
+											delay={(index + 1) * 150}
+										>
+											<div className="row">
+												<div className="col-lg-2 col-0 d-none d-lg-block">
+													<div
+														className="line"
+														style={{ backgroundColor: col.color }}
+													>
+														&nbsp;
+													</div>
+												</div>
+												<div className="col-lg-10 col-12">
+													<p className="text-purple-bold content1-title mb-2">
+														{col.title}
+													</p>
+													<p className="text-muted desc-box p-0">{col.text}</p>
 												</div>
 											</div>
-											<div className="col-lg-10 col-12">
-												<p className="text-purple-bold content1-title mb-2">
-													{col.title}
-												</p>
-												<p className="text-muted desc-box p-0">{col.text}</p>
-											</div>
-										</div>
+										</ScrollAnimation>
 									</div>
 								);
 							})}
@@ -185,7 +201,7 @@ class Homepage extends React.Component {
 			}
 		];
 		return (
-			<div className="bg-white px-lg-5 ecosystem p-128">
+			<div className="bg-white ecosystem p-128">
 				<div className="maxer mx-auto">
 					<div className="text-center mx-4 mx-sm-5 px-sm-2">
 						<div className="mx-auto text-ecosystem">ECOSYSTEM</div>
@@ -193,13 +209,13 @@ class Homepage extends React.Component {
 							<h1 className="py-4 benefit-h1 pb-lg-5">Who Can Benefit?</h1>
 						</div>
 						{contents.map((content, index) => {
-							const style = 'col-12 col-sm-6 my-auto text-lg-left';
+							const style = 'col-12 col-md-6 my-auto text-lg-left';
 							return (
-								<div className="row pt-4 h-100" key={index}>
+								<div className="row pt-128 h-100" key={index}>
 									<div
 										className={
 											index % 2 !== 0 &&
-											this.state.screenWidth >= this.breakpoints.sm
+											this.state.screenWidth >= this.breakpoints.md
 												? 'order-last ' + style
 												: style
 										}
@@ -220,8 +236,8 @@ class Homepage extends React.Component {
 											duration={1}
 											delay={250}
 										>
-											<div className="width-limit">
-												<h2 className="text-lg-left">{content.group}</h2>
+											<div className="width-limit mx-auto">
+												<h3 className="text-lg-left">{content.group}</h3>
 												<p className="py-3 pb-lg-0 mb-md-4 mb-2">
 													{content.text}
 												</p>
@@ -388,27 +404,22 @@ class Homepage extends React.Component {
 				{content.map((object, index) => {
 					return (
 						<div className={index % 2 ? 'bg-white' : 'bg-black'} key={index}>
-							<div className="maxer mx-auto">
+							<div className="mx-auto">
 								<div className={'row no-gutters'}>
-									<img
-										alt="kids"
-										src={'illustrations/kids.jpg'}
-										width="100%"
-										height="100%"
-										className="d-block d-lg-none"
-									/>
-									{this.state.screenWidth < this.breakpoints.lg ? null : (
+									{this.state.screenWidth < this.breakpoints.lg ? (
+										<div className={'col-lg-6 m-0 p-0'}>
+											<div
+												className="background-kids"
+												style={{ height: '80vw', width: '100%' }}
+											></div>
+										</div>
+									) : (
 										<div
 											className={
 												'col-lg-6 m-0 p-0' + (index % 2 ? ' order-last' : null)
 											}
 										>
-											<img
-												alt="kids"
-												src={'illustrations/kids.jpg'}
-												width="625px"
-												height="673.6px"
-											/>
+											<div className="background-kids"></div>
 										</div>
 									)}
 
@@ -418,7 +429,12 @@ class Homepage extends React.Component {
 											(index % 2 ? 'bg-white' : 'bg-black')
 										}
 									>
-										<div className="p-5 m-md-5">
+										<div
+											className={
+												'p-5 m-md-5 maxer-625 ' +
+												(index % 2 ? 'float-right' : null)
+											}
+										>
 											<h3 className={index % 2 ? 'text-purple' : 'text-white'}>
 												{object.title}
 											</h3>

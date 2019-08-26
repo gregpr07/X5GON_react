@@ -3,7 +3,6 @@ import './css/bootstrap.css';
 import './css/components.css';
 import './css/animate.css';
 import { Navbar, MoreProducts } from './Components';
-import { Link } from 'react-router-dom';
 
 class Products extends React.Component {
 	render() {

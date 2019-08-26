@@ -44,6 +44,7 @@ class Team extends React.Component {
 												src={content.photo}
 												width="75%"
 												alt="ecosystem"
+												style={{ borderRadius: '50%' }}
 											/>
 											<p className="text-purple">{content.person}</p>
 											<p className="text-muted">{content.position}</p>
