@@ -521,7 +521,7 @@ class Homepage extends React.Component {
 				{/* <this.Offers /> */}
 				<this.Partners />
 				<this.Drafts />
-				<this.Unesco />
+				{/* <this.Unesco /> */}
 				<EU />
 			</div>
 		);

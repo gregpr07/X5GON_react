@@ -169,7 +169,7 @@ export const MoreProducts = props => {
 		},
 		{
 			todo: 'Connect',
-			text: 'Make your users connected to all other OER sites',
+			text: 'Make your users connected to all OER sites',
 			link: ''
 		},
 		{
@@ -230,12 +230,25 @@ export const MoreProducts = props => {
 										key={index}
 									>
 										<div className="card bg-white p-5 px-sm-3 mx-auto">
-											<img
+											{/* <img
 												className="mx-auto mb-3"
 												src={'/illustrations/institutions.png'}
 												width="75%"
 												alt="ecosystem"
-											/>
+												style={{
+													borderRadius: '50%',
+													backgroundColor: '#4877ff'
+												}}
+											/> */}
+											<div
+												className="mx-auto mb-5"
+												style={{
+													borderRadius: '50%',
+													backgroundColor: '#4877ff',
+													height: '150px',
+													width: '150px'
+												}}
+											></div>
 											<h5 className="text-purple-bold">{content.todo}</h5>
 											<p className="text-muted px-3 m-0 p-0 under mx-auto">
 												{content.text}
@@ -245,7 +258,7 @@ export const MoreProducts = props => {
 													<div className="buttonless-green">LEARN MORE ></div>
 												</Link>
 											</div>
-											<div className="">
+											<div className="pb-3">
 												{content.link ? (
 													<Link to={'/products/' + content.link}>
 														<div className="button-green mx-auto mt-auto">

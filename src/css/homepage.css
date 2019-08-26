@@ -3,6 +3,9 @@
 } */
 body {
 	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	line-height: 28px;
+	letter-spacing: 0.3;
 }
 body a:hover {
 	text-decoration: none;
@@ -26,6 +29,9 @@ body a:hover {
 }
 .maxer-500 {
 	max-width: 500px;
+}
+.maxer-540 {
+	max-width: 540px;
 }
 p {
 	font-size: 16px;
@@ -74,9 +80,10 @@ h3 {
 }
 h4 {
 	font-size: 2.25em !important;
+	line-height: 52px;
 	font-size: 36px;
 	font-weight: 300;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans';
 	letter-spacing: 0.3;
 }
 h5 {
@@ -161,7 +168,7 @@ header .under {
 	max-width: 600px;
 }
 .main-img {
-	background-image: url('../images/join-forces-cut.png');
+	background-image: url('../images/OER-connected.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: left top;
@@ -173,7 +180,8 @@ header .under {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: left top;
-	height: 100%;
+	height: 550px;
+	min-height: 50vh;
 	width: 50vw;
 }
 .h-stats {
@@ -282,6 +290,7 @@ header .under {
 	border: solid 1.5px transparent;
 	background: #00ad57;
 	font-size: 14px;
+	line-height: 20px;
 	color: white;
 	font-weight: 600;
 	letter-spacing: 0.4px;
