@@ -5,6 +5,7 @@ import './css/animate.css';
 import { Link } from 'react-router-dom';
 import ScrollAnimation from 'react-animate-on-scroll';
 import { MoreProducts, Navbar, EU } from './Components';
+import SmoothScroll from 'smooth-scroll';
 
 class Homepage extends React.Component {
 	constructor(props) {
@@ -37,6 +38,17 @@ class Homepage extends React.Component {
 
 	// COMPONENTS
 	Header = () => {
+		// eslint-disable-next-line
+		var scroll = new SmoothScroll('a[href*="#"]', {
+			header: '#navbar',
+			speed: 1500,
+			speedAsDuration: true,
+			offset: -1,
+			easing: 'easeInOutQuad',
+			clip: true,
+			updateURL: false,
+			popstate: false
+		});
 		return (
 			<header className="header bg-black" style={{ zIndex: '-100' }}>
 				<Navbar />
@@ -54,16 +66,9 @@ class Homepage extends React.Component {
 									Educational Resource sites for the collective benefit of
 									everyone, everywhere.
 								</p>
-
-								<img
-									src="/svgs/ArrowDown.svg"
-									height="64px"
-									alt="more"
-									onClick={() => {
-										const element = document.getElementById('more');
-										element.scrollIntoView({ behavior: 'smooth' });
-									}}
-								/>
+								<a href="#more">
+									<img src="/svgs/ArrowDown.svg" height="64px" alt="more" />
+								</a>
 							</div>
 						</div>
 						<div className="col-md-12 col-lg-6">
@@ -71,7 +76,6 @@ class Homepage extends React.Component {
 						</div>
 					</div>
 				</div>
-				<div id="more"></div>
 			</header>
 		);
 	};
@@ -514,6 +518,7 @@ class Homepage extends React.Component {
 			<div className="wrapper">
 				<div className="screen-width">{this.state.screenWidth}</div>
 				<this.Header />
+				<div id="more"></div>
 				<this.Description />
 				<this.Ecosystem />
 				<MoreProducts padding={true} homepage={true} />

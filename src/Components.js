@@ -3,7 +3,7 @@ import './css/bootstrap.css';
 import './css/components.css';
 import { Link } from 'react-router-dom';
 import CountUp from 'react-countup';
-import { HashLink } from 'react-router-hash-link';
+import SmoothScroll from 'smooth-scroll';
 
 // ACTIVE
 
@@ -26,6 +26,17 @@ export const Navbar = props => {
 			link: '/contact'
 		}
 	];
+	// eslint-disable-next-line
+	const scroll = new SmoothScroll('a[href*="#"]', {
+		header: '#navbar',
+		speed: 1500,
+		speedAsDuration: true,
+		offset: -1,
+		easing: 'easeInOutQuad',
+		clip: true,
+		updateURL: true,
+		popstate: false
+	});
 	return (
 		<nav
 			className={
@@ -55,13 +66,9 @@ export const Navbar = props => {
 					{content.map((li, index) => {
 						return (
 							<li className="nav-item active ml-lg-3" key={index}>
-								<HashLink
-									smooth
-									className="nav-link mx-md-2 x-xs-1"
-									to={li.link}
-								>
+								<Link smooth className="nav-link mx-md-2 x-xs-1" to={li.link}>
 									{li.li}
-								</HashLink>
+								</Link>
 							</li>
 						);
 					})}
