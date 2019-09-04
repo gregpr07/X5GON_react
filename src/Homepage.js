@@ -4,7 +4,7 @@ import './css/homepage.css';
 import './css/animate.css';
 import { Link } from 'react-router-dom';
 import ScrollAnimation from 'react-animate-on-scroll';
-import { MoreProducts, Navbar, EU } from './Components';
+import { MoreProducts, Navbar } from './Components';
 import SmoothScroll from 'smooth-scroll';
 
 class Homepage extends React.Component {
@@ -394,6 +394,7 @@ class Homepage extends React.Component {
 				<div className="maxer mx-auto products p-128 row">
 					{partners.map((image, index) => (
 						<div
+							key={index}
 							className={
 								'col-md-3 col-6 ' +
 								(this.state.screenWidth > this.breakpoints.md && index < 4
@@ -561,7 +562,6 @@ class Homepage extends React.Component {
 				<this.Partners />
 				<this.Drafts />
 				{/* <this.Unesco /> */}
-				<EU />
 			</div>
 		);
 	}

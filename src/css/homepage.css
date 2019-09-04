@@ -38,6 +38,9 @@ p {
 	line-height: 1.75;
 	letter-spacing: 0.4px;
 }
+.bold {
+	font-weight: 600;
+}
 .p2 {
 	font-weight: 600;
 	font-size: 20px;

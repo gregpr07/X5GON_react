@@ -84,7 +84,7 @@ export const EU = () => {
 				<div className="row p-4 m-1 m-sm-3">
 					<div className="row">
 						<div className="col-md-3 col-5 m-0">
-							<img alt="flag" src="euflag.png" width="100%" className="m-0" />
+							<img alt="flag" src="/euflag.png" width="100%" className="m-0" />
 						</div>
 						<div className="col-md-9 col-7 m-0">
 							<p className="my-auto m-0">
@@ -100,51 +100,144 @@ export const EU = () => {
 	);
 };
 export const Footer = () => {
-	const content = [
-		[
+	const contents = {
+		'GO-TO': [
 			{
-				what: 'General Enquiries',
-				mail: 'info@x5gon.org'
+				page: 'Products',
+				link: '/#products'
 			},
 			{
-				what: 'Project Coordination',
-				mail: 'admin@x5gon.org'
+				page: 'Join',
+				link: '/join'
+			},
+			{
+				page: 'Policy',
+				link: '/policy'
+			},
+			{
+				page: 'Team',
+				link: '/team'
 			}
 		],
-		[
+		PRODUCTS: [
 			{
-				what: 'Partnering Projects and Industrial Relations',
-				mail: 'partnering@x5gon.org'
+				page: 'recommend',
+				link: '/products/recommend'
 			},
 			{
-				what: 'Press Enquiries',
-				mail: 'press@x5gon.org'
+				page: 'analytics',
+				link: '/products/analytics'
+			},
+			{
+				page: 'discovery',
+				link: '/products/discovery'
+			},
+			{
+				page: 'translate',
+				link: '/products/translate'
+			},
+			{
+				page: 'connect',
+				link: '/products/connect'
+			},
+			{
+				page: 'feed',
+				link: '/products/feed'
+			}
+		],
+		CONTACT: [
+			{
+				page: 'General Enquiries',
+				link: 'mailto:info@x5gon.org'
+			},
+			{
+				page: 'Partnering Projects',
+				link: 'mailto:partnering@x5gon.org'
+			},
+			{
+				page: 'Project Coordination',
+				link: 'mailto:admin@x5gon.org'
+			},
+			{
+				page: 'Press Enquiries',
+				link: 'mailto:press@x5gon.org'
+			}
+		],
+		SUPPORT: [
+			{
+				page: 'Cookies Subpage',
+				link: 'Cookies Subpage'
+			},
+			{
+				page: 'Documentation',
+				link: 'https://platform.x5gon.org/docs/x5gon-docs.pdf'
+			},
+			{
+				page: 'Privacy',
+				link: '/privacy'
 			}
 		]
-	];
-	return (
-		<div className="bg-black" /* style={{ backgroundColor: '#181b1c' }} */>
-			<div className="p-md-5 p-5 maxer-800 mx-auto footer">
-				<h3 className="text-white mb-3">Contact</h3>
-
-				<div>
-					{content.map((div, index) => {
+	};
+	const UL = name => {
+		name = name.name;
+		return (
+			<div className="col-3 pl-0">
+				<p className="bold">{name}</p>
+				{contents[name].map((object, index) => {
+					const style = 'd-block mt-2';
+					if (name !== 'CONTACT') {
 						return (
-							<div className="row" key={index}>
-								{div.map((obj, index) => {
-									return (
-										<div className="col-12 col-sm-6 mb-4" key={index}>
-											<p className="m-0">{obj.what}</p>
-											<a href={'mailto:' + obj.mail}>{obj.mail}</a>
-										</div>
-									);
-								})}
-							</div>
+							<Link
+								style={{ textTransform: 'capitalize' }}
+								to={object.link}
+								key={index}
+								className={style}
+							>
+								{object.page}
+							</Link>
 						);
-					})}
-					<Link to="privacy">Privacy</Link>
+					} else {
+						return (
+							<a
+								style={{ textTransform: 'capitalize' }}
+								href={object.link}
+								key={index}
+								className={style}
+							>
+								{object.page}
+							</a>
+						);
+					}
+				})}
+			</div>
+		);
+	};
+	return (
+		<div className="bg-black text-white">
+			<div className="maxer mx-auto row p-5">
+				<div className="col-4">
+					<b>X5</b>GON
 				</div>
-				<p className="text-center w-100 mb-0 h6 mt-3">&copy; X5GON</p>
+				<div className="col-8">
+					<div className="row border-bottom pb-5">
+						<UL name="GO-TO"></UL>
+						<UL name="PRODUCTS"></UL>
+						<UL name="CONTACT"></UL>
+						<UL name="SUPPORT"></UL>
+					</div>
+					<div className="row mt-5">
+						<div className="col-md-3 col-5 m-0 pl-0">
+							<img alt="flag" src="/euflag.png" width="100%" className="m-0" />
+						</div>
+						<div className="col-md-7 col-5 m-0">
+							<p className="my-auto m-0">
+								This project has received funding from the European Union’s
+								Horizon new policy 2020 research and innovation programme under
+								grant agreement No 761758.
+							</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
@@ -293,7 +386,7 @@ export const MoreProducts = props => {
 };
 
 // DEPRECIATED
-
+// eslint-disable-next-line
 const Stats = () => {
 	let stats_list = [
 		{ Sites: { nr: 40, mul: '' } },
@@ -318,13 +411,6 @@ const Stats = () => {
 					</div>
 				);
 			})}
-		</div>
-	);
-};
-export const PointlessRender = () => {
-	return (
-		<div>
-			<Stats />
 		</div>
 	);
 };
