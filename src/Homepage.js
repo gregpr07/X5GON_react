@@ -58,7 +58,7 @@ class Homepage extends React.Component {
 						<div className="col-md-12 col-lg-6 my-auto">
 							<div className="main-content pl-1 ml-4">
 								<h1 className="text-white text-main-header">
-									Knowledge.
+									Education.
 									<b className="d-block">Connected.</b>
 								</h1>
 								<p className="mt-3 mt-lg-3 pt-3 text-white w-100 body-2 pb-lg-5 pr-3">

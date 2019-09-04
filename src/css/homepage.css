@@ -38,6 +38,14 @@ p {
 	line-height: 1.75;
 	letter-spacing: 0.4px;
 }
+.p2 {
+	font-weight: 600;
+	font-size: 20px;
+	letter-spacing: 0.4px;
+	line-height: 32px;
+	color: #00134d;
+	font-family: 'Open Sans';
+}
 .p-128 {
 	padding-top: 128px;
 	padding-bottom: 128px;
@@ -78,7 +86,8 @@ h3 {
 	font-weight: 300;
 	letter-spacing: 0;
 }
-h4 {
+h4,
+.h4 {
 	font-size: 2.25em !important;
 	line-height: 52px;
 	font-size: 36px;

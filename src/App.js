@@ -13,6 +13,7 @@ import Feed from './products/Feed';
 import Discovery from './products/Discovery';
 import Recommend from './products/Recommend';
 import Join from './Join';
+import Policy from './Policy';
 
 class App extends React.Component {
 	render() {
@@ -24,6 +25,7 @@ class App extends React.Component {
 					<Route path="/search" exact component={Search} />
 					<Route path="/team" exact component={Team} />
 					<Route path="/privacy" exact component={Privacy} />
+					<Route path="/Policy" exact component={Policy} />
 					<Route path="/join" exact component={Join} />
 					{/* PRODUCTS */}
 					<Route path="/products" exact>

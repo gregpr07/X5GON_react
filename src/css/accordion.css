@@ -1,0 +1,47 @@
+.accordion .card {
+	border: none;
+	border-top: 1px solid #00ad57;
+	border-bottom: 1px solid #00ad57;
+	border-radius: 0 !important;
+}
+.accordion .card.blue {
+	border-top: 1px solid #00134d;
+	border-bottom: none;
+}
+.accordion .card-header {
+	background: none;
+	border: none;
+	padding-left: 0;
+}
+.accordion .card-header button {
+	padding: 0;
+}
+.plus-minus.show::before {
+	display: inline;
+	content: '+';
+}
+.plus-minus.collapsing::before {
+	content: '+';
+	display: inline;
+}
+.plus-minus.collapsing {
+	display: inline !important;
+}
+.plus-minus::before {
+	content: '-';
+}
+.plus-minus {
+	display: inline !important;
+}
+div.btn:hover {
+	cursor: pointer;
+}
+div.btn {
+	padding: 0;
+}
+.card-body {
+	padding-left: 0;
+}
+.line-h-52 {
+	line-height: 52px !important;
+}
