@@ -104,7 +104,11 @@ class Privacy extends React.Component {
 				</p>
 				<ul className="project-partners">
 					<li>
-						<a className="text-uppercase" href="https://www.ucl.ac.uk/">
+						<a
+							className="text-uppercase"
+							href="https://www.ucl.ac.uk/"
+							target="blank"
+						>
 							University College London
 							<span className="link">
 								<i className="fas fa-external-link-alt" />
@@ -112,7 +116,11 @@ class Privacy extends React.Component {
 						</a>
 					</li>
 					<li>
-						<a className="text-uppercase" href="https://www.ijs.si/ijsw">
+						<a
+							className="text-uppercase"
+							href="https://www.ijs.si/ijsw"
+							target="blank"
+						>
 							Institut Jožef Stefan
 							<span className="link">
 								<i className="fas fa-external-link-alt" />
@@ -120,7 +128,11 @@ class Privacy extends React.Component {
 						</a>
 					</li>
 					<li>
-						<a className="text-uppercase" href="http://www.k4all.org/">
+						<a
+							className="text-uppercase"
+							href="http://www.k4all.org/"
+							target="blank"
+						>
 							Knowledge 4 All Foundation
 							<span className="link">
 								<i className="fas fa-external-link-alt" />
@@ -131,6 +143,7 @@ class Privacy extends React.Component {
 						<a
 							className="text-uppercase"
 							href="http://www.univ-nantes.fr/english-version/welcome-to-universite-de-nantes-714591.kjsp"
+							target="blank"
 						>
 							Université de Nantes
 							<span className="link">
@@ -139,7 +152,11 @@ class Privacy extends React.Component {
 						</a>
 					</li>
 					<li>
-						<a className="text-uppercase" href="https://www.posta.si/zasebno">
+						<a
+							className="text-uppercase"
+							href="https://www.posta.si/zasebno"
+							target="blank"
+						>
 							Posta Slovenije
 							<span className="link">
 								<i className="fas fa-external-link-alt" />
@@ -150,6 +167,7 @@ class Privacy extends React.Component {
 						<a
 							className="text-uppercase"
 							href="http://www.upv.es/index-en.html"
+							target="blank"
 						>
 							Universitat Politecnica de Valencia
 							<span className="link">
@@ -161,6 +179,7 @@ class Privacy extends React.Component {
 						<a
 							className="text-uppercase"
 							href="https://www.uni-osnabrueck.de/en/home.html"
+							target="blank"
 						>
 							Universitaet Osnabrueck
 							<span className="link">
@@ -169,7 +188,11 @@ class Privacy extends React.Component {
 						</a>
 					</li>
 					<li>
-						<a className="text-uppercase" href="http://www.mizs.gov.si/">
+						<a
+							className="text-uppercase"
+							href="http://www.mizs.gov.si/"
+							target="blank"
+						>
 							Ministry of Education of Slovenia
 							<span className="link">
 								<i className="fas fa-external-link-alt" />

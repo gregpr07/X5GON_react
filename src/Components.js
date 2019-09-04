@@ -14,16 +14,16 @@ export const Navbar = props => {
 			link: '/#products'
 		},
 		{
-			li: 'Our Team',
+			li: 'Join',
+			link: '/join'
+		},
+		{
+			li: 'Policy',
+			link: '/policy'
+		},
+		{
+			li: 'Team',
 			link: '/team'
-		},
-		{
-			li: 'Copyright',
-			link: '/copyright'
-		},
-		{
-			li: 'Contact us',
-			link: '/contact'
 		}
 	];
 	// eslint-disable-next-line
@@ -66,7 +66,7 @@ export const Navbar = props => {
 					{content.map((li, index) => {
 						return (
 							<li className="nav-item active ml-lg-3" key={index}>
-								<Link smooth className="nav-link mx-md-2 x-xs-1" to={li.link}>
+								<Link className="nav-link mx-md-2 x-xs-1" to={li.link}>
 									{li.li}
 								</Link>
 							</li>
@@ -157,32 +157,38 @@ export const MoreProducts = props => {
 		{
 			todo: 'Recommend',
 			text: 'Show your content in a network of other sites',
-			link: 'recommend'
+			link: 'recommend',
+			image: 'recommend.png'
 		},
 		{
 			todo: 'Analytics',
 			text: 'Understand the trends of your content usage',
-			link: ''
+			link: '',
+			image: 'analytics.png'
 		},
 		{
 			todo: 'Discovery',
 			text: 'Search and find materials from all over the world',
-			link: 'discovery'
+			link: 'discovery',
+			image: 'discovery.png'
 		},
 		{
 			todo: 'Translate',
 			text: 'Translate your content in every format',
-			link: ''
+			link: '',
+			image: 'translate.png'
 		},
 		{
 			todo: 'Connect',
 			text: 'Make your users connected to all OER sites',
-			link: ''
+			link: '',
+			image: 'connect.png'
 		},
 		{
 			todo: 'Feed',
 			text: 'Provide data for all stakeholders',
-			link: 'feed'
+			link: 'feed',
+			image: 'feed.png'
 		}
 	];
 	const current = props.current;
@@ -236,18 +242,14 @@ export const MoreProducts = props => {
 										className="col-12 col-sm-6 col-md-4 px-4 py-2"
 										key={index}
 									>
-										<div className="card bg-white p-5 px-sm-3 mx-auto">
-											{/* <img
+										<div className="card bg-white px-5 pb-5 pt-3 px-sm-3 mx-auto">
+											<img
 												className="mx-auto mb-3"
-												src={'/illustrations/institutions.png'}
+												src={'/imgs/illustrations/products/' + content.image}
 												width="75%"
 												alt="ecosystem"
-												style={{
-													borderRadius: '50%',
-													backgroundColor: '#4877ff'
-												}}
-											/> */}
-											<div
+											/>
+											{/* <div
 												className="mx-auto mb-5"
 												style={{
 													borderRadius: '50%',
@@ -255,7 +257,7 @@ export const MoreProducts = props => {
 													height: '150px',
 													width: '150px'
 												}}
-											></div>
+											></div> */}
 											<h5 className="text-purple-bold">{content.todo}</h5>
 											<p className="text-muted px-3 m-0 p-0 under mx-auto">
 												{content.text}

@@ -174,7 +174,7 @@ header .under {
 	background-position: left top;
 	height: calc(100vh - 72px);
 	width: 50vw;
-	margin-bottom: -4px;
+	margin-bottom: 0px;
 }
 .background-kids {
 	background-image: url('../images/kids.jpg');
@@ -407,6 +407,7 @@ header .under {
 	.main-img {
 		width: 100vw;
 		background-position: center top;
+		max-height: calc(100vh - 370px);
 	}
 }
 
@@ -433,6 +434,9 @@ header .under {
 		font-size: 28px;
 		line-height: 1.429em;
 		font-weight: 600;
+	}
+	.text-main-header {
+		line-height: 48px;
 	}
 	.benefit-h1 {
 		font-size: 48px !important;

@@ -61,13 +61,18 @@ class Homepage extends React.Component {
 									Knowledge.
 									<b className="d-block">Connected.</b>
 								</h1>
-								<p className="mt-3 mt-lg-3 pt-3 text-white w-100 body-2 pb-lg-5">
+								<p className="mt-3 mt-lg-3 pt-3 text-white w-100 body-2 pb-lg-5 pr-3">
 									We are building World's first ecosystem connecting Open
 									Educational Resource sites for the collective benefit of
 									everyone, everywhere.
 								</p>
+
 								<a href="#more">
-									<img src="/svgs/ArrowDown.svg" height="64px" alt="more" />
+									<img
+										src="/imgs/svgs/ArrowDown.svg"
+										height="64px"
+										alt="more"
+									/>
 								</a>
 							</div>
 						</div>
@@ -190,7 +195,7 @@ class Homepage extends React.Component {
 					p:
 						'Use our platform to discover and curate OER content, and easily distribute and display those OERs in your apps. In your mobile apps, we make it easy to work with the X5GON API and even integrate to grow your project, business or repository around OER content.'
 				},
-				image: 'institutions.jpg'
+				image: 'researchers.jpg'
 			},
 			{
 				group: 'Governments',
@@ -201,7 +206,7 @@ class Homepage extends React.Component {
 					p:
 						'Our ecosystem can give you an insight how your publicly funded resources are getting used. Understand how your citizens are overcoming challenges to engage with publicly funded resources, how local businesses are building on your data and showcase the impact of your investments and political decisions.'
 				},
-				image: 'institutions.jpg'
+				image: 'governments.jpg'
 			}
 		];
 		return (
@@ -226,7 +231,7 @@ class Homepage extends React.Component {
 									>
 										<ScrollAnimation animateIn="fadeIn" animateOnce={true}>
 											<img
-												src={'illustrations/' + content.image}
+												src={'/imgs/illustrations/' + content.image}
 												width="100%"
 												alt="ecosystem"
 											/>
@@ -299,7 +304,7 @@ class Homepage extends React.Component {
 						}
 					>
 						<img
-							src={'illustrations/join-forces.jpg'}
+							src={'imgs/illustrations/join-forces.jpg'}
 							width="100%"
 							alt="ecosystem"
 						/>
@@ -373,13 +378,42 @@ class Homepage extends React.Component {
 		);
 	};
 	Partners = () => {
+		const partners = [
+			'IJS',
+			'K4A',
+			'MIZS',
+			'posta_slo',
+
+			'UO',
+			'UPV',
+			'UCL',
+			'UDN'
+		];
 		return (
-			<div className="bg-light partners">
-				<div
-					className="maxer mx-auto products pt-128"
-					style={{ height: '400px' }}
-				>
-					partners
+			<div className="bg-light partners px-5">
+				<div className="maxer mx-auto products p-128 row">
+					{partners.map((image, index) => (
+						<div
+							className={
+								'col-md-3 col-6 ' +
+								(this.state.screenWidth > this.breakpoints.md && index < 4
+									? 'mb-5'
+									: 'mt-5')
+							}
+						>
+							<img
+								src={'/imgs/sponsors/' + image + '_logo copy.png'}
+								alt={image}
+								className="mx-auto d-block"
+								height={
+									this.state.screenWidth > this.breakpoints.md ? '100%' : 'auto'
+								}
+								width={
+									this.state.screenWidth > this.breakpoints.md ? 'auto' : '100%'
+								}
+							></img>
+						</div>
+					))}
 				</div>
 			</div>
 		);
