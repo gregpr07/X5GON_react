@@ -1,7 +1,7 @@
 import React from 'react';
 import './css/app.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Footer } from './Components';
+import { Footer, DisplayWidth } from './Components';
 import ScrollToTop from 'react-router-scroll-top';
 
 import Search from './Search';
@@ -20,6 +20,7 @@ class App extends React.Component {
 		return (
 			<Router>
 				<ScrollToTop>
+					<DisplayWidth />
 					<Route path="/" exact component={Homepage} />
 					<Route path="/products" exact component={Products} />
 					<Route path="/search" exact component={Search} />

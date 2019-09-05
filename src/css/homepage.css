@@ -1,6 +1,13 @@
 /* header {
 	background: #212266;
 } */
+/* TO REMOVE */
+.screen-width {
+	z-index: 10000;
+}
+
+/* TO REMOVE */
+
 body {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
@@ -413,6 +420,10 @@ header .under {
 }
 .bg-blue {
 	background-color: #009ccc;
+}
+.partners img {
+	max-width: 100%;
+	height: auto;
 }
 
 @media (max-width: 992px) {

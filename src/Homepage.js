@@ -4,7 +4,7 @@ import './css/homepage.css';
 import './css/animate.css';
 import { Link } from 'react-router-dom';
 import ScrollAnimation from 'react-animate-on-scroll';
-import { MoreProducts, Navbar } from './Components';
+import { MoreProducts, Navbar, CurrentWidth } from './Components';
 import SmoothScroll from 'smooth-scroll';
 
 class Homepage extends React.Component {
@@ -12,7 +12,6 @@ class Homepage extends React.Component {
 		super(props);
 		this.state = {
 			screenWidth: null,
-			shouldChangeElementsDef: null,
 			hide: {}
 		};
 	}
@@ -31,8 +30,7 @@ class Homepage extends React.Component {
 
 	updateScreenSize = () => {
 		this.setState({
-			screenWidth: window.innerWidth,
-			shouldChangeElementsDef: window.innerWidth >= this.breakpoints.md
+			screenWidth: window.innerWidth
 		});
 	};
 
@@ -223,8 +221,7 @@ class Homepage extends React.Component {
 								<div className="row pt-128 h-100" key={index}>
 									<div
 										className={
-											index % 2 !== 0 &&
-											this.state.screenWidth >= this.breakpoints.md
+											index % 2 !== 0 && CurrentWidth() >= this.breakpoints.md
 												? 'order-last ' + style
 												: style
 										}
@@ -298,7 +295,7 @@ class Homepage extends React.Component {
 				<div className="row px-4 mx-1 px-md-5 mx-sm-3 h-100 join p-128">
 					<div
 						className={
-							this.state.screenWidth >= this.breakpoints.sm
+							CurrentWidth() >= this.breakpoints.sm
 								? 'order-last ' + style
 								: style
 						}
@@ -397,21 +394,17 @@ class Homepage extends React.Component {
 							key={index}
 							className={
 								'col-md-3 col-6 ' +
-								(this.state.screenWidth > this.breakpoints.md && index < 4
+								(CurrentWidth() > this.breakpoints.md && index < 4
 									? 'mb-5'
 									: 'mt-5')
 							}
 						>
 							<img
-								src={'/imgs/sponsors/' + image + '_logo copy.png'}
+								src={'/imgs/partners/' + image + '_logo copy.png'}
 								alt={image}
 								className="mx-auto d-block"
-								height={
-									this.state.screenWidth > this.breakpoints.md ? '100%' : 'auto'
-								}
-								width={
-									this.state.screenWidth > this.breakpoints.md ? 'auto' : '100%'
-								}
+								height={CurrentWidth() > this.breakpoints.md ? '100%' : 'auto'}
+								width={CurrentWidth() > this.breakpoints.md ? 'auto' : '100%'}
 							></img>
 						</div>
 					))}
@@ -445,7 +438,7 @@ class Homepage extends React.Component {
 						<div className={index % 2 ? 'bg-white' : 'bg-black'} key={index}>
 							<div className="mx-auto">
 								<div className={'row no-gutters'}>
-									{this.state.screenWidth < this.breakpoints.lg ? (
+									{CurrentWidth() < this.breakpoints.lg ? (
 										<div className={'col-lg-6 m-0 p-0'}>
 											<div
 												className="background-kids"
@@ -517,7 +510,7 @@ class Homepage extends React.Component {
 					<div className="row px-3 px-md-5 m-0 h-100">
 						<div
 							className={
-								this.state.screenWidth <= this.breakpoints.sm
+								CurrentWidth() <= this.breakpoints.sm
 									? 'order-last ' + style
 									: style
 							}
@@ -551,17 +544,15 @@ class Homepage extends React.Component {
 	render() {
 		return (
 			<div className="wrapper">
-				<div className="screen-width">{this.state.screenWidth}</div>
 				<this.Header />
 				<div id="more"></div>
 				<this.Description />
 				<this.Ecosystem />
 				<MoreProducts padding={true} homepage={true} />
 				<this.Join />
-				{/* <this.Offers /> */}
+
 				<this.Partners />
 				<this.Drafts />
-				{/* <this.Unesco /> */}
 			</div>
 		);
 	}

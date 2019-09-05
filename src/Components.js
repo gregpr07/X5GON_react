@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './css/bootstrap.css';
 import './css/components.css';
 import { Link } from 'react-router-dom';
@@ -181,7 +181,14 @@ export const Footer = () => {
 	const UL = name => {
 		name = name.name;
 		return (
-			<div className="col-3 pl-0">
+			<div
+				className={
+					'col-6 col-md-3 pl-0 pb-5 ' +
+					((name === 'PRODUCTS' || name === 'CONTACT') && CurrentWidth() < 768
+						? 'order-last'
+						: null)
+				}
+			>
 				<p className="bold">{name}</p>
 				{contents[name].map((object, index) => {
 					const style = 'd-block mt-2';
@@ -213,24 +220,24 @@ export const Footer = () => {
 		);
 	};
 	return (
-		<div className="bg-black text-white">
+		<div className="foot bg-black text-white">
 			<div className="maxer mx-auto row p-5">
-				<div className="col-4">
+				<div className="col-md-3 col-lg-4 col-12 pl-0 pb-4 pb-md-0">
 					<b>X5</b>GON
 				</div>
-				<div className="col-8">
-					<div className="row border-bottom pb-5">
+				<div className="col-md-9 col-lg-8 col-12">
+					<div className="row border-bottom">
 						<UL name="GO-TO"></UL>
 						<UL name="PRODUCTS"></UL>
 						<UL name="CONTACT"></UL>
 						<UL name="SUPPORT"></UL>
 					</div>
 					<div className="row mt-5">
-						<div className="col-md-3 col-5 m-0 pl-0">
+						<div className="col-md-3 col-3 m-0 pl-0">
 							<img alt="flag" src="/euflag.png" width="100%" className="m-0" />
 						</div>
-						<div className="col-md-7 col-5 m-0">
-							<p className="my-auto m-0">
+						<div className="col-9 m-0 col-xl-7">
+							<p className="my-auto m-0 p-0">
 								This project has received funding from the European Union’s
 								Horizon new policy 2020 research and innovation programme under
 								grant agreement No 761758.
@@ -242,9 +249,6 @@ export const Footer = () => {
 		</div>
 	);
 };
-
-// UNFINISHED
-
 export const MoreProducts = props => {
 	let contents = [
 		{
@@ -383,6 +387,25 @@ export const MoreProducts = props => {
 			</div>
 		</div>
 	);
+};
+export const CurrentWidth = () => {
+	const [width, setWidth] = useState(window.innerWidth);
+	useEffect(() => {
+		const handleResize = () => {
+			setWidth(window.innerWidth);
+		};
+		window.addEventListener('resize', handleResize);
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	}, []);
+	return width;
+};
+// UNFINISHED
+
+// REMOVE IN FINAL VERSION
+export const DisplayWidth = () => {
+	return <div className="screen-width">{CurrentWidth()}</div>;
 };
 
 // DEPRECIATED
