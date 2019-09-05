@@ -277,13 +277,13 @@ export const MoreProducts = props => {
 		},
 		{
 			todo: 'Connect',
-			text: 'Make your users connected to all OER sites',
+			text: 'Make your users connected to all OER sites in Moodle',
 			link: '',
 			image: 'connect.png'
 		},
 		{
 			todo: 'Feed',
-			text: 'Provide data for all stakeholders',
+			text: 'Provide data for all stakeholders via API',
 			link: 'feed',
 			image: 'feed.png'
 		}
@@ -388,6 +388,7 @@ export const MoreProducts = props => {
 		</div>
 	);
 };
+
 export const CurrentWidth = () => {
 	const [width, setWidth] = useState(window.innerWidth);
 	useEffect(() => {

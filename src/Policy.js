@@ -6,12 +6,6 @@ import './css/accordion.css';
 import { Navbar } from './Components';
 
 class Policy extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			show: {}
-		};
-	}
 	Header = () => {
 		return (
 			<div className="bg-black">
@@ -26,8 +20,7 @@ class Policy extends React.Component {
 								</p>
 								<h1 className="text-white mt-3">Policy</h1>
 								<h4 className="maxer-625 mb-5 mt-3 pb-3">
-									We suggest a pact that empowers all involved OER sites and
-									players.
+									Read the Recommendation and align policy and technology
 								</h4>
 								<div className="button-green">Download draft</div>
 							</div>
@@ -265,8 +258,9 @@ class Policy extends React.Component {
 			<div className="bg-white p-128 maxer mx-auto">
 				<div className="mx-lg-1 px-4">
 					<h4 className="maxer-880 text-purple">
-						X5GON's Recommendation increases user engagement across each of your
-						content pages, improving visibility of your content.
+						The new UNESCO Recommendation in OER can be implemented via our
+						technology and can be used to empower you and all other
+						stakeholders.
 					</h4>
 					<this.Accordion />
 				</div>

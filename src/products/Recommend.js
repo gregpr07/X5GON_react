@@ -1,42 +1,10 @@
 import React from 'react';
 import '../css/bootstrap.css';
 
-import { Navbar, MoreProducts } from '../Components';
+import { MoreProducts } from '../Components';
+import { StandardHeader, MakeParagraphs } from './ProductsComponents';
 
-class Recommend extends React.Component {
-	Header = () => {
-		return (
-			<div className="bg-sky">
-				<Navbar />
-				<div className="p-128 text-white maxer mx-auto">
-					<div className="row">
-						<div className="col-12 col-md-7">
-							<div className="pl-4 ml-1 mx-auto">
-								<p className="text-ecosystem text-white text-left pb-3 mb-0">
-									PRODUCT
-								</p>
-								<h1 className="text-white mt-3">Recommend</h1>
-								<h4 className="maxer-625 mb-5 mt-3 pb-3">
-									Show your content in a network of other sites!
-								</h4>
-								<div className="button-green">Try Now</div>
-							</div>
-						</div>
-						<div className="col-12 col-md-5 bg-white">
-							<div
-								style={{
-									background: 'white',
-									height: '100%',
-									width: '100%',
-									borderRadius: '100px'
-								}}
-							></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		);
-	};
+export default class Recommend extends React.Component {
 	Description = () => {
 		const contents = [
 			[
@@ -58,31 +26,30 @@ class Recommend extends React.Component {
 						capable of understanding and recommending OERs across different
 						sites, languages, modalities such as video, documents and textbooks.
 					</h4>
-					<div className="row">
-						{contents.map((list, index) => {
-							return (
-								<div className="col-12 col-md-6 text-muted">
-									{list.map(paragraph => {
-										return <p className="maxer-540 pr-3">{paragraph}</p>;
-									})}
-								</div>
-							);
-						})}
-					</div>
+
+					<MakeParagraphs object={contents} />
 				</div>
 			</div>
 		);
 	};
 
 	render() {
+		const currentProduct = 'Recommend';
 		return (
 			<div>
-				<this.Header />
+				<StandardHeader
+					object={{
+						product: currentProduct,
+						description: 'Show your content in a network of other sites!',
+						button: {
+							text: 'Try Now',
+							link: ''
+						}
+					}}
+				/>
 				<this.Description />
-				<MoreProducts current="Recommend" padding />
+				<MoreProducts current={currentProduct} padding />
 			</div>
 		);
 	}
 }
-
-export default Recommend;

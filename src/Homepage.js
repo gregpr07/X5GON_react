@@ -11,7 +11,6 @@ class Homepage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			screenWidth: null,
 			hide: {}
 		};
 	}
@@ -19,20 +18,6 @@ class Homepage extends React.Component {
 	breakpoints = { sm: 576, md: 768, lg: 992, xl: 1200 };
 
 	// FUNCTIONS
-	componentDidMount = () => {
-		this.updateScreenSize();
-		window.addEventListener('resize', this.updateScreenSize);
-	};
-
-	componentWillUnmount = () => {
-		window.removeEventListener('resize', this.updateScreenSize);
-	};
-
-	updateScreenSize = () => {
-		this.setState({
-			screenWidth: window.innerWidth
-		});
-	};
 
 	// COMPONENTS
 	Header = () => {
