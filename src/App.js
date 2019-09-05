@@ -12,6 +12,7 @@ import Privacy from './Privacy';
 import Feed from './products/Feed';
 import Discovery from './products/Discovery';
 import Analytics from './products/Analytics';
+import Translate from './products/Translate';
 import Recommend from './products/Recommend';
 import Join from './Join';
 import Policy from './Policy';
@@ -34,6 +35,7 @@ class App extends React.Component {
 						<Route path="/products/feed" exact component={Feed} />
 						<Route path="/products/discovery" exact component={Discovery} />
 						<Route path="/products/recommend" exact component={Recommend} />
+						<Route path="/products/translate" exact component={Translate} />
 						<Route path="/products/analytics" exact component={Analytics} />
 					</Route>
 
