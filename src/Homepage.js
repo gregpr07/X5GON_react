@@ -60,7 +60,7 @@ class Homepage extends React.Component {
 							</div>
 						</div>
 						<div className="col-md-12 col-lg-6">
-							<div className="main-img"></div>
+							<div className="main-img animated fadeIn slower"></div>
 						</div>
 					</div>
 				</div>
@@ -228,7 +228,9 @@ class Homepage extends React.Component {
 											delay={250}
 										>
 											<div className="width-limit mx-auto">
-												<h3 className="text-lg-left">{content.group}</h3>
+												<h3 className="text-lg-left text-purple">
+													{content.group}
+												</h3>
 												<p className="py-3 pb-lg-0 mb-md-4 mb-2">
 													{content.text}
 												</p>
@@ -425,10 +427,12 @@ class Homepage extends React.Component {
 								<div className={'row no-gutters'}>
 									{CurrentWidth() < this.breakpoints.lg ? (
 										<div className={'col-lg-6 m-0 p-0'}>
-											<div
-												className="background-kids"
-												style={{ height: '80vw', width: '100%' }}
-											></div>
+											{index !== 0 ? (
+												<div
+													className="background-kids"
+													style={{ height: '80vw', width: '100%' }}
+												></div>
+											) : null}
 										</div>
 									) : (
 										<div
@@ -436,7 +440,9 @@ class Homepage extends React.Component {
 												'col-lg-6 m-0 p-0' + (index % 2 ? ' order-last' : null)
 											}
 										>
-											<div className="background-kids"></div>
+											{index !== 1 ? (
+												<div className="background-kids"></div>
+											) : null}
 										</div>
 									)}
 
@@ -480,64 +486,17 @@ class Homepage extends React.Component {
 			</div>
 		);
 	};
-	Unesco = () => {
-		const content = {
-			title: 'UNESCO Guidelines',
-			text: [
-				'In November 2019 UNESCO’s General Assembly will adopt the OER Recommendation policy that will enable 193 Member States to acknowledge and create implementation policies for OER.',
-				'This technology has been designed as a technical means to immediately showcase the national and institutional value on a Global scale and to be implemented quickly and be used as a support mechanism for stakeholders and this new policy.'
-			]
-		};
-		const style = 'col-12 col-sm-6 my-auto';
-		return (
-			<div className="bg-blue p-128">
-				<div className="maxer mx-auto">
-					<div className="row px-3 px-md-5 m-0 h-100">
-						<div
-							className={
-								CurrentWidth() <= this.breakpoints.sm
-									? 'order-last ' + style
-									: style
-							}
-						>
-							<img src={'unesco.png'} width="100%" alt="unesco" />
-						</div>
-
-						<div className={style}>
-							<p className="text-purple text-center text-sm-left">
-								JOIN EQUITY
-							</p>
-							<h2 className="text-purple mb-4 text-center text-sm-left">
-								{content.title}
-							</h2>
-							{content.text.map((p, index) => {
-								return (
-									<p
-										className="text-purple text-center text-sm-left"
-										key={index}
-									>
-										{p}
-									</p>
-								);
-							})}
-						</div>
-					</div>
-				</div>
-			</div>
-		);
-	};
 	render() {
 		return (
 			<div className="wrapper">
 				<this.Header />
-				<div id="more"></div>
+				<div id="more" />
 				<this.Description />
 				<this.Ecosystem />
 				<MoreProducts padding={true} homepage={true} />
 				<this.Join />
-
-				<this.Partners />
 				<this.Drafts />
+				<this.Partners />
 			</div>
 		);
 	}

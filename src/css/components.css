@@ -9,3 +9,8 @@ a:hover {
 .foot a:hover {
 	color: #00ad57;
 }
+.footer-li-text {
+	font-size: 12px;
+	letter-spacing: 0.4px;
+	line-height: 28px;
+}

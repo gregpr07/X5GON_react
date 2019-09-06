@@ -72,7 +72,7 @@ h6,
 }
 h1 {
 	font-size: 6em !important;
-	font-weight: 200;
+	font-weight: 200 !important;
 	letter-spacing: -0.4;
 	font-size: 96px;
 }
@@ -188,13 +188,20 @@ header .under {
 	margin-bottom: 0px;
 }
 .background-kids {
-	background-image: url('../images/kids.jpg');
+	background-image: url('../images/policy_landing.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: left top;
-	height: 550px;
+	height: 800px;
+	max-height: 80vh;
 	min-height: 50vh;
 	width: 50vw;
+}
+.bg-join-header {
+	background-image: url('../images/join_forces_header_image.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
 }
 .h-stats {
 	font-size: 48px;

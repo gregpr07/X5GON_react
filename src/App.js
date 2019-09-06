@@ -1,5 +1,4 @@
 import React from 'react';
-import './css/app.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Footer, DisplayWidth } from './Components';
 import ScrollToTop from 'react-router-scroll-top';
@@ -38,6 +37,7 @@ class App extends React.Component {
 						<Route path="/products/translate" exact component={Translate} />
 						<Route path="/products/analytics" exact component={Analytics} />
 					</Route>
+					{/* /PRODUCTS */}
 
 					<Footer />
 				</ScrollToTop>

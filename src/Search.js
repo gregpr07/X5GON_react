@@ -28,8 +28,7 @@ class Search extends React.Component {
 	}
 	// FUNCTIONS
 	componentWillMount = () => {
-		console.log('waw');
-		fetch('recommendation_words.json').then(async resp => {
+		fetch('/search/recommendation_words.json').then(async resp => {
 			const data = await resp.json();
 			this.setState({
 				wordlist: data.words
@@ -70,7 +69,7 @@ class Search extends React.Component {
 						IsSearching: true
 					});
 				});
-			console.log(this.state);
+			//console.log(this.state);
 		}
 	};
 	ChangeSearchKey = value => {
@@ -232,7 +231,7 @@ class Search extends React.Component {
 			return (
 				<div>
 					<img
-						src="Ripple-1.4s-200px.gif"
+						src="/imgs/loading-icon.gif"
 						alt="loading-animation"
 						height="50px"
 						className="loading-icon"

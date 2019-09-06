@@ -66,7 +66,7 @@ class Team extends React.Component {
 										<div className="px-sm-3 mx-auto card text-center">
 											<img
 												className="mx-auto mb-3"
-												src={content.photo}
+												src={'imgs/team/' + content.photo}
 												width="75%"
 												alt="ecosystem"
 												style={{ borderRadius: '50%' }}

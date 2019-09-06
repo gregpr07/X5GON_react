@@ -77,28 +77,6 @@ export const Navbar = props => {
 		</nav>
 	);
 };
-export const EU = () => {
-	return (
-		<div className="maxer-800 mx-auto">
-			<div className="m-0">
-				<div className="row p-4 m-1 m-sm-3">
-					<div className="row">
-						<div className="col-md-3 col-5 m-0">
-							<img alt="flag" src="/euflag.png" width="100%" className="m-0" />
-						</div>
-						<div className="col-md-9 col-7 m-0">
-							<p className="my-auto m-0">
-								This project has received funding from the European Union’s
-								Horizon new policy 2020 research and innovation programme under
-								grant agreement No 761758.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
-};
 export const Footer = () => {
 	const contents = {
 		'GO-TO': [
@@ -173,13 +151,14 @@ export const Footer = () => {
 				link: 'https://platform.x5gon.org/docs/x5gon-docs.pdf'
 			},
 			{
-				page: 'Privacy',
+				page: 'Privacy & policy',
 				link: '/privacy'
 			}
 		]
 	};
 	const UL = name => {
 		name = name.name;
+		const style = 'd-block footer-li-text';
 		return (
 			<div
 				className={
@@ -189,9 +168,17 @@ export const Footer = () => {
 						: null)
 				}
 			>
-				<p className="bold">{name}</p>
+				<p
+					style={{
+						fontSize: '12px',
+						letterSpacing: '3.4px',
+						lineHeight: '24px',
+						fontWeight: '700'
+					}}
+				>
+					{name}
+				</p>
 				{contents[name].map((object, index) => {
-					const style = 'd-block mt-2';
 					if (name !== 'CONTACT') {
 						return (
 							<Link
@@ -203,6 +190,7 @@ export const Footer = () => {
 								{object.page}
 							</Link>
 						);
+					} else if (object.page === 'Documentation') {
 					} else {
 						return (
 							<a
@@ -220,10 +208,10 @@ export const Footer = () => {
 		);
 	};
 	return (
-		<div className="foot bg-black text-white">
+		<div className="foot bg-black text-white p-md-5">
 			<div className="maxer mx-auto row p-5">
 				<div className="col-md-3 col-lg-4 col-12 pl-0 pb-4 pb-md-0">
-					<b>X5</b>GON
+					{/* <b>X5</b>GON */}
 				</div>
 				<div className="col-md-9 col-lg-8 col-12">
 					<div className="row border-bottom">
@@ -233,11 +221,19 @@ export const Footer = () => {
 						<UL name="SUPPORT"></UL>
 					</div>
 					<div className="row mt-5">
-						<div className="col-md-3 col-3 m-0 pl-0">
-							<img alt="flag" src="/euflag.png" width="100%" className="m-0" />
+						<div className="col-2 m-0 pl-0">
+							<img
+								alt="flag"
+								src="/imgs/euflag.png"
+								width="100%"
+								className="m-0"
+							/>
 						</div>
 						<div className="col-9 m-0 col-xl-7">
-							<p className="my-auto m-0 p-0">
+							<p
+								className="my-auto m-0 p-0 footer-li-text"
+								style={{ lineHeight: '20px' }}
+							>
 								This project has received funding from the European Union’s
 								Horizon new policy 2020 research and innovation programme under
 								grant agreement No 761758.

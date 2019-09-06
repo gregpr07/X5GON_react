@@ -25,7 +25,7 @@ class Policy extends React.Component {
 								<div className="button-green">Download draft</div>
 							</div>
 						</div>
-						<div className="col-12 col-md-5 bg-white">
+						{/* <div className="col-12 col-md-5 bg-white">
 							<div
 								style={{
 									background: 'white',
@@ -34,7 +34,7 @@ class Policy extends React.Component {
 									borderRadius: '100px'
 								}}
 							></div>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</div>
@@ -168,10 +168,9 @@ class Policy extends React.Component {
 			}
 		];
 		return (
-			<div className="accordion my-5" id="accordionExample">
+			<div className="accordion pt-128" id="accordionExample">
 				{contents.map((object, index) => {
 					const targetID = 'collapse' + index + object.title.slice(0, 3);
-					console.log(targetID);
 					return (
 						<div className="card" key={index}>
 							<div className="card-header" id="headingOne">
@@ -199,7 +198,7 @@ class Policy extends React.Component {
 							>
 								<div className="card-body">
 									{object.paragraphs.map((paragraph, subindex) => (
-										<p key={subindex} className="text-muted">
+										<p key={subindex} className="text-muted maxer-880">
 											{paragraph}
 										</p>
 									))}
@@ -222,7 +221,7 @@ class Policy extends React.Component {
 																{object.title}
 																<span
 																	id={targetID}
-																	className="float-right collapse show plus-minus"
+																	className="float-right collapse show plus-minus blue"
 																></span>
 															</p>
 														</div>
@@ -235,7 +234,10 @@ class Policy extends React.Component {
 													>
 														<div className="card-body">
 															{object.paragraphs.map((paragraph, subindex) => (
-																<p key={subindex} className="text-muted">
+																<p
+																	key={subindex}
+																	className="text-muted maxer-880"
+																>
 																	{paragraph}
 																</p>
 															))}

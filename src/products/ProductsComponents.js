@@ -18,15 +18,15 @@ export const StandardHeader = object => {
 							<div className="button-green">{object.button.text}</div>
 						</div>
 					</div>
-					<div className="col-12 col-md-5 bg-white">
-						<div
+					<div className="col-12 col-md-5">
+						{/* <div
 							style={{
 								background: 'white',
 								height: '100%',
 								width: '100%',
 								borderRadius: '100px'
 							}}
-						></div>
+						></div> */}
 					</div>
 				</div>
 			</div>
@@ -39,9 +39,9 @@ export const MakeParagraphs = contents => {
 		<div className="row">
 			{contents.map((list, index) => {
 				return (
-					<div className="col-12 col-md-6 text-muted">
+					<div className="col-12 col-md-12 text-muted">
 						{list.map(paragraph => {
-							return <p className="maxer-540 pr-3">{paragraph}</p>;
+							return <p className="maxer-880 pr-3">{paragraph}</p>;
 						})}
 					</div>
 				);
