@@ -33,7 +33,7 @@
 }
 .plus-minus.collapsing {
 	display: inline;
-	background-image: url('../images/xl_plus_icon.svg');
+	background-image: url('../images/xl_minus_icon.svg');
 }
 .plus-minus {
 	background-image: url('../images/xl_minus_icon.svg');
@@ -50,7 +50,7 @@
 }
 .plus-minus.collapsing.blue {
 	display: inline;
-	background-image: url('../images/xl_plus_icon_blue.svg');
+	background-image: url('../images/xl_minus_icon_blue.svg');
 }
 .plus-minus.blue {
 	background-image: url('../images/xl_minus_icon_blue.svg');

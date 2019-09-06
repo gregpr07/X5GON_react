@@ -192,13 +192,19 @@ header .under {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: left top;
-	height: 800px;
 	max-height: 80vh;
 	min-height: 50vh;
+	height: 100%;
 	width: 50vw;
 }
 .bg-join-header {
 	background-image: url('../images/join_forces_header_image.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+.bg-policy-header {
+	background-image: url('../images/policy_header.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
@@ -305,7 +311,7 @@ header .under {
 	max-width: 176px;
 	padding-top: 7px;
 	padding-bottom: 9px;
-	border-radius: 20px;
+	border-radius: 4px;
 	border: solid 1.5px transparent;
 	background: #00ad57;
 	font-size: 14px;

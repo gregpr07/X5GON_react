@@ -8,7 +8,7 @@ import { Navbar } from './Components';
 class Policy extends React.Component {
 	Header = () => {
 		return (
-			<div className="bg-black">
+			<div className="bg-policy-header">
 				<Navbar />
 
 				<div className="p-128 text-white maxer mx-auto">

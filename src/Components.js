@@ -40,12 +40,21 @@ export const Navbar = props => {
 	return (
 		<nav
 			className={
-				'navbar navbar-expand-sm navbar-' + (props.light ? 'light' : 'dark')
+				'navbar pt-3 px-4 navbar-expand-sm navbar-' +
+				(props.light ? 'light' : 'dark')
 			}
 		>
 			<div className="navbar-brand">
 				<Link to="" className="nav-link">
-					<b>X5</b>GON
+					<img
+						src={
+							'/imgs/logo/x5gon_logo_' +
+							(props.light ? 'light' : 'dark') +
+							'.svg'
+						}
+						height="22px"
+						alt="logo"
+					></img>
 				</Link>
 			</div>
 			<button
@@ -209,9 +218,13 @@ export const Footer = () => {
 	};
 	return (
 		<div className="foot bg-black text-white p-md-5">
-			<div className="maxer mx-auto row p-5">
-				<div className="col-md-3 col-lg-4 col-12 pl-0 pb-4 pb-md-0">
-					{/* <b>X5</b>GON */}
+			<div className="maxer mx-auto row py-5 px-4">
+				<div className="col-md-3 col-lg-4 col-12 pl-0 pb-4 pb-md-0 px-1">
+					<img
+						src={'/imgs/logo/x5gon_logo_dark.svg'}
+						height="22px"
+						alt="logo"
+					></img>
 				</div>
 				<div className="col-md-9 col-lg-8 col-12">
 					<div className="row border-bottom">
