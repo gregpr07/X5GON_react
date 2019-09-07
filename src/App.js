@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Footer, DisplayWidth } from './Components';
-import ScrollToTop from 'react-router-scroll-top';
+import ScrollToTop from './ScrollToTop';
 
 import Search from './Search';
 import Homepage from './Homepage';

@@ -200,6 +200,7 @@ export const Footer = () => {
 							</Link>
 						);
 					} else if (object.page === 'Documentation') {
+						return null;
 					} else {
 						return (
 							<a
@@ -269,7 +270,7 @@ export const MoreProducts = props => {
 		{
 			todo: 'Analytics',
 			text: 'Understand the trends of your content usage',
-			link: '',
+			link: 'analytics',
 			image: 'analytics.png'
 		},
 		{
@@ -281,13 +282,13 @@ export const MoreProducts = props => {
 		{
 			todo: 'Translate',
 			text: 'Translate your content in every format',
-			link: '',
+			link: 'translate',
 			image: 'translate.png'
 		},
 		{
 			todo: 'Connect',
 			text: 'Make your users connected to all OER sites in Moodle',
-			link: '',
+			link: 'connect',
 			image: 'connect.png'
 		},
 		{
@@ -311,7 +312,6 @@ export const MoreProducts = props => {
 	return (
 		<div
 			className={'bg-sky px-4 products ' + (props.padding ? ' p-128' : null)}
-			id="products"
 		>
 			<div className="maxer mx-auto">
 				<div className="text-center px-lg-5">

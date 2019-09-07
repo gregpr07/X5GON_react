@@ -14,3 +14,42 @@ a:hover {
 	letter-spacing: 0.4px;
 	line-height: 28px;
 }
+.translate-api a {
+	color: #00ad57;
+}
+.translate-api a:hover {
+	text-decoration: underline;
+}
+.translate-api ul ul {
+	list-style-type: circle;
+}
+.translate-api ul {
+	list-style-type: square;
+}
+.translate-api ul ul ul {
+	list-style-type: square;
+}
+.translate-api ul ul ul ul {
+	list-style-type: disc;
+}
+.code-block {
+	padding: 1rem;
+	background-color: #f1f1f1;
+	margin-bottom: 1rem;
+}
+.code-block p:last-child {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+.json-colors {
+	color: #00ad57;
+	margin-bottom: 1rem;
+	margin-left: 1rem;
+}
+.json-colors p {
+	margin: 0;
+}
+.json-colors p:first-child,
+.json-colors p:last-child {
+	margin-left: -1rem;
+}

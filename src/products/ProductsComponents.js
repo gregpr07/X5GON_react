@@ -7,8 +7,8 @@ export const StandardHeader = object => {
 		<div className="bg-sky">
 			<Navbar />
 			<div className="p-128 text-white maxer mx-auto">
-				<div className="row">
-					<div className="col-12 col-md-7">
+				<div className="row maxer-880">
+					<div className="col-12">
 						<div className="pl-4 ml-1 mx-auto">
 							<p className="text-ecosystem text-white text-left pb-3 mb-0">
 								PRODUCT
@@ -18,16 +18,16 @@ export const StandardHeader = object => {
 							<div className="button-green">{object.button.text}</div>
 						</div>
 					</div>
-					<div className="col-12 col-md-5">
-						{/* <div
+					{/* <div className="col-12 col-md-5">
+						<div
 							style={{
 								background: 'white',
 								height: '100%',
 								width: '100%',
 								borderRadius: '100px'
 							}}
-						></div> */}
-					</div>
+						></div>
+					</div> */}
 				</div>
 			</div>
 		</div>

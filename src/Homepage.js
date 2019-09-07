@@ -493,6 +493,7 @@ class Homepage extends React.Component {
 				<div id="more" />
 				<this.Description />
 				<this.Ecosystem />
+				<div id="products" />
 				<MoreProducts padding={true} homepage={true} />
 				<this.Join />
 				<this.Drafts />

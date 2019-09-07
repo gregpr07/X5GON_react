@@ -12,8 +12,8 @@ class Policy extends React.Component {
 				<Navbar />
 
 				<div className="p-128 text-white maxer mx-auto">
-					<div className="row">
-						<div className="col-12 col-md-7">
+					<div className="row maxer-880">
+						<div className="col-12">
 							<div className="pl-4 ml-1 mx-auto">
 								<p className="text-ecosystem text-white text-left pb-3 mb-0">
 									CONTRIBUTE

@@ -1857,7 +1857,10 @@ class Team extends React.Component {
 							<p className="information">
 								Get a list of personalized open educational bundles
 								recommendations. The personalization is performed via the
-								<a href="https://en.wikipedia.org/wiki/Collaborative_filtering">
+								<a
+									href="https://en.wikipedia.org/wiki/Collaborative_filtering"
+									target="blank"
+								>
 									<b className="doc">collaborative filtering</b>
 								</a>
 								method.
@@ -3002,9 +3005,9 @@ class Team extends React.Component {
 																<h1 style={{ color: 'red' }}>
 																	NAPACN LINK JE TUKI
 																</h1>
-																<a href="/join" className="doc">
+																<Link to="/join#form" className="doc">
 																	registration form
-																</a>
+																</Link>
 																.
 															</td>
 														</tr>
