@@ -1,22 +1,25 @@
 import React from 'react';
 import { Navbar } from '../Components';
+import { Link } from 'react-router-dom';
 
 export const StandardHeader = object => {
 	object = object.object;
 	return (
-		<div className="bg-sky">
+		<div className={object.background ? object.background : 'bg-sky'}>
 			<Navbar />
 			<div className="p-128 text-white maxer mx-auto">
-				<div className="row maxer-880">
-					<div className="col-12">
-						<div className="pl-4 ml-1 mx-auto">
-							<p className="text-ecosystem text-white text-left pb-3 mb-0">
-								PRODUCT
-							</p>
-							<h1 className="text-white mt-3">{object.product}</h1>
-							<h4 className="maxer-625 mb-5 mt-3 pb-3">{object.description}</h4>
+				<div className="maxer-880">
+					<div className="pl-4 ml-1 mx-auto">
+						<p className="text-ecosystem text-white text-left pb-3 mb-0 pl-1">
+							{object.subheader ? object.subheader : 'PRODUCT'}
+						</p>
+						<h1 className="text-white mt-3">{object.product}</h1>
+						<h4 className="maxer-625 mb-5 mt-0 mt-md-3 pb-3">
+							{object.description}
+						</h4>
+						<Link to={object.button.link ? object.button.link : ''}>
 							<div className="button-green">{object.button.text}</div>
-						</div>
+						</Link>
 					</div>
 					{/* <div className="col-12 col-md-5">
 						<div

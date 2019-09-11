@@ -26,6 +26,8 @@ export default class Translate extends React.Component {
 						quality comparable with Google Translate.
 					</h4>
 					<MakeParagraphs object={contents} />
+					<p className="p2 pt-128 pb-5 mb-3">Check the API</p>
+					<this.Accordion />
 				</div>
 			</div>
 		);
@@ -1053,6 +1055,39 @@ export default class Translate extends React.Component {
 			</div>
 		</div>
 	);
+	Accordion = () => {
+		const targetID = 'API';
+		const object = { title: 'Translate API' };
+		return (
+			<div className="accordion accordion-single" id="accordionExample">
+				<div className="card">
+					<div className="card-header" id="headingOne">
+						<div
+							className="btn w-100 text-left .h4"
+							data-toggle="collapse"
+							data-target={'#' + targetID}
+							aria-expanded="true"
+							aria-controls={'collapse' + targetID}
+						>
+							<h4 className="mb-0 text-green">
+								{object.title}
+								<span
+									id={targetID}
+									className="float-right collapse show plus-minus"
+								></span>
+							</h4>
+						</div>
+					</div>
+
+					<div id={targetID} className="collapse" aria-labelledby="headingOne">
+						<div className="card-body">
+							<this.ServiceAPI />
+						</div>
+					</div>
+				</div>
+			</div>
+		);
+	};
 
 	render() {
 		const currentProduct = 'Translate';
@@ -1069,7 +1104,6 @@ export default class Translate extends React.Component {
 					}}
 				/>
 				<this.Description />
-				<this.ServiceAPI />
 				<MoreProducts current={currentProduct} padding />
 			</div>
 		);

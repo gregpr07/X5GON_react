@@ -37,14 +37,14 @@ class Homepage extends React.Component {
 				<Navbar />
 
 				<div className="mx-auto maxer contents">
-					<div className="row no-gutters my-auto">
+					<div className="row no-gutters my-auto pt-4 mt-md-0">
 						<div className="col-md-12 col-lg-6 my-auto">
 							<div className="main-content pl-1 ml-4">
 								<h1 className="text-white text-main-header">
 									Education.
 									<b className="d-block">Connected.</b>
 								</h1>
-								<p className="mt-3 mt-lg-3 pt-3 text-white w-100 body-2 pb-lg-5 pr-3">
+								<p className="mt-3 pt-3 text-white w-100 body-2 pb-lg-5 pr-4 pr-md-3">
 									We are building World's first ecosystem connecting Open
 									Educational Resource sites for the collective benefit of
 									everyone, everywhere.
@@ -55,6 +55,7 @@ class Homepage extends React.Component {
 										src="/imgs/svgs/ArrowDown.svg"
 										height="64px"
 										alt="more"
+										className="my-4 mt-md-0"
 									/>
 								</a>
 							</div>
@@ -101,7 +102,7 @@ class Homepage extends React.Component {
 						<div className="row pr-0">
 							{contents.map((col, index) => {
 								return (
-									<div className="col-sm-4" key={index}>
+									<div className="col-sm-4 mt-3 mb-md-0" key={index}>
 										<ScrollAnimation
 											animateIn="fadeInUp"
 											animateOnce={true}
@@ -227,7 +228,7 @@ class Homepage extends React.Component {
 											duration={1}
 											delay={250}
 										>
-											<div className="width-limit mx-auto">
+											<div className="width-limit mx-auto mt-4 pt-4 pt-md-0 mt-md-0 ">
 												<h3 className="text-lg-left text-purple">
 													{content.group}
 												</h3>
@@ -328,8 +329,8 @@ class Homepage extends React.Component {
 			'UDN'
 		];
 		return (
-			<div className="bg-light partners px-5">
-				<div className="maxer mx-auto products p-128 row">
+			<div className="bg-light partners">
+				<div className="maxer mx-auto products pb-128 row px-1 pt-3">
 					{partners.map((image, index) => (
 						<div
 							key={index}
@@ -343,7 +344,7 @@ class Homepage extends React.Component {
 							<img
 								src={'/imgs/partners/' + image + '_logo copy.png'}
 								alt={image}
-								className="mx-auto d-block"
+								className="mx-auto d-block px-3"
 								height={CurrentWidth() > this.breakpoints.md ? '100%' : 'auto'}
 								width={CurrentWidth() > this.breakpoints.md ? 'auto' : '100%'}
 							></img>
@@ -461,6 +462,7 @@ class Homepage extends React.Component {
 											<h3 className={index % 2 ? 'text-purple' : 'text-white'}>
 												{object.title}
 											</h3>
+
 											{object.paragraphs.map((p, index1) => {
 												return (
 													<p
@@ -488,10 +490,77 @@ class Homepage extends React.Component {
 	};
 
 	UnescoJoin = () => {
-		const style = 'col-12 cold-md-6';
+		const style = 'col-12 col-lg-6 ';
+		const join = {
+			title: 'Join the Global Network Partnership',
+			paragraphs: [
+				'We aim to give a chance to unlock the digital potential of  OER, and to overcome OER discoverability, disparity and fragmentation and understand the world of OER in a more structured manner.',
+				'The project proposes connecting all existing OER sites into a Global Network.  To do so, we suggest a pact that empowers all involved OER sites and players.'
+			]
+		};
+		const unesco = {
+			title: 'Mainstream OER across UNESCO Member States',
+			paragraphs: [
+				'Our technology is being produced by three UNESCO Chairs and supports OER in its endeavors for global mainstreaming.',
+				'Read the draft UNESCO Recommendation and exactly see where our technology allows you to be in line with this new international regulation.'
+			],
+			draft: ''
+		};
 		return (
-			<div className="unesco-join row no-gutters">
-				<div className={style}></div>
+			<div className="unesco-join">
+				<div className="row justify-content-center no-gutters">
+					<div className={style + 'my-auto'}>
+						<div
+							className={
+								'p-md-5 px-1 mx-4 py-5 m-md-5 maxer-625 float-lg-right'
+							}
+						>
+							<Link to="/join">
+								<h4 className="text-purple pb-3 mb-3">{join.title}</h4>
+							</Link>
+							{join.paragraphs.map((p, index1) => {
+								return (
+									<p className={'my-3 text-muted'} key={index1}>
+										{p}
+									</p>
+								);
+							})}
+							<Link to="/join">
+								<div className="buttonless-green mt-5 mb-md-0">LEARN MORE</div>
+							</Link>
+						</div>
+					</div>
+					<div
+						className={
+							style +
+							'background-unesco pics-resp' +
+							(CurrentWidth() < this.breakpoints.lg ? ' order-first' : '')
+						}
+					></div>
+				</div>
+				<div className="row justify-content-center no-gutters bg-black">
+					<div className={style + 'background-join pics-resp'}></div>
+					<div className={style + 'my-auto'}>
+						<div
+							className={'p-md-5 px-1 mx-4 py-5 m-md-5 maxer-625 text-white'}
+						>
+							<h4 className="pb-3 mb-3">{unesco.title}</h4>
+							{join.paragraphs.map((p, index1) => {
+								return (
+									<p className={'my-3'} key={index1}>
+										{p}
+									</p>
+								);
+							})}
+							<Link to="/policy">
+								<div className="buttonless-green mb-4 mt-5">LEARN MORE</div>
+							</Link>
+							<div className="button-green mt-5 mb-md-0 mb-3">
+								Download Draft
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		);
 	};
@@ -504,8 +573,9 @@ class Homepage extends React.Component {
 				<this.Ecosystem />
 				<div id="products" />
 				<MoreProducts padding={true} homepage={true} />
-				<this.Join />
-				<this.Drafts />
+				{/* <this.Join /> */}
+				{/* <this.Drafts /> */}
+				<this.UnescoJoin />
 				<this.Partners />
 			</div>
 		);

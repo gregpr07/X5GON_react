@@ -2,11 +2,10 @@ import React from 'react';
 import './css/homepage.css';
 import './css/bootstrap.css';
 import './css/accordion.css';
-
-import { Navbar } from './Components';
+import { StandardHeader } from './products/ProductsComponents';
 
 class Policy extends React.Component {
-	Header = () => {
+	/* Header = () => {
 		return (
 			<div className="bg-policy-header">
 				<Navbar />
@@ -15,17 +14,17 @@ class Policy extends React.Component {
 					<div className="row maxer-880">
 						<div className="col-12">
 							<div className="pl-4 ml-1 mx-auto">
-								<p className="text-ecosystem text-white text-left pb-3 mb-0">
+								<p className="text-ecosystem text-white text-left pb-3 mb-0 pl-1">
 									CONTRIBUTE
 								</p>
 								<h1 className="text-white mt-3">Policy</h1>
-								<h4 className="maxer-625 mb-5 mt-3 pb-3">
+								<h4 className="maxer-625 mb-5 mt-0 mt-md-3 pb-3">
 									Read the Recommendation and align policy and technology
 								</h4>
 								<div className="button-green">Download draft</div>
 							</div>
 						</div>
-						{/* <div className="col-12 col-md-5 bg-white">
+						<div className="col-12 col-md-5 bg-white">
 							<div
 								style={{
 									background: 'white',
@@ -34,12 +33,12 @@ class Policy extends React.Component {
 									borderRadius: '100px'
 								}}
 							></div>
-						</div> */}
+						</div>
 					</div>
 				</div>
 			</div>
 		);
-	};
+	}; */
 	Accordion = () => {
 		const contents = [
 			{
@@ -217,12 +216,14 @@ class Policy extends React.Component {
 															aria-expanded="true"
 															aria-controls={'collapse' + targetID}
 														>
-															<p className="mb-0 text-purple p2 line-h-52">
+															<p className="mb-0 text-purple text-purple-bold line-h-52">
 																{object.title}
-																<span
-																	id={targetID}
-																	className="float-right collapse show plus-minus blue"
-																></span>
+																<div className="d-none d-md-inline">
+																	<span
+																		id={targetID}
+																		className="float-right collapse show plus-minus blue"
+																	></span>
+																</div>
 															</p>
 														</div>
 													</div>
@@ -273,7 +274,19 @@ class Policy extends React.Component {
 	render() {
 		return (
 			<div>
-				<this.Header />
+				<StandardHeader
+					object={{
+						background: 'bg-policy-header',
+						subheader: 'CONTRIBUTE',
+						product: 'Policy',
+						description:
+							'Read the Recommendation and align policy and technology',
+						button: {
+							text: 'Download draft',
+							link: ''
+						}
+					}}
+				/>
 				<this.Description />
 			</div>
 		);

@@ -4,6 +4,9 @@
 	border-bottom: 1px solid #00ad57;
 	border-radius: 0 !important;
 }
+.accordion-single {
+	border-bottom: 1px solid #00ad57 !important;
+}
 .accordion .card.blue {
 	border-top: 1px solid #00134d;
 	border-bottom: none;
@@ -76,4 +79,14 @@ div.btn {
 }
 .line-h-52 {
 	line-height: 52px !important;
+}
+@media (max-width: 768px) {
+	.plus-minus {
+		height: 32px;
+		width: 32px;
+		margin-top: 4px;
+	}
+	.line-h-52 {
+		line-height: 28px !important;
+	}
 }

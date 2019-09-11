@@ -22,7 +22,7 @@ class App extends React.Component {
 		return (
 			<Router>
 				<ScrollToTop>
-					<DisplayWidth />
+					{/* <DisplayWidth /> */}
 					<Route path="/" exact component={Homepage} />
 					<Route path="/products" exact component={Products} />
 					<Route path="/search" exact component={Search} />

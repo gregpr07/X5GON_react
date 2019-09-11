@@ -1,47 +1,10 @@
 import React from 'react';
 import './css/homepage.css';
 import './css/bootstrap.css';
-import { Navbar } from './Components';
 import { Link } from 'react-router-dom';
+import { StandardHeader } from './products/ProductsComponents';
 
 class Join extends React.Component {
-	Header = () => {
-		return (
-			<div className="bg-join-header">
-				<Navbar />
-
-				<div className="p-128 text-white maxer mx-auto">
-					<div className="row maxer-880">
-						<div className="col-12">
-							<div className="pl-4 ml-1 mx-auto">
-								<p className="text-ecosystem text-white text-left pb-3 mb-0">
-									CONTRIBUTE
-								</p>
-								<h1 className="text-white mt-3">Join Forces</h1>
-								<h4 className="maxer-625 mb-5 mt-3 pb-3">
-									We suggest a pact that empowers all involved OER sites and
-									players.
-								</h4>
-								<Link to="#form">
-									<div className="button-green">Fill in the Form</div>
-								</Link>
-							</div>
-						</div>
-						{/* <div className="col-12 col-md-5 bg-white">
-							<div
-								style={{
-									background: 'white',
-									height: '100%',
-									width: '100%',
-									borderRadius: '100px'
-								}}
-							></div>
-						</div> */}
-					</div>
-				</div>
-			</div>
-		);
-	};
 	Form = () => {
 		return (
 			<div className="maxer mx-auto">
@@ -205,7 +168,7 @@ class Join extends React.Component {
 				]
 			},
 			{
-				title: 'What Do We Promise In Return',
+				title: 'What Do We Promise',
 				subtitle: 'In return we promise:',
 				paragraphs: [
 					'To use the X5GON platform to ingest your content and use state of the art technologies such as machine learning, machine translation, machine quality assurance, personalisation, learning analytics, to boost your content visibility and use,',
@@ -262,7 +225,19 @@ class Join extends React.Component {
 	render() {
 		return (
 			<div>
-				<this.Header />
+				<StandardHeader
+					object={{
+						background: 'bg-join-header',
+						subheader: 'CONTRIBUTE',
+						product: 'Join Forces',
+						description:
+							'We suggest a pact that empowers all involved OER sites and players.',
+						button: {
+							text: 'Fill in the Form',
+							link: '#form'
+						}
+					}}
+				/>
 				<this.Description />
 				<this.Form />
 			</div>

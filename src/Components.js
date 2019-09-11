@@ -40,7 +40,7 @@ export const Navbar = props => {
 	return (
 		<nav
 			className={
-				'navbar pt-3 px-4 navbar-expand-sm navbar-' +
+				'navbar pt-3 px-md-4 navbar-expand-sm navbar-' +
 				(props.light ? 'light' : 'dark')
 			}
 		>
@@ -220,14 +220,16 @@ export const Footer = () => {
 	return (
 		<div className="foot bg-black text-white p-md-5">
 			<div className="maxer mx-auto row py-5 px-4">
-				<div className="col-md-3 col-lg-4 col-12 pl-0 pb-4 pb-md-0 px-1">
-					<img
-						src={'/imgs/logo/x5gon_logo_dark.svg'}
-						height="22px"
-						alt="logo"
-					></img>
+				<div className="col-md-3 col-lg-4 col-12 pl-0 pb-4 pb-md-0 px-1 mt-5 mt-md-0">
+					<Link to="/">
+						<img
+							src={'/imgs/logo/x5gon_logo_dark.svg'}
+							height="22px"
+							alt="logo"
+						></img>
+					</Link>
 				</div>
-				<div className="col-md-9 col-lg-8 col-12">
+				<div className="col-md-9 col-lg-8 col-12 mt-4 mt-md-0 pl-3 ml-1 pl-md-0 ml-md-0">
 					<div className="row border-bottom">
 						<UL name="GO-TO"></UL>
 						<UL name="PRODUCTS"></UL>
@@ -339,7 +341,9 @@ export const MoreProducts = props => {
 										className="col-12 col-sm-6 col-md-4 px-4 py-2 text-left"
 										key={index}
 									>
-										<h4>Learn more about other our products.</h4>
+										<h4 className="pb-5">
+											Learn more about other our products.
+										</h4>
 									</div>
 								);
 							} else {
@@ -370,7 +374,7 @@ export const MoreProducts = props => {
 											</p>
 											<div className="mt-3 mb-4">
 												<Link to={'/products/' + content.link}>
-													<div className="buttonless-green">LEARN MORE ></div>
+													<div className="buttonless-green">LEARN MORE</div>
 												</Link>
 											</div>
 											<div className="pb-3">

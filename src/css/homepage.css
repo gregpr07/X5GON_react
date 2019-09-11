@@ -179,7 +179,7 @@ header .under {
 	max-width: 600px;
 }
 .main-img {
-	background-image: url('../images/OER-connected.png');
+	background-image: url('../images/header_image.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: left top;
@@ -187,15 +187,20 @@ header .under {
 	width: 50vw;
 	margin-bottom: 0px;
 }
-.background-kids {
+.pics-resp {
+	height: 880px;
+}
+.background-join {
 	background-image: url('../images/policy_landing.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: left top;
-	max-height: 80vh;
-	min-height: 50vh;
-	height: 100%;
-	width: 50vw;
+}
+.background-unesco {
+	background-image: url('../images/unesco-bg.jpeg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: left top;
 }
 .bg-join-header {
 	background-image: url('../images/join_forces_header_image.png');
@@ -437,6 +442,9 @@ header .under {
 		background-position: center top;
 		max-height: calc(100vh - 370px);
 	}
+	.pics-resp {
+		height: 776px;
+	}
 }
 
 @media (max-width: 768px) {
@@ -456,7 +464,8 @@ header .under {
 	}
 	h4 {
 		font-size: 2.25em !important;
-		font-size: 24px;
+		font-size: 24px !important;
+		line-height: 38px;
 	}
 	h5 {
 		font-size: 28px;
@@ -486,6 +495,10 @@ header .under {
 	}
 	.pb-128 {
 		padding-bottom: 64px;
+	}
+	.pics-resp {
+		height: 100vw;
+		width: 100%;
 	}
 }
 @media (min-width: 768px) {
