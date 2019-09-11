@@ -3002,9 +3002,6 @@ class Team extends React.Component {
 															<td>
 																The token of the material provider. Token must
 																be first created via the
-																<h1 style={{ color: 'red' }}>
-																	NAPACN LINK JE TUKI
-																</h1>
 																<Link to="/join#form" className="doc">
 																	registration form
 																</Link>

@@ -268,52 +268,6 @@ class Homepage extends React.Component {
 			</div>
 		);
 	};
-	Join = () => {
-		const content = {
-			title: 'Join the Global Network Partnership',
-			text: [
-				'We aim to give a chance to unlock the digital potential of  OER, and to overcome OER discoverability, disparity and fragmentation and understand the world of OER in a more structured manner.',
-				'The project proposes connecting all existing OER sites into a Global Network.  To do so, we suggest a pact that empowers all involved OER sites and players.'
-			]
-		};
-		const style = 'col-12 col-sm-6 my-auto';
-		return (
-			<div className="maxer mx-auto">
-				<div className="row px-4 mx-1 px-md-5 mx-sm-3 h-100 join p-128">
-					<div
-						className={
-							CurrentWidth() >= this.breakpoints.sm
-								? 'order-last ' + style
-								: style
-						}
-					>
-						<img
-							src={'imgs/illustrations/join-forces.jpg'}
-							width="100%"
-							alt="ecosystem"
-						/>
-					</div>
-
-					<div className={style + ' width-limit mr-auto'}>
-						<h3 className="text-purple mb-lg-4">{content.title}</h3>
-						<div className="py-3">
-							{content.text.map((p, index) => {
-								return (
-									<p className="text-muted" key={index}>
-										{p}
-									</p>
-								);
-							})}
-						</div>
-
-						<Link className="buttonless-green bg-green mx-auto" to="join">
-							LEARN MORE >
-						</Link>
-					</div>
-				</div>
-			</div>
-		);
-	};
 	Offers = () => {
 		const content = [
 			{
@@ -395,6 +349,52 @@ class Homepage extends React.Component {
 							></img>
 						</div>
 					))}
+				</div>
+			</div>
+		);
+	};
+	Join = () => {
+		const content = {
+			title: 'Join the Global Network Partnership',
+			text: [
+				'We aim to give a chance to unlock the digital potential of  OER, and to overcome OER discoverability, disparity and fragmentation and understand the world of OER in a more structured manner.',
+				'The project proposes connecting all existing OER sites into a Global Network.  To do so, we suggest a pact that empowers all involved OER sites and players.'
+			]
+		};
+		const style = 'col-12 col-sm-6 my-auto';
+		return (
+			<div className="maxer mx-auto">
+				<div className="row px-4 mx-1 px-md-5 mx-sm-3 h-100 join p-128">
+					<div
+						className={
+							CurrentWidth() >= this.breakpoints.sm
+								? 'order-last ' + style
+								: style
+						}
+					>
+						<img
+							src={'imgs/illustrations/join-forces.jpg'}
+							width="100%"
+							alt="ecosystem"
+						/>
+					</div>
+
+					<div className={style + ' width-limit mr-auto'}>
+						<h3 className="text-purple mb-lg-4">{content.title}</h3>
+						<div className="py-3">
+							{content.text.map((p, index) => {
+								return (
+									<p className="text-muted" key={index}>
+										{p}
+									</p>
+								);
+							})}
+						</div>
+
+						<Link className="buttonless-green bg-green mx-auto" to="join">
+							LEARN MORE >
+						</Link>
+					</div>
 				</div>
 			</div>
 		);
@@ -483,6 +483,15 @@ class Homepage extends React.Component {
 						</div>
 					);
 				})}
+			</div>
+		);
+	};
+
+	UnescoJoin = () => {
+		const style = 'col-12 cold-md-6';
+		return (
+			<div className="unesco-join row no-gutters">
+				<div className={style}></div>
 			</div>
 		);
 	};

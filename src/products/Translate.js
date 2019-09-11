@@ -4,7 +4,6 @@ import '../css/components.css';
 import { Link } from 'react-router-dom';
 import { MoreProducts } from '../Components';
 import { StandardHeader, MakeParagraphs } from './ProductsComponents';
-import { blockStatement } from '@babel/types';
 
 export default class Translate extends React.Component {
 	Description = () => {
@@ -64,13 +63,13 @@ export default class Translate extends React.Component {
 					<div className="column">
 						<p>
 							Web Service is implemented as a Python Web Server Gateway
-							Interface (WSGI) and a set of processes controlling data flow:
+							Interface (WSGI) and a set of processes controlling data flow.
 						</p>
-						<img
+						{/* <img
 							src="/imgs/translate-api-schreme.png"
 							alt="scheme"
 							width="100%"
-						/>
+						/> */}
 						<p>
 							WSGI application is accepting API calls, which are then relayed:
 						</p>
@@ -114,7 +113,7 @@ export default class Translate extends React.Component {
 							explanation in the body of the returned HTML.
 						</p>
 						<p>
-							Base URL for TraMOOC Web service API is{' '}
+							Base URL for {/* TraMOOC */} Web service API is{' '}
 							<a href="ttp://matterhorn.ijs.si/trans" target="blank">
 								http://matterhorn.ijs.si/trans
 							</a>

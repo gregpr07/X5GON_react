@@ -7,7 +7,7 @@ import { Navbar } from './Components';
 class Privacy extends React.Component {
 	Privacy = () => {
 		return (
-			<div className="maxer mx-auto p-5">
+			<div className="maxer mx-auto p-5 text-purple">
 				<h1>Privacy Policy</h1>
 				<p className="information">
 					The X5GON project is creating a solution that will help users/students
