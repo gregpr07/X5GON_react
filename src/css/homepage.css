@@ -184,7 +184,7 @@ header .under {
 .main-img {
 	background-image: url('../images/header_image.png');
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: contain;
 	background-position: left top;
 	height: calc(100vh - 72px);
 	width: 50vw;
@@ -458,11 +458,22 @@ header .under {
 	border-color: #00134d9a;
 }
 
+@media (max-width: 1700px) {
+	.main-img {
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: left top;
+	}
+}
 @media (max-width: 992px) {
 	.main-img {
 		width: 100vw;
 		background-position: center top;
-		max-height: calc(100vh - 370px);
+		max-height: calc(100vh - 450px);
+		background-size: contain;
+		background-position: center top;
+		min-height: 300px;
+		width: 100vw;
 	}
 	.pics-resp {
 		height: 776px;
@@ -521,6 +532,15 @@ header .under {
 	.pics-resp {
 		height: 100vw;
 		width: 100%;
+	}
+}
+@media (max-width: 576px) {
+	.main-img {
+		background-position: center top;
+		max-height: calc(100vh);
+		background-size: contain;
+		background-position: center top;
+		height: 100vw;
 	}
 }
 @media (min-width: 768px) {

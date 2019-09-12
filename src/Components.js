@@ -18,6 +18,10 @@ export const Navbar = props => {
 			link: '/join'
 		},
 		{
+			li: 'Transparency',
+			link: '/transparency'
+		},
+		{
 			li: 'Policy',
 			link: '/policy'
 		},

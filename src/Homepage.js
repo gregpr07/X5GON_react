@@ -61,7 +61,7 @@ class Homepage extends React.Component {
 							</div>
 						</div>
 						<div className="col-md-12 col-lg-6">
-							<div className="main-img animated fadeIn slower"></div>
+							<div className="main-img animated fadeIn slower mx-auto mr-md-auto"></div>
 						</div>
 					</div>
 				</div>
