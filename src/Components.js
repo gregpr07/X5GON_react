@@ -416,6 +416,101 @@ export const CurrentWidth = () => {
 	return width;
 };
 // UNFINISHED
+export const Accordion = contents => {
+	contents = contents.contents;
+	return (
+		<div className="accordion pt-128" id="accordionExample">
+			{contents.map((object, index) => {
+				const targetID = 'collapse' + index + object.title.slice(0, 3);
+				return (
+					<div className="card" key={index}>
+						<div className="card-header" id="headingOne">
+							<div
+								className="btn w-100 text-left .h4"
+								data-toggle="collapse"
+								data-target={'#' + targetID}
+								aria-expanded="true"
+								aria-controls={'collapse' + targetID}
+							>
+								<h4 className="mb-0 text-green">
+									{object.title}
+									<span
+										id={targetID}
+										className="float-right collapse show plus-minus"
+									></span>
+								</h4>
+							</div>
+						</div>
+
+						<div
+							id={targetID}
+							className="collapse"
+							aria-labelledby="headingOne"
+						>
+							<div className="card-body">
+								{object.paragraphs.map((paragraph, subindex) => (
+									<p
+										key={subindex}
+										className="text-muted maxer-880"
+										style={{ textIndent: '2rem' }}
+									>
+										{paragraph}
+									</p>
+								))}
+							</div>
+							{object.more
+								? object.more.map((object, index) => {
+										const targetID =
+											'collapse' + index + object.title.slice(0, 3);
+										return (
+											<div className="card blue" key={index}>
+												<div className="card-header" id="headingOne">
+													<div
+														className="btn w-100 text-left p2"
+														data-toggle="collapse"
+														data-target={'#' + targetID}
+														aria-expanded="true"
+														aria-controls={'collapse' + targetID}
+													>
+														<p className="mb-0 text-purple text-purple-bold line-h-52">
+															{object.title}
+															<div className="d-none d-md-inline">
+																<span
+																	id={targetID}
+																	className="float-right collapse show plus-minus blue"
+																></span>
+															</div>
+														</p>
+													</div>
+												</div>
+
+												<div
+													id={targetID}
+													className="collapse"
+													aria-labelledby="headingOne"
+												>
+													<div className="card-body">
+														{object.paragraphs.map((paragraph, subindex) => (
+															<p
+																key={subindex}
+																className="text-muted maxer-880"
+															>
+																{paragraph}
+															</p>
+														))}
+													</div>
+												</div>
+											</div>
+										);
+								  })
+								: null}
+						</div>
+					</div>
+				);
+			})}
+		</div>
+	);
+};
 
 // REMOVE IN FINAL VERSION
 export const DisplayWidth = () => {

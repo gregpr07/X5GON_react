@@ -35,7 +35,7 @@ export default class Translate extends React.Component {
 	ServiceAPI = () => (
 		<div className="maxer mx-auto translate-api">
 			<div className="api-header">
-				<h3>Web Service API</h3>
+				<h3 className="text-purple">Web Service API</h3>
 				<ul>
 					<li key={1}>
 						<Link to="#translate">/translate</Link>
@@ -60,7 +60,7 @@ export default class Translate extends React.Component {
 				</ul>
 			</div>
 			<hr />
-			<div className="api-docs maxer-880">
+			<div className="api-docs maxer-880 text-purple">
 				<div className="layoutArea">
 					<div className="column">
 						<p>
@@ -116,7 +116,7 @@ export default class Translate extends React.Component {
 						</p>
 						<p>
 							Base URL for {/* TraMOOC */} Web service API is{' '}
-							<a href="ttp://matterhorn.ijs.si/trans" target="blank">
+							<a href="http://matterhorn.ijs.si/trans" target="blank">
 								http://matterhorn.ijs.si/trans
 							</a>
 							.<br /> On top of that API defines the following set of HTTP

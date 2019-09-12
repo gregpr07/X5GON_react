@@ -3,44 +3,11 @@ import './css/homepage.css';
 import './css/bootstrap.css';
 import './css/accordion.css';
 import { StandardHeader } from './products/ProductsComponents';
+import { Accordion } from './Components';
 
 class Policy extends React.Component {
-	/* Header = () => {
-		return (
-			<div className="bg-policy-header">
-				<Navbar />
-
-				<div className="p-128 text-white maxer mx-auto">
-					<div className="row maxer-880">
-						<div className="col-12">
-							<div className="pl-4 ml-1 mx-auto">
-								<p className="text-ecosystem text-white text-left pb-3 mb-0 pl-1">
-									CONTRIBUTE
-								</p>
-								<h1 className="text-white mt-3">Policy</h1>
-								<h4 className="maxer-625 mb-5 mt-0 mt-md-3 pb-3">
-									Read the Recommendation and align policy and technology
-								</h4>
-								<div className="button-green">Download draft</div>
-							</div>
-						</div>
-						<div className="col-12 col-md-5 bg-white">
-							<div
-								style={{
-									background: 'white',
-									height: '100%',
-									width: '100%',
-									borderRadius: '100px'
-								}}
-							></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		);
-	}; */
-	Accordion = () => {
-		const contents = [
+	Description = () => {
+		const accordion = [
 			{
 				title: 'Preamble',
 				paragraphs: [
@@ -167,97 +134,6 @@ class Policy extends React.Component {
 			}
 		];
 		return (
-			<div className="accordion pt-128" id="accordionExample">
-				{contents.map((object, index) => {
-					const targetID = 'collapse' + index + object.title.slice(0, 3);
-					return (
-						<div className="card" key={index}>
-							<div className="card-header" id="headingOne">
-								<div
-									className="btn w-100 text-left .h4"
-									data-toggle="collapse"
-									data-target={'#' + targetID}
-									aria-expanded="true"
-									aria-controls={'collapse' + targetID}
-								>
-									<h4 className="mb-0 text-green">
-										{object.title}
-										<span
-											id={targetID}
-											className="float-right collapse show plus-minus"
-										></span>
-									</h4>
-								</div>
-							</div>
-
-							<div
-								id={targetID}
-								className="collapse"
-								aria-labelledby="headingOne"
-							>
-								<div className="card-body">
-									{object.paragraphs.map((paragraph, subindex) => (
-										<p key={subindex} className="text-muted maxer-880">
-											{paragraph}
-										</p>
-									))}
-								</div>
-								{object.more
-									? object.more.map((object, index) => {
-											const targetID =
-												'collapse' + index + object.title.slice(0, 3);
-											return (
-												<div className="card blue" key={index}>
-													<div className="card-header" id="headingOne">
-														<div
-															className="btn w-100 text-left p2"
-															data-toggle="collapse"
-															data-target={'#' + targetID}
-															aria-expanded="true"
-															aria-controls={'collapse' + targetID}
-														>
-															<p className="mb-0 text-purple text-purple-bold line-h-52">
-																{object.title}
-																<div className="d-none d-md-inline">
-																	<span
-																		id={targetID}
-																		className="float-right collapse show plus-minus blue"
-																	></span>
-																</div>
-															</p>
-														</div>
-													</div>
-
-													<div
-														id={targetID}
-														className="collapse"
-														aria-labelledby="headingOne"
-													>
-														<div className="card-body">
-															{object.paragraphs.map((paragraph, subindex) => (
-																<p
-																	key={subindex}
-																	className="text-muted maxer-880"
-																>
-																	{paragraph}
-																</p>
-															))}
-														</div>
-													</div>
-												</div>
-											);
-									  })
-									: null}
-							</div>
-						</div>
-					);
-				})}
-			</div>
-		);
-	};
-
-	Description = () => {
-		return (
 			<div className="bg-white p-128 maxer mx-auto">
 				<div className="mx-lg-1 px-4">
 					<h4 className="maxer-880 text-purple">
@@ -265,7 +141,7 @@ class Policy extends React.Component {
 						technology and can be used to empower you and all other
 						stakeholders.
 					</h4>
-					<this.Accordion />
+					<Accordion contents={accordion} />
 				</div>
 			</div>
 		);

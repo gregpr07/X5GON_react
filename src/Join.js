@@ -7,120 +7,137 @@ import { StandardHeader } from './products/ProductsComponents';
 class Join extends React.Component {
 	Form = () => {
 		return (
-			<div className="maxer mx-auto">
-				<div
-					className="application px-4 pb-128 maxer-500 mr-auto text-purple"
-					id="form"
-				>
-					<h4>Application Form</h4>
-					<p>
-						Fill this form to register your OER repository and get resources
-						used to connect to the X5GON OER network. Once connected, we will
-						identify the resources you provide and include them into our
-						recommendations making it visible within the OER network.
-					</p>
-					<form action="https://platform.x5gon.org/oer_provider" method="post">
-						<h5>Repository Information</h5>
-
-						<div className="form-group">
-							<label htmlFor="oer-repository-name">OER Repository Name</label>
-							<input
-								type="text"
-								className="form-control"
-								id="oer-repository-name"
-								name="name"
-								aria-describedby="oer-repository-name-help"
-								placeholder="Enter repository name"
-								required=""
-							/>
-							<small
-								id="oer-repository-name-help"
-								className="form-text text-muted"
-							>
-								Name of the repository (ex. X5GON Platform)
-							</small>
-						</div>
-
-						<div className="form-group">
-							<label htmlFor="oer-repository-domain">Repository Domain</label>
-							<input
-								type="url"
-								className="form-control"
-								id="oer-repository-domain"
-								name="domain"
-								aria-describedby="oer-repository-domain-help"
-								placeholder="Enter repository domain"
-								required=""
-							/>
-							<small
-								id="oer-repository-domain-help"
-								className="form-text text-muted"
-							>
-								Domain where the repository resides (ex. platform.x5gon.org)
-							</small>
-						</div>
-
-						<hr />
-
-						<h5>Maintainer Information</h5>
-						<div className="form-group">
-							<label htmlFor="contact-email">Maintainer Contact</label>
-							<input
-								type="email"
-								className="form-control"
-								id="contact-email"
-								name="contact"
-								aria-describedby="contact-email-help"
-								placeholder="Enter email"
-								required=""
-							/>
-							<small id="contact-email-help" className="form-text text-muted">
-								Person responsible for snippet integration at your institution
-							</small>
-						</div>
-
-						<div
-							id="g-recaptcha"
-							aria-describedby="recaptcha-help"
-							data-sitekey="6LeC3FoUAAAAAGcI3ZGRR93q6CzMwXPMxcIbycyE"
+			<div className="bg-green-transparent app-form">
+				<div className="maxer mx-auto">
+					<div className="application px-4 p-128 mr-auto text-purple" id="form">
+						<h4 className="text-green">Application Form</h4>
+						<p className="my-4 mb-5 text-muted maxer-700">
+							Fill this form to register your OER repository and get resources
+							used to connect to the X5GON OER network. Once connected, we will
+							identify the resources you provide and include them into our
+							recommendations making it visible within the OER network.
+						</p>
+						<form
+							action="https://platform.x5gon.org/oer_provider"
+							method="post"
 						>
-							<div /* style="width: 304px; height: 78px;" */>
-								<div>
-									<iframe
-										title="captcha"
-										src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LeC3FoUAAAAAGcI3ZGRR93q6CzMwXPMxcIbycyE&amp;co=aHR0cHM6Ly9wbGF0Zm9ybS54NWdvbi5vcmc6NDQz&amp;hl=en&amp;v=v1566858990656&amp;size=normal&amp;cb=s6y1pzajobp"
-										width="304"
-										height="78"
-										role="presentation"
-										name="a-nco9cqpmfspc"
-										frameBorder="0"
-										scrolling="no"
-										sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
-									></iframe>
-								</div>
-								<textarea
-									id="g-recaptcha-response"
-									name="g-recaptcha-response"
-									className="g-recaptcha-response d-none"
-								></textarea>
-							</div>
-						</div>
-						<small className="form-text">
-							You need to activate reCAPTCHA to validate you are not a robot!
-						</small>
+							<div className="py-3 my-4 btb-green">
+								<div className="maxer-500">
+									<p className="p2">Repository Information</p>
 
-						<div className="form-group">
-							<small>
-								Already a member of the OER Network?
-								<Link to="/oer_provider/login">Login</Link>
+									<div className="form-group">
+										<label
+											htmlFor="oer-repository-name"
+											className="ml-1 text-muted"
+										>
+											OER Repository Name
+										</label>
+										<input
+											type="text"
+											className="form-control"
+											id="oer-repository-name"
+											name="name"
+											aria-describedby="oer-repository-name-help"
+											placeholder=""
+											required=""
+										/>
+										<small
+											id="oer-repository-name-help"
+											className="form-text text-muted"
+										>
+											Name of the repository (ex. X5GON Platform)
+										</small>
+									</div>
+
+									<div className="form-group">
+										<label
+											htmlFor="oer-repository-domain"
+											className="ml-1 text-muted"
+										>
+											Repository Domain
+										</label>
+										<input
+											type="url"
+											className="form-control"
+											id="oer-repository-domain"
+											name="domain"
+											aria-describedby="oer-repository-domain-help"
+											placeholder=""
+											required=""
+										/>
+										<small
+											id="oer-repository-domain-help"
+											className="form-text text-muted"
+										>
+											Domain where the repository resides (ex.
+											platform.x5gon.org)
+										</small>
+									</div>
+								</div>
+							</div>
+							<p className="p2">Maintainer Information</p>
+							<div className="form-group py-4 maxer-500">
+								<label htmlFor="contact-email" className="ml-1 text-muted">
+									Maintainer Contact
+								</label>
+								<input
+									type="email"
+									className="form-control"
+									id="contact-email"
+									name="contact"
+									aria-describedby="contact-email-help"
+									placeholder=""
+									required=""
+								/>
+								<small id="contact-email-help" className="form-text text-muted">
+									Person responsible for snippet integration at your institution
+								</small>
+							</div>
+
+							<div
+								id="g-recaptcha"
+								aria-describedby="recaptcha-help"
+								data-sitekey="6LeC3FoUAAAAAGcI3ZGRR93q6CzMwXPMxcIbycyE"
+							>
+								<div /* style="width: 304px; height: 78px;" */>
+									<div>
+										<iframe
+											title="captcha"
+											src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LeC3FoUAAAAAGcI3ZGRR93q6CzMwXPMxcIbycyE&amp;co=aHR0cHM6Ly9wbGF0Zm9ybS54NWdvbi5vcmc6NDQz&amp;hl=en&amp;v=v1566858990656&amp;size=normal&amp;cb=s6y1pzajobp"
+											width="304"
+											height="78"
+											role="presentation"
+											name="a-nco9cqpmfspc"
+											frameBorder="0"
+											scrolling="no"
+											sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
+										></iframe>
+									</div>
+									<textarea
+										id="g-recaptcha-response"
+										name="g-recaptcha-response"
+										className="g-recaptcha-response d-none"
+									></textarea>
+								</div>
+							</div>
+							<small className="text-muted">
+								You need to activate reCAPTCHA to validate you are not a robot!
 							</small>
-						</div>
-						<div className="text-left">
-							<button type="submit" className="button-green">
-								Submit
+
+							<div className="text-muted">
+								<small>
+									Already a member of the OER Network?{' '}
+									<Link to="/oer_provider/login" className="text-green">
+										Login
+									</Link>
+								</small>
+							</div>
+
+							<button type="submit" className="button-green mt-4 px-4">
+								Submit Form
 							</button>
-						</div>
-					</form>
+						</form>
+					</div>
 				</div>
 			</div>
 		);

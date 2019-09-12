@@ -19,6 +19,9 @@ ul {
 .doc {
 	font-weight: bold;
 }
+.doc p {
+	margin: 0;
+}
 .route {
 	font-weight: normal;
 }

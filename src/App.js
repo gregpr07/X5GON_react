@@ -16,13 +16,14 @@ import Recommend from './products/Recommend';
 import Connect from './products/Connect';
 import Join from './Join';
 import Policy from './Policy';
+import Transparency from './Transparency';
 
 class App extends React.Component {
 	render() {
 		return (
 			<Router>
 				<ScrollToTop>
-					{/* <DisplayWidth /> */}
+					<DisplayWidth />
 					<Route path="/" exact component={Homepage} />
 					<Route path="/products" exact component={Products} />
 					<Route path="/search" exact component={Search} />
@@ -30,6 +31,7 @@ class App extends React.Component {
 					<Route path="/privacy" exact component={Privacy} />
 					<Route path="/Policy" exact component={Policy} />
 					<Route path="/join" exact component={Join} />
+					<Route path="/transparency" exact component={Transparency} />
 					{/* PRODUCTS */}
 					<Route path="/products" exact>
 						<Route path="/products/feed" exact component={Feed} />

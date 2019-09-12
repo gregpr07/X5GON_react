@@ -20,6 +20,9 @@ body a:hover {
 .maxer-625 {
 	max-width: 625px;
 }
+.maxer-700 {
+	max-width: 700px;
+}
 .maxer-880 {
 	max-width: 880px;
 }
@@ -214,6 +217,12 @@ header .under {
 	background-size: cover;
 	background-position: center center;
 }
+.bg-transparency-header {
+	background-image: url('../images/transparency.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
 .h-stats {
 	font-size: 48px;
 	font-weight: 300;
@@ -258,8 +267,15 @@ header .under {
 .bg-green {
 	background-color: #00ad57;
 }
+.bg-green-transparent {
+	background-color: rgba(0, 173, 86, 0.075);
+}
 .bg-pink {
 	color: #44004d;
+}
+.btb-green {
+	border-top: #00ad57 1px solid;
+	border-bottom: #00ad57 1px solid;
 }
 .text-purple {
 	color: #00134d;
@@ -434,6 +450,12 @@ header .under {
 .partners img {
 	max-width: 100%;
 	height: auto;
+}
+.app-form input[type='text'],
+.app-form input[type='url'],
+.app-form input[type='email'] {
+	background: transparent;
+	border-color: #00134d9a;
 }
 
 @media (max-width: 992px) {

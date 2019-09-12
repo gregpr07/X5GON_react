@@ -11,25 +11,25 @@ class Team extends React.Component {
 				person: 'John Shawe-Taylor',
 				position:
 					'UNESCO Chair in Artificial Intelligence, University College London',
-				photo: 'dicaprio1.jpg'
+				photo: 'john.jpg'
 			},
 			{
 				person: 'Mitja Jermol',
 				position:
 					'UNESCO Chair on Open Technologies for OER and Open Learning, Jozef Stefan Institute',
-				photo: 'dicaprio.jpg'
+				photo: 'mitja.jpg'
 			},
 			{
 				person: 'Colin de la Higuera',
 				position:
 					'UNESCO Chair in teacher training technologies with OER, University Nantes',
-				photo: 'dicaprio3.jpg'
+				photo: 'colin.jpg'
 			},
 			{
 				person: 'Erik Novak',
 				position:
 					'Data Science Researcher, Artificial Intelligence Laboratory, Jozef Stefan Institute',
-				photo: ''
+				photo: 'erik.jpg'
 			},
 			{
 				person: 'Kristijan Percic',
@@ -40,21 +40,23 @@ class Team extends React.Component {
 				person: 'Gregor Žunič',
 				position:
 					'Graduate student, Artificial Intelligence Laboratory, Jozef Stefan Institute',
-				photo: ''
+				photo: 'gregor.jpg'
 			},
 			{
 				person: 'Davor Orlic',
 				position: 'Chief Operating Officer, Knowledge 4 All Fundation',
-				photo: ''
+				photo: 'davor.jpg'
 			},
 			{ person: 'Ime Priimek', position: '', photo: '' }
 		];
 		return (
 			<div className="p-5 products" id="products">
 				<div className="maxer mx-auto">
-					<div className="p-lg-5">
+					<div className="">
 						<div className="px-2">
-							<h4 className="py-4 solutions text-white text-left">OUR TEAM</h4>
+							<h4 className="py-4 solutions text-white text-left">
+								PEOPLE BEHIND
+							</h4>
 							<p className="description mb-md-5 text-white">
 								Ut quis posuere mauris. Donec scelerisque auctor pulvinar.
 							</p>
@@ -62,16 +64,18 @@ class Team extends React.Component {
 						<div className="row p-2 pt-3">
 							{contents.map((content, index) => {
 								return (
-									<div className="col-4 col-md-3" key={index}>
-										<div className="px-sm-3 mx-auto card text-center">
+									<div className="col-6 col-lg-3 col-md-4" key={index}>
+										<div className="px-sm-3 mx-auto text-left">
 											<img
-												className="mx-auto mb-3"
+												className="mx-auto"
 												src={'imgs/team/' + content.photo}
-												width="75%"
-												alt="ecosystem"
-												style={{ borderRadius: '50%' }}
+												width="100%"
+												alt={content.photo}
 											/>
-											<p className="text-purple p2">{content.person}</p>
+
+											<p className="text-white p2 mb-1 mt-3">
+												{content.person}
+											</p>
 											<p className="text-muted">{content.position}</p>
 										</div>
 									</div>
@@ -85,7 +89,7 @@ class Team extends React.Component {
 	};
 	render() {
 		return (
-			<div className="bg-green">
+			<div className="bg-sky">
 				<Navbar />
 				<this.Team />
 			</div>

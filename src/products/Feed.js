@@ -19,7 +19,7 @@ class Team extends React.Component {
 		});
 		return (
 			<main role="main">
-				<div className="container feed">
+				<div className="container feed text-purple">
 					<div className="row">
 						<div className="col mt-md-2">
 							<h1>API Documentation</h1>
@@ -142,7 +142,7 @@ class Team extends React.Component {
 						</div>
 					</div>
 				</div>
-				<div className="container">
+				<div className="container text-purple">
 					<div className="row">
 						<div className="col">
 							<div className="anchor" id="connect-service" />
