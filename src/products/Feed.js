@@ -2,12 +2,13 @@ import React from 'react';
 import '../css/bootstrap.css';
 import '../css/feed.css';
 import '../css/animate.css';
-import { Navbar, MoreProducts } from '../Components';
+import { StandardHeader } from './ProductsComponents';
+import { MoreProducts } from '../Components';
 import { Link } from 'react-router-dom';
 import SmoothScroll from 'smooth-scroll';
 
-class Team extends React.Component {
-	Team = () => {
+class Feed extends React.Component {
+	Feed = () => {
 		// eslint-disable-next-line
 		const scroll = new SmoothScroll('a[href*="#"]', {
 			header: '#navbar',
@@ -18,19 +19,12 @@ class Team extends React.Component {
 			updateURL: true
 		});
 		return (
-			<main role="main">
-				<div className="container feed text-purple">
+			<main role="main" id="api">
+				<div className="feed text-purple">
 					<div className="row">
-						<div className="col mt-md-2">
-							<h1>API Documentation</h1>
-							<p className="information">
-								This document contains the X5GON platform REST API
-								documentation. It contains all of the API routes and their
-								explanation; the route, the possible parameters, and the
-								response. The document is split into sections based on the
-								functionality of the API routes.
-							</p>
+						<div className="col">
 							<div className="doc-navigation">
+								<h4>API navigation</h4>
 								<ul>
 									<li>
 										<Link className="doc" to="#connect-service">
@@ -142,7 +136,7 @@ class Team extends React.Component {
 						</div>
 					</div>
 				</div>
-				<div className="container text-purple">
+				<div className="container ml-0 pl-0 text-purple pb-128">
 					<div className="row">
 						<div className="col">
 							<div className="anchor" id="connect-service" />
@@ -3989,15 +3983,41 @@ class Team extends React.Component {
 			</main>
 		);
 	};
+	Content = () => {
+		return (
+			<div>
+				<StandardHeader
+					object={{
+						subheader: 'FEED',
+						product: 'API Documentation',
+						description: 'Read the X5GON REST API documentation',
+						button: {
+							text: 'Read API',
+							link: '#api'
+						}
+					}}
+				/>
+				<div className="maxer mx-auto px-4 ml-1">
+					<h4 className="p-128">
+						This document contains the X5GON platform REST API documentation. It
+						contains all of the API routes and their explanation; the route, the
+						possible parameters, and the response. The document is split into
+						sections based on the functionality of the API routes.
+					</h4>
+					<this.Feed />
+				</div>
+			</div>
+		);
+	};
 	render() {
 		return (
 			<div>
-				<Navbar light={true} />
-				<this.Team />
+				<this.Content />
+
 				<MoreProducts padding current="Feed" />
 			</div>
 		);
 	}
 }
 
-export default Team;
+export default Feed;

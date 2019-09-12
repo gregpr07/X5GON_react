@@ -156,6 +156,10 @@ export const Footer = () => {
 		],
 		SUPPORT: [
 			{
+				page: 'Github Repository',
+				link: 'https://github.com/JozefStefanInstitute/x5gon'
+			},
+			{
 				page: 'Cookies Subpage',
 				link: 'Cookies Subpage'
 			},
@@ -192,7 +196,20 @@ export const Footer = () => {
 					{name}
 				</p>
 				{contents[name].map((object, index) => {
-					if (name !== 'CONTACT') {
+					if (object.link.includes('https://')) {
+						console.log('waw');
+						return (
+							<a
+								style={{ textTransform: 'capitalize' }}
+								href={object.link}
+								key={index}
+								className={style}
+								target="blank"
+							>
+								{object.page}
+							</a>
+						);
+					} else if (name !== 'CONTACT') {
 						return (
 							<Link
 								style={{ textTransform: 'capitalize' }}
@@ -203,8 +220,6 @@ export const Footer = () => {
 								{object.page}
 							</Link>
 						);
-					} else if (object.page === 'Documentation') {
-						return null;
 					} else {
 						return (
 							<a

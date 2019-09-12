@@ -4,6 +4,27 @@ import { Link } from 'react-router-dom';
 
 export const StandardHeader = object => {
 	object = object.object;
+	const makeButton = object => {
+		if (object.button.link) {
+			return (
+				<Link to={object.button.link}>
+					<div className="button-green">{object.button.text}</div>
+				</Link>
+			);
+		} else if (object.button.externalLink) {
+			return (
+				<a href={object.button.externalLink} target="blank">
+					<div className="button-green">{object.button.text}</div>
+				</a>
+			);
+		} else {
+			return (
+				<Link to="#">
+					<div className="button-green">Try Now</div>
+				</Link>
+			);
+		}
+	};
 	return (
 		<div className={object.background ? object.background : 'bg-sky'}>
 			<Navbar />
@@ -17,9 +38,7 @@ export const StandardHeader = object => {
 						<h4 className="maxer-625 mb-5 mt-0 mt-md-3 pb-3">
 							{object.description}
 						</h4>
-						<Link to={object.button.link ? object.button.link : ''}>
-							<div className="button-green">{object.button.text}</div>
-						</Link>
+						{makeButton(object)}
 					</div>
 					{/* <div className="col-12 col-md-5">
 						<div

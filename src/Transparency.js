@@ -75,8 +75,8 @@ export default class Transparency extends React.Component {
 						product: 'Transparency',
 						description: 'How we use ML and AI to process your OER sites',
 						button: {
-							text: 'Download draft',
-							link: ''
+							text: 'Github Link',
+							externalLink: 'https://github.com/JozefStefanInstitute/x5gon'
 						}
 					}}
 				/>

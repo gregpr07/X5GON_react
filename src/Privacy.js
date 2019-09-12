@@ -58,14 +58,14 @@ class Privacy extends React.Component {
 					<li>
 						<strong>User Location.</strong> The geographical location from which
 						the user accessed the material, e.g. city, country and continent.
-						<b>NOTE:</b> This value will be calculated using the users IP. The
+						<b> NOTE:</b> This value will be calculated using the users IP. The
 						user IP is
-						<b>NOT</b> stored in our databases.
+						<b> NOT</b> stored in our databases.
 					</li>
 				</ul>
 				<p className="information">
 					For more information about the acquired data access the X5GON snippet
-					documentation available
+					documentation available{' '}
 					<a href="/docs/x5gon-docs.pdf" target="_blank">
 						HERE
 					</a>
@@ -91,11 +91,11 @@ class Privacy extends React.Component {
 				<h4 className="mt-5">How Can a User Stop Participating</h4>
 				<p className="information">
 					To stop participating the user can delete the cookie named{' '}
-					<b>x5gonTrack</b> which contains the user generated ID. This can be
+					<b> x5gonTrack</b> which contains the user generated ID. This can be
 					done in the the users browser. In addition, on the OER repositories
 					that are a member of the X5GON Network, you must disable providing
 					your user activity information.
-					<b>NOTE:</b> this will also stop giving the user personalized
+					<b> NOTE:</b> this will also stop giving the user personalized
 					recommendations on OER repositories that included the X5GON snippet.
 				</p>
 				<h4 className="mt-5">Who are Processing Your Data</h4>

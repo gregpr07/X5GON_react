@@ -34,7 +34,7 @@ class Team extends React.Component {
 			{
 				person: 'Kristijan Percic',
 				position: 'Innovation Sector, Slovenian Post Office',
-				photo: ''
+				photo: 'kristijan.png'
 			},
 			{
 				person: 'Gregor Žunič',
@@ -46,8 +46,7 @@ class Team extends React.Component {
 				person: 'Davor Orlic',
 				position: 'Chief Operating Officer, Knowledge 4 All Fundation',
 				photo: 'davor.jpg'
-			},
-			{ person: 'Ime Priimek', position: '', photo: '' }
+			}
 		];
 		return (
 			<div className="p-5 products" id="products">
