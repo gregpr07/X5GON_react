@@ -330,17 +330,9 @@ class Homepage extends React.Component {
 		];
 		return (
 			<div className="bg-light partners">
-				<div className="maxer mx-auto products pb-128 row px-1 pt-3">
+				<div className="maxer mx-auto products p-128 px-sm-5 row px-1">
 					{partners.map((image, index) => (
-						<div
-							key={index}
-							className={
-								'col-md-3 col-6 ' +
-								(CurrentWidth() > this.breakpoints.md && index < 4
-									? 'mb-5'
-									: 'mt-5')
-							}
-						>
+						<div key={index} className={'col-md-3 col-6 py-3 px-4'}>
 							<img
 								src={'/imgs/partners/' + image + '_logo copy.png'}
 								alt={image}

@@ -16,6 +16,9 @@
 	border: none;
 	padding-left: 0;
 }
+.accordion .card-header div {
+	cursor: pointer;
+}
 .accordion .card-header button {
 	padding: 0;
 }
