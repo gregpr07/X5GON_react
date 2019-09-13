@@ -18,6 +18,13 @@
 	margin-bottom: -8px !important;
 	margin-top: 0 !important;
 }
+.baseapi .p2 {
+	padding-top: 36px !important;
+	margin-top: 0 !important;
+}
+.baseapi h4 {
+	color: #00134d;
+}
 .api h5 {
 	border-top: rgba(0, 19, 76, 0.5) 1px solid;
 	padding-top: 16px;
@@ -90,6 +97,21 @@ tbody table {
 #api .plus-minus {
 	background-image: url('../images/xl_plus_icon.svg');
 }
-#api .accordion {
+.accordion {
 	margin-bottom: -1px;
+}
+.token.string {
+	color: #00ad57;
+}
+.token.punctuation {
+	color: brown;
+}
+.token.attr-value {
+	color: cornflowerblue;
+}
+.token.function {
+	color: red;
+}
+.token.comment {
+	color: grey;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/bootstrap.css';
 import '../css/homepage.css';
-
+import '../css/feed.css';
 import { MoreProducts } from '../Components';
 import { Link } from 'react-router-dom';
 import { StandardHeader, MakeParagraphs } from './ProductsComponents';
@@ -18,23 +18,67 @@ export default class Connect extends React.Component {
 				<code class=" language-handlebars">{code}</code>
 			</pre>
 		);
+  };
+  Accordion = props => {
+		const object = props.props;
+		const targetID = object.targetID;
+		const title = object.title;
+		return (
+			<div className="accordion accordion-single" id="accordionExample">
+				<div className="card">
+					<div className="card-header" id="headingOne">
+						<div
+							className="btn w-100 text-left .h4"
+							data-toggle="collapse"
+							data-target={'#' + targetID}
+							aria-expanded="true"
+							aria-controls={'collapse' + targetID}
+						>
+							<h4 className="mb-0 text-green">
+								{title}
+								<span
+									id={targetID}
+									className="float-right collapse show plus-minus"
+								></span>
+							</h4>
+						</div>
+					</div>
+
+					<div
+						id={targetID}
+						className="collapse show"
+						aria-labelledby="headingOne"
+					>
+						<div className="card-body pb-5">{props.children}</div>
+					</div>
+				</div>
+			</div>
+		);
 	};
 	Description = () => {
 		const contents = [['sample text']];
 		return (
 			<div className="bg-white p-128 maxer mx-auto connect">
-				<div className="mx-lg-1 px-4">
+				<div className="mx-lg-1 px-4" id="api">
 					<h4 className="maxer-880 pb-128 mb-0 text-purple">SAMPLE TEXT</h4>
 					<MakeParagraphs object={contents} />
-					<this.ConnectBASEapi />
-					{/* <this.ConnectMOODLEapi /> */}
+          <this.Accordion
+								props={{ targetID: 'apibase', title: 'X5GON API' }}
+							>
+					  <this.ConnectBASEapi />
+          </this.Accordion>
+          <this.Accordion
+								props={{ targetID: 'apimoodle', title: 'X5GON Moodle API' }}
+							>
+          <this.ConnectMOODLEapi />
+          </this.Accordion>
 				</div>
 			</div>
 		);
 	};
 	ConnectBASEapi = () => {
 		return (
-			<div className="text-purple maxer-880">
+			<div className="text-purple maxer-880 api baseapi">
 				<div id="oer-provider-token" class="resource">
 					<h4>Your X5GON Token</h4>
 					<p class="form-text">
@@ -65,13 +109,13 @@ export default class Connect extends React.Component {
 								<span class="token punctuation">&gt;</span>
 							</span>
 						</code>
-						of the website containing the OER material.
+						{' '}of the website containing the OER material.
 					</p>
 
 					<p className="p2">Latest Library</p>
-					{this.codeBlock(
-						'<script type="text/javascript" src="https://platform.x5gon.org/api/v1/snippet/latest/x5gon-log.min.js" integrity="sha384-ZfzlS43MMnlhhaZGNiNLYUcwbS+ndioybwxGNvzEFR7XcaLun22bDz+tCvCUWfq0" crossorigin="anonymous" ></script>'
-					)}
+					<pre class="mb-4 code-block language-handlebars"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://platform.x5gon.org/api/v1/snippet/latest/x5gon-log.min.js<span class="token punctuation">"</span></span>
+    <span class="token attr-name">integrity</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>sha384-ZfzlS43MMnlhhaZGNiNLYUcwbS+ndioybwxGNvzEFR7XcaLun22bDz+tCvCUWfq0<span class="token punctuation">"</span></span>
+    <span class="token attr-name">crossorigin</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>anonymous<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></pre>
 
 					<p className="p2">Latest Library with Added Security Measurements</p>
 					<p>
@@ -89,9 +133,9 @@ export default class Connect extends React.Component {
 						script you are fetching, the source url needs to state which version
 						of the library you wish to retrieve.
 					</p>
-					{this.codeBlock(
-						'<script type="text/javascript" src="https://platform.x5gon.org/api/v1/snippet/v2/x5gon-log.min.js" integrity="sha384-ZfzlS43MMnlhhaZGNiNLYUcwbS+ndioybwxGNvzEFR7XcaLun22bDz+tCvCUWfq0" crossorigin="anonymous" ></script>'
-					)}
+					<pre class="code-block language-handlebars"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://platform.x5gon.org/api/v1/snippet/v2/x5gon-log.min.js<span class="token punctuation">"</span></span>
+    <span class="token attr-name">integrity</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>sha384-ZfzlS43MMnlhhaZGNiNLYUcwbS+ndioybwxGNvzEFR7XcaLun22bDz+tCvCUWfq0<span class="token punctuation">"</span></span>
+    <span class="token attr-name">crossorigin</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>anonymous<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></pre>
 				</div>
 				<div className="enable">
 					<h4>Enabling X5GON Connect</h4>
@@ -100,9 +144,7 @@ export default class Connect extends React.Component {
 						maintainer needs to set up when to send the user activity
 						information. The function that needs to be activated is:
 					</p>
-					{this.codeBlock(
-						"x5gonActivityTracker('vjr4n2', testingEnvironment);"
-					)}
+					<pre class="mb-3 language-javascript code-block"><span class="token function">x5gonActivityTracker</span><span class="token punctuation">(</span><span class="token string">'vjr4n2'</span><span class="token punctuation">,</span> testingEnvironment<span class="token punctuation">)</span><span class="token punctuation">;</span></pre>
 
 					<p>
 						where the <code>testingEnvironment</code> is a boolean value
@@ -145,77 +187,397 @@ export default class Connect extends React.Component {
 						<code> cookieconsent.min.js</code> source files on your server and
 						import it into your repository.
 					</p>
-					{this.codeBlock(
-						`<link
-						rel="stylesheet"
-						href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
-						integrity="sha384-AJ82o1PQz2xMlVWjJ+IdPSfyCVS/nJeYbLcpPhm/cEPrewaEdaYkaG6LCsquvogf"
-						crossorigin="anonymous"
-					/>
-					
-					<script
-						src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"
-						integrity="sha384-l+e8/kt7mRYg7RUc/i3MsNwDJlWxkWkFDX10LF/iNglZLT96GBMAPrbaH2GP2lQy"
-						crossorigin="anonymous"
-					></script>
-					
-					<script>
-						window.addEventListener('load', function() {
-							window.cookieconsent.initialise({
-								palette: {
-									popup: {
-										background: '#1d8a8a'
-									},
-									button: {
-										background: '#62ffaa'
-									}
-								},
-								type: 'opt-in',
-								content: {
-									message: \`This website uses cookies for functional and analytical purposes. In addition,
-							  we use cookies to deliver personalized, responsive services and to improve the site.
-							  This is done in collaboration with the X5GON project.\`,
-									dismiss: 'Decline',
-									allow: 'Allow cookies',
-									link: 'Learn more',
-									// link to the X5GON platform privacy policy - describing what are we collecting
-									// through the platform
-									href: 'https://platform.x5gon.org/privacy_policy'
-								},
-								onInitialise: function(status) {
-									var type = this.options.type;
-									var didConsent = this.hasConsented();
-									if (type == 'opt-in' && didConsent) {
-										// enable cookies - send user data to the platform
-										// only if the user enabled cookies
-										if (typeof x5gonActivityTracker !== 'undefined') {
-											x5gonActivityTracker('vjr4n2');
-										}
-									}
-								},
-								onStatusChange: function(status, chosenBefore) {
-									var type = this.options.type;
-									var didConsent = this.hasConsented();
-									if (type == 'opt-in' && didConsent) {
-										// enable cookies - send user data to the platform
-										// only if the user enabled cookies
-										if (typeof x5gonActivityTracker !== 'undefined') {
-											x5gonActivityTracker('vjr4n2');
-										}
-									}
-								},
-								onRevokeChoice: function() {
-									var type = this.options.type;
-									if (type == 'opt-in') {
-										// disable cookies - set what to do when
-										// the user revokes cookie usage
-									}
-								}
-							});
-						});
-					</script>
-					`
-					)}
+					<div className='code-block'>
+						<pre className="mb-0 language-handlebars">
+
+    <span className="token tag">
+      <span className="token tag">
+        <span className="token punctuation">&lt;</span>link
+      </span>{" "}
+      <span className="token attr-name">rel</span>
+      <span className="token attr-value">
+        <span className="token punctuation">=</span>
+        <span className="token punctuation">"</span>stylesheet
+        <span className="token punctuation">"</span>
+      </span>{" "}
+      <span className="token attr-name">href</span>
+      <span className="token attr-value">
+        <span className="token punctuation">=</span>
+        <span className="token punctuation">"</span>
+        https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css
+        <span className="token punctuation">"</span>
+      </span>
+      {"\n"}
+      {"  "}
+      <span className="token attr-name">integrity</span>
+      <span className="token attr-value">
+        <span className="token punctuation">=</span>
+        <span className="token punctuation">"</span>
+        sha384-AJ82o1PQz2xMlVWjJ+IdPSfyCVS/nJeYbLcpPhm/cEPrewaEdaYkaG6LCsquvogf
+        <span className="token punctuation">"</span>
+      </span>
+      {"\n"}
+      {"  "}
+      <span className="token attr-name">crossorigin</span>
+      <span className="token attr-value">
+        <span className="token punctuation">=</span>
+        <span className="token punctuation">"</span>anonymous
+        <span className="token punctuation">"</span>
+      </span>
+      <span className="token punctuation">&gt;</span>
+    </span>
+    {"\n"}
+    {"\n"}
+    <span className="token tag">
+      <span className="token tag">
+        <span className="token punctuation">&lt;</span>script
+      </span>{" "}
+      <span className="token attr-name">src</span>
+      <span className="token attr-value">
+        <span className="token punctuation">=</span>
+        <span className="token punctuation">"</span>
+        https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js
+        <span className="token punctuation">"</span>
+      </span>
+      {"\n"}
+      {"  "}
+      <span className="token attr-name">integrity</span>
+      <span className="token attr-value">
+        <span className="token punctuation">=</span>
+        <span className="token punctuation">"</span>
+        sha384-l+e8/kt7mRYg7RUc/i3MsNwDJlWxkWkFDX10LF/iNglZLT96GBMAPrbaH2GP2lQy
+        <span className="token punctuation">"</span>
+      </span>
+      {"\n"}
+      {"  "}
+      <span className="token attr-name">crossorigin</span>
+      <span className="token attr-value">
+        <span className="token punctuation">=</span>
+        <span className="token punctuation">"</span>anonymous
+        <span className="token punctuation">"</span>
+      </span>
+      <span className="token punctuation">&gt;</span>
+    </span>
+    <span className="token script language-javascript" />
+    <span className="token tag">
+      <span className="token tag">
+        <span className="token punctuation">&lt;/</span>script
+      </span>
+      <span className="token punctuation">&gt;</span>
+    </span>
+    {"\n"}
+    {"\n"}
+    <span className="token tag">
+      <span className="token tag">
+        <span className="token punctuation">&lt;</span>script
+      </span>
+      <span className="token punctuation">&gt;</span>
+    </span>
+    <span className="token script language-javascript">
+      {"\n"}
+      {"  "}window<span className="token punctuation">.</span>
+      <span className="token function">addEventListener</span>
+      <span className="token punctuation">(</span>
+      <span className="token string">"load"</span>
+      <span className="token punctuation">,</span>{" "}
+      <span className="token keyword">function</span>
+      <span className="token punctuation">(</span>
+      <span className="token punctuation">)</span>
+      <span className="token punctuation">{"{"}</span>
+      {"\n"}
+      {"    "}window<span className="token punctuation">.</span>cookieconsent
+      <span className="token punctuation">.</span>
+      <span className="token function">initialise</span>
+      <span className="token punctuation">(</span>
+      <span className="token punctuation">{"{"}</span>
+      {"\n"}
+      {"      "}
+      <span className="token string">"palette"</span>
+      <span className="token punctuation">:</span>{" "}
+      <span className="token punctuation">{"{"}</span>
+      {"\n"}
+      {"        "}
+      <span className="token string">"popup"</span>
+      <span className="token punctuation">:</span>{" "}
+      <span className="token punctuation">{"{"}</span>
+      {"\n"}
+      {"          "}
+      <span className="token string">"background"</span>
+      <span className="token punctuation">:</span>{" "}
+      <span className="token string">"#1d8a8a"</span>
+      {"\n"}
+      {"        "}
+      <span className="token punctuation">{"}"}</span>
+      <span className="token punctuation">,</span>
+      {"\n"}
+      {"        "}
+      <span className="token string">"button"</span>
+      <span className="token punctuation">:</span>{" "}
+      <span className="token punctuation">{"{"}</span>
+      {"\n"}
+      {"          "}
+      <span className="token string">"background"</span>
+      <span className="token punctuation">:</span>{" "}
+      <span className="token string">"#62ffaa"</span>
+      {"\n"}
+      {"        "}
+      <span className="token punctuation">{"}"}</span>
+      {"\n"}
+      {"      "}
+      <span className="token punctuation">{"}"}</span>
+      <span className="token punctuation">,</span>
+      {"\n"}
+      {"      "}
+      <span className="token string">"type"</span>
+      <span className="token punctuation">:</span>{" "}
+      <span className="token string">"opt-in"</span>
+      <span className="token punctuation">,</span>
+      {"\n"}
+      {"      "}
+      <span className="token string">"content"</span>
+      <span className="token punctuation">:</span>{" "}
+      <span className="token punctuation">{"{"}</span>
+      {"\n"}
+      {"        "}
+      <span className="token string">"message"</span>
+      <span className="token punctuation">:</span>{" "}
+      <span className="token template-string">
+        <span className="token string">
+          `This website uses cookies for functional and analytical purposes. In
+          addition,{"\n"}
+          {"          "}we use cookies to deliver personalized, responsive
+          services and to improve the site.{"\n"}
+          {"          "}This is done in collaboration with the X5GON project.`
+        </span>
+      </span>
+      <span className="token punctuation">,</span>
+      {"\n"}
+      {"        "}
+      <span className="token string">"dismiss"</span>
+      <span className="token punctuation">:</span>{" "}
+      <span className="token string">"Decline"</span>
+      <span className="token punctuation">,</span>
+      {"\n"}
+      {"        "}
+      <span className="token string">"allow"</span>
+      <span className="token punctuation">:</span>{" "}
+      <span className="token string">"Allow cookies"</span>
+      <span className="token punctuation">,</span>
+      {"\n"}
+      {"        "}
+      <span className="token string">"link"</span>
+      <span className="token punctuation">:</span>{" "}
+      <span className="token string">"Learn more"</span>
+      <span className="token punctuation">,</span>
+      {"\n"}
+      {"        "}
+      <span className="token comment">
+        {"// link to the X5GON platform privacy policy - describing what are we collecting"}
+      </span>
+      {"\n"}
+      {"        "}
+      <span className="token comment">{"// through the platform"}</span>
+      {"\n"}
+      {"        "}
+      <span className="token string">"href"</span>
+      <span className="token punctuation">:</span>{" "}
+      <span className="token string">
+        "https://platform.x5gon.org/privacy_policy"
+      </span>
+      {"\n"}
+      {"      "}
+      <span className="token punctuation">{"}"}</span>
+      <span className="token punctuation">,</span>
+      {"\n"}
+      {"      "}onInitialise<span className="token punctuation">:</span>{" "}
+      <span className="token keyword">function</span>{" "}
+      <span className="token punctuation">(</span>status
+      <span className="token punctuation">)</span>{" "}
+      <span className="token punctuation">{"{"}</span>
+      {"\n"}
+      {"        "}
+      <span className="token keyword">var</span> type{" "}
+      <span className="token operator">=</span>{" "}
+      <span className="token keyword">this</span>
+      <span className="token punctuation">.</span>options
+      <span className="token punctuation">.</span>type
+      <span className="token punctuation">;</span>
+      {"\n"}
+      {"        "}
+      <span className="token keyword">var</span> didConsent{" "}
+      <span className="token operator">=</span>{" "}
+      <span className="token keyword">this</span>
+      <span className="token punctuation">.</span>
+      <span className="token function">hasConsented</span>
+      <span className="token punctuation">(</span>
+      <span className="token punctuation">)</span>
+      <span className="token punctuation">;</span>
+      {"\n"}
+      {"        "}
+      <span className="token keyword">if</span>{" "}
+      <span className="token punctuation">(</span>type{" "}
+      <span className="token operator">==</span>{" "}
+      <span className="token string">'opt-in'</span>{" "}
+      <span className="token operator">&amp;&amp;</span> didConsent
+      <span className="token punctuation">)</span>{" "}
+      <span className="token punctuation">{"{"}</span>
+      {"\n"}
+      {"          "}
+      <span className="token comment">
+        {"// enable cookies - send user data to the platform"}
+      </span>
+      {"\n"}
+      {"          "}
+      <span className="token comment">{"// only if the user enabled cookies"}</span>
+      {"\n"}
+      {"          "}
+      <span className="token keyword">if</span>{" "}
+      <span className="token punctuation">(</span>
+      <span className="token keyword">typeof</span> x5gonActivityTracker{" "}
+      <span className="token operator">!==</span>{" "}
+      <span className="token string">'undefined'</span>
+      <span className="token punctuation">)</span>{" "}
+      <span className="token punctuation">{"{"}</span>
+      {"\n"}
+      {"            "}
+      <span className="token function">x5gonActivityTracker</span>
+      <span className="token punctuation">(</span>
+      <span className="token string">'vjr4n2'</span>
+      <span className="token punctuation">)</span>
+      <span className="token punctuation">;</span>
+      {"\n"}
+      {"          "}
+      <span className="token punctuation">{"}"}</span>
+      {"\n"}
+      {"        "}
+      <span className="token punctuation">{"}"}</span>
+      {"\n"}
+      {"      "}
+      <span className="token punctuation">{"}"}</span>
+      <span className="token punctuation">,</span>
+      {"\n"}
+      {"      "}onStatusChange<span className="token punctuation">:</span>{" "}
+      <span className="token keyword">function</span>
+      <span className="token punctuation">(</span>status
+      <span className="token punctuation">,</span> chosenBefore
+      <span className="token punctuation">)</span>{" "}
+      <span className="token punctuation">{"{"}</span>
+      {"\n"}
+      {"        "}
+      <span className="token keyword">var</span> type{" "}
+      <span className="token operator">=</span>{" "}
+      <span className="token keyword">this</span>
+      <span className="token punctuation">.</span>options
+      <span className="token punctuation">.</span>type
+      <span className="token punctuation">;</span>
+      {"\n"}
+      {"        "}
+      <span className="token keyword">var</span> didConsent{" "}
+      <span className="token operator">=</span>{" "}
+      <span className="token keyword">this</span>
+      <span className="token punctuation">.</span>
+      <span className="token function">hasConsented</span>
+      <span className="token punctuation">(</span>
+      <span className="token punctuation">)</span>
+      <span className="token punctuation">;</span>
+      {"\n"}
+      {"        "}
+      <span className="token keyword">if</span>{" "}
+      <span className="token punctuation">(</span>type{" "}
+      <span className="token operator">==</span>{" "}
+      <span className="token string">'opt-in'</span>{" "}
+      <span className="token operator">&amp;&amp;</span> didConsent
+      <span className="token punctuation">)</span>{" "}
+      <span className="token punctuation">{"{"}</span>
+      {"\n"}
+      {"          "}
+      <span className="token comment">
+        {"// enable cookies - send user data to the platform"}
+      </span>
+      {"\n"}
+      {"          "}
+      <span className="token comment">{"// only if the user enabled cookies"}</span>
+      {"\n"}
+      {"          "}
+      <span className="token keyword">if</span>{" "}
+      <span className="token punctuation">(</span>
+      <span className="token keyword">typeof</span> x5gonActivityTracker{" "}
+      <span className="token operator">!==</span>{" "}
+      <span className="token string">'undefined'</span>
+      <span className="token punctuation">)</span>{" "}
+      <span className="token punctuation">{"{"}</span>
+      {"\n"}
+      {"            "}
+      <span className="token function">x5gonActivityTracker</span>
+      <span className="token punctuation">(</span>
+      <span className="token string">'vjr4n2'</span>
+      <span className="token punctuation">)</span>
+      <span className="token punctuation">;</span>
+      {"\n"}
+      {"          "}
+      <span className="token punctuation">{"}"}</span>
+      {"\n"}
+      {"        "}
+      <span className="token punctuation">{"}"}</span>
+      {"\n"}
+      {"      "}
+      <span className="token punctuation">{"}"}</span>
+      <span className="token punctuation">,</span>
+      {"\n"}
+      {"      "}onRevokeChoice<span className="token punctuation">:</span>{" "}
+      <span className="token keyword">function</span>
+      <span className="token punctuation">(</span>
+      <span className="token punctuation">)</span>{" "}
+      <span className="token punctuation">{"{"}</span>
+      {"\n"}
+      {"        "}
+      <span className="token keyword">var</span> type{" "}
+      <span className="token operator">=</span>{" "}
+      <span className="token keyword">this</span>
+      <span className="token punctuation">.</span>options
+      <span className="token punctuation">.</span>type
+      <span className="token punctuation">;</span>
+      {"\n"}
+      {"        "}
+      <span className="token keyword">if</span>{" "}
+      <span className="token punctuation">(</span>type{" "}
+      <span className="token operator">==</span>{" "}
+      <span className="token string">'opt-in'</span>
+      <span className="token punctuation">)</span>{" "}
+      <span className="token punctuation">{"{"}</span>
+      {"\n"}
+      {"          "}
+      <span className="token comment">
+        {"// disable cookies - set what to do when"}
+      </span>
+      {"\n"}
+      {"          "}
+      <span className="token comment">{"// the user revokes cookie usage"}</span>
+      {"\n"}
+      {"        "}
+      <span className="token punctuation">{"}"}</span>
+      {"\n"}
+      {"      "}
+      <span className="token punctuation">{"}"}</span>
+      {"\n"}
+      {"    "}
+      <span className="token punctuation">{"}"}</span>
+      <span className="token punctuation">)</span>
+      {"\n"}
+      {"  "}
+      <span className="token punctuation">{"}"}</span>
+      <span className="token punctuation">)</span>
+      <span className="token punctuation">;</span>
+      {"\n"}
+    </span>
+    <span className="token tag">
+      <span className="token tag">
+        <span className="token punctuation">&lt;/</span>script
+      </span>
+      <span className="token punctuation">&gt;</span>
+    </span>
+</pre>
+</div>
 				</div>
 				<h4>Documentation</h4>
 				<p class="information">
