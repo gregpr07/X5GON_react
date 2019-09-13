@@ -34,7 +34,7 @@ export default class Connect extends React.Component {
 	};
 	ConnectBASEapi = () => {
 		return (
-			<div className="text-purple">
+			<div className="text-purple maxer-880">
 				<div id="oer-provider-token" class="resource">
 					<h4>Your X5GON Token</h4>
 					<p class="form-text">

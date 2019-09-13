@@ -5,7 +5,31 @@
 .feed h5,
 .feed h6 {
 	color: #00134d;
-	font-weight: 700;
+}
+.feed h4 {
+	font-size: 31.5px;
+}
+.api h4 {
+	color: #00ad57;
+	/* padding-bottom: 32px; */
+}
+.api h6 {
+	padding-top: 48px !important;
+	margin-bottom: -8px !important;
+	margin-top: 0 !important;
+}
+.api h5 {
+	border-top: rgba(0, 19, 76, 0.5) 1px solid;
+	padding-top: 16px;
+	margin-bottom: 32px;
+}
+h6 {
+	font-weight: 600;
+	font-size: 20px;
+	letter-spacing: 0.4px;
+	line-height: 32px;
+	color: #00134d;
+	font-family: 'Open Sans';
 }
 .container {
 	font-size: 14px;
@@ -15,9 +39,10 @@ ul {
 }
 .url_baseline {
 	background: #f8f9fa;
+	margin: 16px 0 16px 0;
 }
 .doc {
-	font-weight: bold;
+	/* font-weight: bold; */
 }
 .doc p {
 	margin: 0;
@@ -27,4 +52,44 @@ ul {
 }
 .information a {
 	color: #00ad57;
+}
+ul {
+	list-style: none;
+	padding-left: 0;
+}
+ul ul {
+	list-style: circle;
+	padding-left: 1rem;
+}
+.doc__query,
+.doc__method {
+	border: none !important;
+}
+.clickable-row {
+	border-top: 1px solid rgb(222, 226, 230);
+	border-bottom: 1px solid rgb(222, 226, 230);
+}
+.clickable-row:hover {
+	background: none !important;
+}
+tbody {
+	border-top: 1px solid rgb(222, 226, 230);
+	border-bottom: 1px solid rgb(222, 226, 230);
+}
+tbody table {
+	margin-left: 2.5rem;
+}
+#api .plus-minus.show {
+	display: inline;
+	background-image: url('../images/xl_minus_icon.svg');
+}
+#api .plus-minus.collapsing {
+	display: inline;
+	background-image: url('../images/xl_minus_icon.svg');
+}
+#api .plus-minus {
+	background-image: url('../images/xl_plus_icon.svg');
+}
+#api .accordion {
+	margin-bottom: -1px;
 }

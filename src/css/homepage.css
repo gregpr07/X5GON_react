@@ -277,6 +277,12 @@ header .under {
 	border-top: #00ad57 1px solid;
 	border-bottom: #00ad57 1px solid;
 }
+.bt-green {
+	border-top: #00ad57 1px solid;
+}
+.bt-blue {
+	border-top: #00134d 1px solid;
+}
 .text-purple {
 	color: #00134d;
 }
