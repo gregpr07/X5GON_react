@@ -5,24 +5,28 @@ import { Link } from 'react-router-dom';
 export const StandardHeader = object => {
 	object = object.object;
 	const makeButton = object => {
-		if (object.button.link) {
-			return (
-				<Link to={object.button.link}>
-					<div className="button-green">{object.button.text}</div>
-				</Link>
-			);
-		} else if (object.button.externalLink) {
-			return (
-				<a href={object.button.externalLink} target="blank">
-					<div className="button-green">{object.button.text}</div>
-				</a>
-			);
+		if (object.button) {
+			if (object.button.link) {
+				return (
+					<Link to={object.button.link}>
+						<div className="button-green">{object.button.text}</div>
+					</Link>
+				);
+			} else if (object.button.externalLink) {
+				return (
+					<a href={object.button.externalLink} target="blank">
+						<div className="button-green">{object.button.text}</div>
+					</a>
+				);
+			} else {
+				return (
+					<Link to="#">
+						<div className="button-green">{object.button.text}</div>
+					</Link>
+				);
+			}
 		} else {
-			return (
-				<Link to="#">
-					<div className="button-green">Try Now</div>
-				</Link>
-			);
+			return null;
 		}
 	};
 	return (

@@ -457,6 +457,14 @@ header .under {
 	background: transparent;
 	border-color: #00134d9a;
 }
+.text-figure {
+	font-size: 12px;
+	line-height: 24px;
+	font-weight: 700;
+}
+.connect a {
+	color: #00ad57;
+}
 
 @media (max-width: 1700px) {
 	.main-img {
