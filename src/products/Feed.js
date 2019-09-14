@@ -3,7 +3,7 @@ import '../css/bootstrap.css';
 import '../css/feed.css';
 import '../css/animate.css';
 import { StandardHeader } from './ProductsComponents';
-import { MoreProducts } from '../Components';
+import { MoreProducts, Footer } from '../Components';
 import { Link } from 'react-router-dom';
 import SmoothScroll from 'smooth-scroll';
 
@@ -4111,8 +4111,8 @@ class Feed extends React.Component {
 		return (
 			<div>
 				<this.Content />
-
 				<MoreProducts padding current="Feed" />
+				<Footer />
 			</div>
 		);
 	}

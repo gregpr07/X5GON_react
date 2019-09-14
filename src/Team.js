@@ -2,7 +2,7 @@ import React from 'react';
 import './css/bootstrap.css';
 import './css/team.css';
 import './css/animate.css';
-import { Navbar } from './Components';
+import { Navbar, Footer } from './Components';
 
 class Team extends React.Component {
 	Team = () => {
@@ -75,7 +75,9 @@ class Team extends React.Component {
 											<p className="text-white p2 mb-1 mt-3">
 												{content.person}
 											</p>
-											<p className="text-muted">{content.position}</p>
+											<p style={{ color: 'rgba(255, 255, 255, 0.75)' }}>
+												{content.position}
+											</p>
 										</div>
 									</div>
 								);
@@ -91,6 +93,7 @@ class Team extends React.Component {
 			<div className="bg-sky">
 				<Navbar />
 				<this.Team />
+				<Footer />
 			</div>
 		);
 	}

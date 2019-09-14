@@ -2,7 +2,7 @@ import React from 'react';
 import './css/bootstrap.css';
 import './css/components.css';
 import './css/animate.css';
-import { Navbar, MoreProducts } from './Components';
+import { Navbar, MoreProducts, Footer } from './Components';
 
 class Products extends React.Component {
 	render() {
@@ -10,6 +10,7 @@ class Products extends React.Component {
 			<div className="bg-sky products">
 				<Navbar />
 				<MoreProducts homepage={true} />
+				<Footer />
 			</div>
 		);
 	}

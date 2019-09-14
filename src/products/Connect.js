@@ -2,16 +2,11 @@ import React from 'react';
 import '../css/bootstrap.css';
 import '../css/homepage.css';
 import '../css/feed.css';
-import { MoreProducts } from '../Components';
+import { MoreProducts,Footer } from '../Components';
 import { Link } from 'react-router-dom';
 import { StandardHeader, MakeParagraphs } from './ProductsComponents';
-import Prism from 'prismjs';
 
 export default class Connect extends React.Component {
-	highlightHTML = code => {
-		console.log('wa');
-		return Prism.highlight(code, Prism.languages.html, 'html');
-	};
 	codeBlock = code => {
 		return (
 			<pre class="mb-4 code-block">
@@ -596,8 +591,7 @@ export default class Connect extends React.Component {
 	};
 	ConnectMOODLEapi = () => {
 		return (
-			<div className="text-purple">
-				---------------
+			<div className="text-purple maxer-880">
 				<p>
 					It is easy to install <em>X5-GON Moodle plugin</em>. Briefly, the
 					plugin will be functional once the next steps have been followed:
@@ -667,14 +661,14 @@ export default class Connect extends React.Component {
 				<img src="/imgs/products/moodleAPI.png" alt="moodleAPI" width="100%" />
 				<p className="text-figure">Fig. 5: X5-GON plugin settings page</p>
 				<p>
-					<strong>Enabled:</strong>Activate/Deactivate the plugin.
+					<strong>Enabled: </strong>Activate/Deactivate the plugin.
 				</p>
 				<p>
 					<strong>Provider Token: </strong>Generated token from the registration
 					of OER repository in X5GON on{' '}
-					<a href="https://platform.x5gon.org/application-form">
-						platform.x5gon.org/application-form
-					</a>
+					<Link to="/join#form">
+              application-form
+					</Link>{' '}
 					site.
 				</p>
 				<p>
@@ -682,7 +676,7 @@ export default class Connect extends React.Component {
 					commas) that meant to be containing OERs.
 				</p>
 				<p>
-					<strong>Allow “hidden courses”</strong>: Consider hidden coursesalso
+					<strong>Allow “hidden courses”</strong>: Consider hidden course salso
 					as OER courses.
 				</p>
 				<p>
@@ -746,6 +740,7 @@ export default class Connect extends React.Component {
 				/>
 				<this.Description />
 				<MoreProducts current={currentProduct} padding />
+        <Footer/>
 			</div>
 		);
 	}

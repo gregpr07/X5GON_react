@@ -3,7 +3,7 @@ import './css/homepage.css';
 import './css/bootstrap.css';
 import './css/accordion.css';
 import { StandardHeader } from './products/ProductsComponents';
-import { Accordion } from './Components';
+import { Accordion, Footer } from './Components';
 
 class Policy extends React.Component {
 	Description = () => {
@@ -164,6 +164,7 @@ class Policy extends React.Component {
 					}}
 				/>
 				<this.Description />
+				<Footer />
 			</div>
 		);
 	}

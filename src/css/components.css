@@ -25,6 +25,7 @@ a:hover {
 }
 .translate-api ul {
 	list-style-type: square;
+	margin-left: 8px;
 }
 .translate-api ul ul ul {
 	list-style-type: square;

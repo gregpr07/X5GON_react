@@ -2,7 +2,7 @@ import React from 'react';
 import './css/bootstrap.css';
 import './css/feed.css';
 import './css/animate.css';
-import { Navbar } from './Components';
+import { Navbar, Footer } from './Components';
 
 class Privacy extends React.Component {
 	Privacy = () => {
@@ -208,6 +208,7 @@ class Privacy extends React.Component {
 			<div>
 				<Navbar light={true} />
 				<this.Privacy />
+				<Footer />
 			</div>
 		);
 	}

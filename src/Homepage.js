@@ -4,7 +4,7 @@ import './css/homepage.css';
 import './css/animate.css';
 import { Link } from 'react-router-dom';
 import ScrollAnimation from 'react-animate-on-scroll';
-import { MoreProducts, Navbar, CurrentWidth } from './Components';
+import { MoreProducts, Navbar, CurrentWidth, Footer } from './Components';
 import SmoothScroll from 'smooth-scroll';
 
 class Homepage extends React.Component {
@@ -44,7 +44,7 @@ class Homepage extends React.Component {
 									Education.
 									<b className="d-block">Connected.</b>
 								</h1>
-								<p className="mt-3 pt-3 text-white w-100 body-2 pb-lg-5 pr-4 pr-md-3">
+								<p className="mt-3 pt-3 text-white w-100 body-2 pb-2 pb-lg-5 pr-4 pr-md-3">
 									We are building World's first ecosystem connecting Open
 									Educational Resource sites for the collective benefit of
 									everyone, everywhere.
@@ -60,7 +60,7 @@ class Homepage extends React.Component {
 								</a>
 							</div>
 						</div>
-						<div className="col-md-12 col-lg-6">
+						<div className="col-md-12 col-lg-6 pt-md-0 pt-4">
 							<div className="main-img animated fadeIn slower mx-auto mr-md-auto"></div>
 						</div>
 					</div>
@@ -569,6 +569,7 @@ class Homepage extends React.Component {
 				{/* <this.Drafts /> */}
 				<this.UnescoJoin />
 				<this.Partners />
+				<Footer />
 			</div>
 		);
 	}

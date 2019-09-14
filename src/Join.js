@@ -3,6 +3,7 @@ import './css/homepage.css';
 import './css/bootstrap.css';
 import { Link } from 'react-router-dom';
 import { StandardHeader } from './products/ProductsComponents';
+import { Footer } from './Components';
 
 class Join extends React.Component {
 	Form = () => {
@@ -257,6 +258,7 @@ class Join extends React.Component {
 				/>
 				<this.Description />
 				<this.Form />
+				<Footer />
 			</div>
 		);
 	}

@@ -2,7 +2,7 @@ import React from 'react';
 import '../css/bootstrap.css';
 import '../css/components.css';
 import { Link } from 'react-router-dom';
-import { MoreProducts } from '../Components';
+import { MoreProducts, Footer } from '../Components';
 import { StandardHeader, MakeParagraphs } from './ProductsComponents';
 
 export default class Translate extends React.Component {
@@ -35,7 +35,7 @@ export default class Translate extends React.Component {
 	ServiceAPI = () => (
 		<div className="maxer mx-auto translate-api">
 			<div className="api-header">
-				<h3 className="text-purple">Web Service API</h3>
+				{/* <h3 className="text-purple">Web Service API</h3> */}
 				<ul>
 					<li key={1}>
 						<Link to="#translate">/translate</Link>
@@ -1105,6 +1105,7 @@ export default class Translate extends React.Component {
 				/>
 				<this.Description />
 				<MoreProducts current={currentProduct} padding />
+				<Footer />
 			</div>
 		);
 	}

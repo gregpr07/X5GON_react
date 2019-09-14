@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/bootstrap.css';
 
-import { MoreProducts } from '../Components';
+import { MoreProducts, Footer } from '../Components';
 import { StandardHeader, MakeParagraphs } from './ProductsComponents';
 
 export default class Recommend extends React.Component {
@@ -49,6 +49,7 @@ export default class Recommend extends React.Component {
 				/>
 				<this.Description />
 				<MoreProducts current={currentProduct} padding />
+				<Footer />
 			</div>
 		);
 	}

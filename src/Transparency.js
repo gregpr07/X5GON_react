@@ -2,7 +2,7 @@ import React from 'react';
 import './css/bootstrap.css';
 import './css/animate.css';
 import { StandardHeader } from './products/ProductsComponents';
-import { Accordion } from './Components';
+import { Accordion, Footer } from './Components';
 
 export default class Transparency extends React.Component {
 	Description = () => {
@@ -81,6 +81,7 @@ export default class Transparency extends React.Component {
 					}}
 				/>
 				<this.Description />
+				<Footer />
 			</div>
 		);
 	}
